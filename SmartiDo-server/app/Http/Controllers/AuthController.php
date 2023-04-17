@@ -62,8 +62,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
-    {
+    public function logout(){
         Auth::logout();
         return response()->json([
             'status' => 'success',
@@ -71,8 +70,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function refresh()
-    {
+    public function refresh(){
         return response()->json([
             'status' => 'success',
             'user' => Auth::user(),
