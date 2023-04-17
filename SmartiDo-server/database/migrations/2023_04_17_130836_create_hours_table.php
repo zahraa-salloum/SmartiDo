@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer("hours_count");
             $table->string("category");
+            $table->tinyInteger("done");
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id') -> references('id') -> on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('plan_id');
