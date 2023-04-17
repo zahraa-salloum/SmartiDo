@@ -39,4 +39,25 @@ class ProfileController extends Controller
             ], 500);
         }
     }
+
+    function getProfile(){
+        $id = Auth::id();
+        try{
+            $profile = Profile::join('users', 'profiles.user_id', '=', 'users.id')
+                                ->select('name', 'email', 'picture', 'bio', 'dob', 'gender')
+                                ->where('user_id', $id)
+                                ->findOrFail($id);
+            return response([
+                'profile' => $profile
+            ], 200);
+        }catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e){
+            return response([
+                'message' => 'Profile not found'
+            ], 404);
+        }catch(\Exception $e){
+            return response([
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
 }

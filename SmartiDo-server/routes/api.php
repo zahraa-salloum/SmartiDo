@@ -26,6 +26,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
-              });
+        Route::get('/get_profile',[ProfileController::class,"getProfile"]);
+        });
 
 });
