@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('hours', function (Blueprint $table) {
             $table->id();
             $table->integer("hours_count");
+            $table->string("category");
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id') -> references('id') -> on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('plan_id');
