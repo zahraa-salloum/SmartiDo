@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -23,5 +24,8 @@ Route::group(['prefix' => 'v0.0.1'], function(){
     });
     Route::post('register',[AuthController::class,'register']);
 
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
+              });
 
 });
