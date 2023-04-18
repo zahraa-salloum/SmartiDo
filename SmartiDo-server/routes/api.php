@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
@@ -30,7 +31,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
     Route::group(['middleware' => 'auth:api'], function(){
         Route::group(["middleware" => "admin.role", "prefix" => "admin"], function () {
             // Route::post('/get_users_count', [AdminController::class, 'getUsersCount']);
-            
+            Route::get('/get_users', [AdminController::class, 'getAllUsers']);
         });
         Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
         Route::get('/get_profile',[ProfileController::class,"getProfile"]);
