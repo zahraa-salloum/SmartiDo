@@ -96,11 +96,14 @@ class AdminController extends Controller
                 $total_count++;
             }
     
+            $blocked_emails_count = Block::count();
+    
             return response()->json([
                 'status' => 'success',
                 'male_count' => $male_count,
                 'female_count' => $female_count,
                 'total_count' => $total_count,
+                'blocked_email_count' => $blocked_emails_count,
             ], 200);
         }catch (\Exception $e){
             return response()->json([
