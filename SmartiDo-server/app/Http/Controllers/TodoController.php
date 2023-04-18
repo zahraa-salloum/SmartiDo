@@ -47,4 +47,31 @@ class TodoController extends Controller
             ], 500);
         }
     }
+
+    function updateTodo(Request $request){
+        try{
+            $id = $request->id;
+
+            $validatedData = $request->validate([
+                'done' => 'required|boolean',
+            ]);
+
+            $todo =Todo::find($id);
+
+            $todo->done = $validatedData['done'];
+            
+            $todo->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Todo state changed',
+                'todo' => $todo,
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }
