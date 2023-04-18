@@ -23,4 +23,28 @@ class TodoController extends Controller
             ], 500);
         }
     }
+
+    function addTodo(Request $request){
+        try{
+            $id = Auth::id();
+            $todo = new Todo;
+
+            $todo->to_do = $request->to_do;
+            $todo->user_id = $id;
+            $todo->done = 0;
+
+            $todo->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Todo Added',
+                'todo' => $todo,
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

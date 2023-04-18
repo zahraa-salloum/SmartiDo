@@ -29,6 +29,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
         Route::get('/get_profile',[ProfileController::class,"getProfile"]);
         Route::get('/get_todos',[TodoController::class,"getAllTodos"]);
+        Route::post('/add_todo',[TodoController::class,"addTodo"]);
         });
 
 });
