@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\TodoController;
@@ -34,6 +35,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('/update_todo',[TodoController::class,"updateTodo"]);
         Route::get('/get_records',[RecordController::class,"getAllRecords"]);
         Route::get('/my_record',[RecordController::class,"getMyRecord"]);
-        });
+        Route::delete('/delete_account',[DeleteController::class,"deleteAccount"]);
+    });
 
 });
