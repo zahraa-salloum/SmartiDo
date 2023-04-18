@@ -49,4 +49,27 @@ class AdminController extends Controller
             ], 500);
         }
     }
+
+    function getUsersByAge(){
+        try{
+            $users = User::Join('profiles', 'profiles.user_id', '=', 'users.id')
+                                ->selectRaw('TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age')
+                                ->where('type_id',2)
+                                ->get();
+    
+            $ageGroups = $users->groupBy('age')->map(function ($group) {
+                return count($group);
+            });
+    
+            return response()->json([
+                'status' => 'success',
+                'users_by_age' => $ageGroups,
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to retrieve users by age',
+            ], 500);
+        }
+    }
 }
