@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecordController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::get('/get_todos',[TodoController::class,"getAllTodos"]);
         Route::post('/add_todo',[TodoController::class,"addTodo"]);
         Route::post('/update_todo',[TodoController::class,"updateTodo"]);
+        Route::get('/get_records',[RecordController::class,"getAllRecords"]);
         });
 
 });
