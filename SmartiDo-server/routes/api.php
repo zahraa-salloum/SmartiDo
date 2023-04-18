@@ -32,6 +32,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::group(["middleware" => "admin.role", "prefix" => "admin"], function () {
             // Route::post('/get_users_count', [AdminController::class, 'getUsersCount']);
             Route::get('/get_users', [AdminController::class, 'getAllUsers']);
+            Route::post('/block', [AdminController::class, 'block']);
         });
         Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
         Route::get('/get_profile',[ProfileController::class,"getProfile"]);

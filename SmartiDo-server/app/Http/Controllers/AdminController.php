@@ -25,4 +25,28 @@ class AdminController extends Controller
             ], 500);
         }
     }
+
+    function block(Request $request){
+        try{
+            $block = Block::where('email', $request->email)->first();
+
+            if(!$block){
+                $block = new Block;
+                $block->email = $request->email;
+            }
+            $block->save();
+
+            if(isset($block) && $block != null){
+                return response()->json([
+                    'status' => 'success',
+                    'blocked' => $block,
+                ], 200);
+            }
+        }catch (\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to block',
+            ], 500);
+        }
+    }
 }
