@@ -52,7 +52,7 @@ class AuthController extends Controller
 
         if($email_check !== null && $email == $email_check->email){
             return response()->json([
-                'status' => 'fail',
+                'status' => 'error',
                 'message' => 'Email is banned',
             ]);
         }else{
