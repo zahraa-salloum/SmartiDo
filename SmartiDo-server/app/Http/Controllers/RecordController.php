@@ -12,6 +12,7 @@ class RecordController extends Controller
             $records = Record::join('users', 'records.user_id', '=', 'users.id')
                             ->leftJoin('profiles', 'records.user_id', '=', 'profiles.user_id')
                             ->select('name', 'email', 'picture', 'bio', 'dob', 'gender','score')
+                            ->orderBy('score', 'desc')
                             ->get();
 
             return response()->json([
