@@ -28,6 +28,10 @@ Route::group(['prefix' => 'v0.0.1'], function(){
     Route::post('register',[AuthController::class,'register']);
 
     Route::group(['middleware' => 'auth:api'], function(){
+        Route::group(["middleware" => "admin.role", "prefix" => "admin"], function () {
+            // Route::post('/get_users_count', [AdminController::class, 'getUsersCount']);
+            
+        });
         Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
         Route::get('/get_profile',[ProfileController::class,"getProfile"]);
         Route::get('/get_todos',[TodoController::class,"getAllTodos"]);
