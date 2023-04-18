@@ -37,6 +37,7 @@ class AdminController extends Controller
             $block->save();
 
             if(isset($block) && $block != null){
+                $delete_acount = User::where('email',$request->email)->delete();
                 return response()->json([
                     'status' => 'success',
                     'blocked' => $block,
