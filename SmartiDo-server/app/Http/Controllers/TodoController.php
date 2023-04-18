@@ -56,7 +56,8 @@ class TodoController extends Controller
                 'done' => 'required|boolean',
             ]);
 
-            $todo =Todo::find($id);
+            $user_id = Auth::id();
+            $todo = Todo::where('user_id', $user_id)->find($id);
 
             if(!$todo){
                 return response()->json([
