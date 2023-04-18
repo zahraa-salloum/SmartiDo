@@ -30,7 +30,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::group(["middleware" => "admin.role", "prefix" => "admin"], function () {
-            // Route::post('/get_users_count', [AdminController::class, 'getUsersCount']);
+            Route::get('/satistics', [AdminController::class, 'satistics']);
             Route::get('/get_users', [AdminController::class, 'getAllUsers']);
             Route::post('/block', [AdminController::class, 'block']);
             Route::get('/get_users_age', [AdminController::class, 'getUsersByAge']);

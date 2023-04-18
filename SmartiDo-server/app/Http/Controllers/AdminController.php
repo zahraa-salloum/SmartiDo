@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Regenerate;
 use App\Models\User;
 use App\Models\Block;
 use Illuminate\Http\Request;
@@ -70,6 +71,41 @@ class AdminController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Unable to retrieve users by age',
+            ], 500);
+        }
+    }
+
+    function satistics(){
+        try{
+            $users = User::leftJoin('profiles', 'profiles.user_id', '=', 'users.id')
+                                ->select('name', 'email', 'picture', 'bio', 'dob', 'gender')
+                                ->where('type_id',2)
+                                ->get();
+    
+            
+            $male_count = 0;
+            $female_count = 0;
+            $total_count = 0;
+
+            foreach($users as $user){
+                if($user->gender == 'male'){
+                    $male_count++;
+                }elseif($user->gender == 'female'){
+                    $female_count++;
+                }
+                $total_count++;
+            }
+    
+            return response()->json([
+                'status' => 'success',
+                'male_count' => $male_count,
+                'female_count' => $female_count,
+                'total_count' => $total_count,
+            ], 200);
+        }catch (\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to retrieve users',
             ], 500);
         }
     }
