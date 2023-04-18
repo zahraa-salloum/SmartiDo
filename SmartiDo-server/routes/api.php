@@ -33,6 +33,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('/add_todo',[TodoController::class,"addTodo"]);
         Route::post('/update_todo',[TodoController::class,"updateTodo"]);
         Route::get('/get_records',[RecordController::class,"getAllRecords"]);
+        Route::get('/my_record',[RecordController::class,"getMyRecord"]);
         });
 
 });
