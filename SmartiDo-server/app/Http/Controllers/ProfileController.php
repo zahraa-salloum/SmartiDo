@@ -29,8 +29,9 @@ class ProfileController extends Controller
         try{
             $profile->save();
     
-            return response([
+            return response()->json([
                 'status' => 'success',
+                'message' => 'profile saved',
             ], 200);
         }catch(\Exception $e){
             return response()->json([
@@ -47,15 +48,18 @@ class ProfileController extends Controller
                                 ->select('name', 'email', 'picture', 'bio', 'dob', 'gender')
                                 ->where('user_id', $id)
                                 ->findOrFail($id);
-            return response([
-                'profile' => $profile
+            return response()->json([
+                'status' => 'success',
+                'profile' => $profile,
             ], 200);
         }catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e){
-            return response([
+            return response()->json([
+                'status' => 'error',
                 'message' => 'Profile not found'
             ], 404);
         }catch(\Exception $e){
-            return response([
+            return response()->json([
+                'status' => 'error',
                 'message' => $e->getMessage()
             ], 500);
         }

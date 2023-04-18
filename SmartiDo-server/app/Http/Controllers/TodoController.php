@@ -12,12 +12,14 @@ class TodoController extends Controller
             $id = Auth::id();
             $todos = Todo::where('user_id',$id)->get();
     
-            return response([
-                'todos' => $todos
+            return response()->json([
+                'status' => 'success',
+                'todos' => $todos,
             ], 200);
         }catch (\Exception $e){
-            return response([
-                'error' => 'Unable to retrieve to-do items'
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to retrieve to-do items',
             ], 500);
         }
     }
