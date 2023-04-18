@@ -96,7 +96,10 @@ class AdminController extends Controller
                 $total_count++;
             }
     
+            
             $blocked_emails_count = Block::count();
+    
+            $regenerates_avg = Regenerate::avg('count');
     
             return response()->json([
                 'status' => 'success',
@@ -104,6 +107,7 @@ class AdminController extends Controller
                 'female_count' => $female_count,
                 'total_count' => $total_count,
                 'blocked_email_count' => $blocked_emails_count,
+                'regenerates_avg' => $regenerates_avg,
             ], 200);
         }catch (\Exception $e){
             return response()->json([
