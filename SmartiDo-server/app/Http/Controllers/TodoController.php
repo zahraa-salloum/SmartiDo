@@ -58,6 +58,13 @@ class TodoController extends Controller
 
             $todo =Todo::find($id);
 
+            if(!$todo){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Todo not found',
+                ], 404);
+            }
+
             $todo->done = $validatedData['done'];
             
             $todo->save();
