@@ -15,11 +15,8 @@ class PlanController extends Controller
         $breakfast = $request->breakfast;
         $lunch = $request->lunch;
         $dinner = $request->dinner;
-        $title = $request->title;
-        $category = $request->category;
-        $hours_of_study = $request->hours_of_study;
-        $day = $request->day;
-        $hour = $request->hour;
+        
+        $exams = $request->exams;
 
         $times = new Time;
 
@@ -32,13 +29,16 @@ class PlanController extends Controller
 
         $times->save();
 
-        $exam = new Exam;
-        $exam->title = $title;
-        $exam->category = $category;
-        $exam->hours_of_study = $hours_of_study;
-        $exam->day = $day;
-        $exam->hour = $hour;
-        $exam->user_id = $id;
+        foreach ($exams as $exam) {
+            $exam_inserted = new Exam;
+            $exam_inserted->title = $exam['title'];
+            $exam_inserted->category = $exam['category'];
+            $exam_inserted->hours_of_study = $exam['hours_of_study'];
+            $exam_inserted->day = $exam['day'];
+            $exam_inserted->hour = $exam['hour'];
+            $exam_inserted->user_id = $id;
+            $exam_inserted->save();
+        }
 
     }
 }

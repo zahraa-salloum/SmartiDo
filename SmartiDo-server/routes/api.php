@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeleteController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\TodoController;
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::get('/get_records',[RecordController::class,"getAllRecords"]);
         Route::get('/my_record',[RecordController::class,"getMyRecord"]);
         Route::delete('/delete_account',[DeleteController::class,"deleteAccount"]);
+        Route::post('/generate_plan',[PlanController::class,"generatePlan"]);
     });
 
 });
