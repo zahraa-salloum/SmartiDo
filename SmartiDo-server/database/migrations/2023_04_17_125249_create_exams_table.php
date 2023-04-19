@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer("hours_of_study");
             $table->date("day");
             $table->string("hour");
+            $table->integer("hours_of_study");
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id') -> references('id') -> on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
