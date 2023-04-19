@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Exam;
 use App\Models\Time;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -28,8 +29,16 @@ class PlanController extends Controller
         $times->lunch = $lunch;
         $times->dinner = $dinner;
         $times->user_id = $id;
-        
+
         $times->save();
+
+        $exam = new Exam;
+        $exam->title = $title;
+        $exam->category = $category;
+        $exam->hours_of_study = $hours_of_study;
+        $exam->day = $day;
+        $exam->hour = $hour;
+        $exam->user_id = $id;
 
     }
 }
