@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Time;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,17 @@ class PlanController extends Controller
         $hours_of_study = $request->hours_of_study;
         $day = $request->day;
         $hour = $request->hour;
+
+        $times = new Time;
+
+        $times->sleep = $sleep;
+        $times->wake_up = $wake_up;
+        $times->breakfast = $breakfast;
+        $times->lunch = $lunch;
+        $times->dinner = $dinner;
+        $times->user_id = $id;
+        
+        $times->save();
 
     }
 }
