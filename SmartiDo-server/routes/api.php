@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeleteController;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
@@ -47,6 +48,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('/generate_plan',[PlanController::class,"generatePlan"]);
         Route::delete('/delete_plan',[DeleteController::class,"deletePlan"]);
         Route::post('/get_plan',[PlanController::class,"getPlan"]);
+        Route::get('/get_exams',[ExamController::class,"getExams"]);
     });
 
 });
