@@ -46,6 +46,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::delete('/delete_account',[DeleteController::class,"deleteAccount"]);
         Route::post('/generate_plan',[PlanController::class,"generatePlan"]);
         Route::delete('/delete_plan',[DeleteController::class,"deletePlan"]);
+        Route::post('/get_plan',[PlanController::class,"getPlan"]);
     });
 
 });
