@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\Exam;
+use App\Models\Plan;
 use App\Models\Time;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use OpenAI;
+use DB;
 
 set_time_limit(240);
 class PlanController extends Controller
@@ -108,7 +110,7 @@ class PlanController extends Controller
             $prompt .= "\nDo not add additional hours of study.";
             $prompt .= "\n\nPlan the day " .Carbon::now()->addDays($days_increment) . " in details where you state in every hour what to do.";
             $prompt .= "\nReturn the answer as JSON parsable object (do not return any text or explanation or notes before or after the JSON object).";
-            $prompt .= "\nThe JSON object should be in this format { \"result\": [ {\"hour\": \"\", \"task\":\"\", day:\"\"},{\"hour\": \"\", \"task\":\"\", day:\"\"}.......]}.";
+            $prompt .= "\nThe JSON object should be in this format { \"result\": [ {\"hour\": \"\", \"task\":\"\", \"day\":\"\"},{\"hour\": \"\", \"task\":\"\", day:\"\"}.......]}.";
             $prompt .= "\nIf the task is about study always start it with study and then state the subject (ex: study biology).";
 
             $days_increment++;
@@ -119,8 +121,26 @@ class PlanController extends Controller
                 'prompt' => $prompt,
             ]);
 
-            echo $result['choices'][0]['text'];
+            $data = json_decode($result['choices'][0]['text'], true);
+            $plans = array();
+
+            foreach ($data['result'] as $plan) {
+                $plans[] = [
+                    'hour' => $plan['hour'],
+                    'task' => $plan['task'],
+                    'day' => $plan['day'],
+                    'user_id' => $id,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ];
+            }
+
+            DB::table('plans')->insert($plans);
+
+
             $max_days--;
         }
+        
+            
     }
 }
