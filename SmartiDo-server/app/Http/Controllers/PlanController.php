@@ -70,6 +70,26 @@ class PlanController extends Controller
             $exam_inserted->days_of_study = $days_before_exam - $days_of_exams - 1;
 
             $exam_inserted->save();
+
+            $plans_review_exam = [
+                [
+                    'hour' => $exam['hour'],
+                    'task' => $exam['title'],
+                    'day' => $exam['day'],
+                    'user_id' => $id,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ],
+                [
+                    'hour' => '*',
+                    'task' => "Review notes for tomorrow's exam",
+                    'day' => Carbon::parse($exam['day'])->subDay()->toDateString(),
+                    'user_id' => $id,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]
+            ];
+            DB::table('plans')->insert($plans_review_exam);
         }
 
         $exams_AI = Exam::where('user_id', $id)
