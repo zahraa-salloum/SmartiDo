@@ -14,6 +14,7 @@ set_time_limit(240);
 class PlanController extends Controller
 {
     function generatePlan(Request $request) {
+      try{
         $id = Auth::id();
         $sleep = $request->sleep;
         $wake_up = $request->wake_up;
@@ -161,6 +162,15 @@ class PlanController extends Controller
             $max_days--;
         }
         
-            
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Plan generated successfully',
+        ], 200);
+      }catch(\Exception $e){
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+        ], 500);
+      }     
     }
 }
