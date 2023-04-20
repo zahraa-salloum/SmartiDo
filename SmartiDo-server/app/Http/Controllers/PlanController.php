@@ -6,7 +6,9 @@ use App\Models\Time;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use OpenAI;
 
+set_time_limit(240);
 class PlanController extends Controller
 {
     function generatePlan(Request $request) {
@@ -68,5 +70,57 @@ class PlanController extends Controller
             $exam_inserted->save();
         }
 
+        $exams_AI = Exam::where('user_id', $id)
+                        ->orderBy('day', 'asc')
+                        ->get();
+
+        $max_days = Exam::where('user_id', $id)
+                        ->max('days_of_study');
+
+        $ApiKey = getenv('OPENAI_SECRET');
+        $client = OpenAI::client($ApiKey);
+
+        $count = 0;
+        $days_increment = 1;
+        while($max_days > 0){
+            $prompt = 'I have ';
+            foreach ($exams_AI as $exam) {
+                if($exam->day == Carbon::now()->addDays($days_increment)->toDateString() || 
+                Carbon::parse($exam->day)->subDay()->toDateString() == Carbon::now()->addDays($days_increment)->toDateString()){
+                    $days_increment++;  
+                }
+                if($exam->days_of_study > $count){
+                    $prompt .= "a " . $exam->category . ' exam and ';
+                }
+            }
+
+            $count++;
+
+            $prompt .= ".\nI sleep at " . $sleep . ' and wake at ' . $wake_up . '.';
+            $prompt .= "\nI have breakfast at " . $breakfast . '.';
+            $prompt .= "\nI have lunch at " . $lunch . '.';
+            $prompt .= "\nI have dinner at " . $dinner . '.';
+            foreach ($exams_AI as $exam) {
+                if($exam->days_of_study > $count){
+                    $prompt .= "\nI want to study " . $exam->hours_per_day . ' hours of ' . $exam->category . " material only.";
+                }    
+            }
+            $prompt .= "\nDo not add additional hours of study.";
+            $prompt .= "\n\nPlan the day " .Carbon::now()->addDays($days_increment) . " in details where you state in every hour what to do.";
+            $prompt .= "\nReturn the answer as JSON parsable object (do not return any text or explanation or notes before or after the JSON object).";
+            $prompt .= "\nThe JSON object should be in this format { \"result\": [ {\"hour\": \"\", \"task\":\"\", day:\"\"},{\"hour\": \"\", \"task\":\"\", day:\"\"}.......]}.";
+            $prompt .= "\nIf the task is about study always start it with study and then state the subject (ex: study biology).";
+
+            $days_increment++;
+            $result = $client->completions()->create([
+                'model' => 'text-davinci-003',
+                'temperature' => 0.7,
+                'max_tokens' => 1024,
+                'prompt' => $prompt,
+            ]);
+
+            echo $result['choices'][0]['text'];
+            $max_days--;
+        }
     }
 }
