@@ -61,7 +61,7 @@ class PlanController extends Controller
                 $previous_exam_key--;
             }
                 
-            $hours_per_day = $exam_inserted->hours_of_study / ($days_before_exam - $days_of_exams - 1);
+            $hours_per_day =ceil($exam_inserted->hours_of_study / ($days_before_exam - $days_of_exams - 1));
             $exam_inserted->hours_per_day = $hours_per_day;
             $exam_inserted->days_of_study = $days_before_exam - $days_of_exams - 1;
 
