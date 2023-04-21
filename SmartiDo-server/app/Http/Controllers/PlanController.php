@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Exam;
 use App\Models\Plan;
 use App\Models\Record;
+use App\Models\Regenerate;
 use App\Models\Time;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -173,6 +174,22 @@ class PlanController extends Controller
             'message' => $e->getMessage(),
         ], 500);
       }     
+    }
+
+    function regeneratePlan(Request $request) {
+        try{
+            $id = Auth::id();
+            $regenerate = Regenerate::where('user_id', $id)->first();
+    
+                if(!$regenerate){
+                    $regenerate = new Regenerate;
+                    $regenerate->user_id = $id;
+                    $regenerate->count = 0;
+                }
+
+                $regenerate->count = $regenerate->count + 1;
+                $regenerate->save();
+        }
     }
 
     function getPlan(Request $request){
