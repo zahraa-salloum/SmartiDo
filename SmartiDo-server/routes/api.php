@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordController;
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('refresh',[AuthController::class, 'refresh']);
     });
     Route::post('register',[AuthController::class,'register']);
+    Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword']);
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::group(["middleware" => "admin.role", "prefix" => "admin"], function () {
