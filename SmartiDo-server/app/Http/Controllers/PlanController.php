@@ -213,6 +213,7 @@ class PlanController extends Controller
                 if($exam->days_of_study > 0){
                     $exam->hours_per_day = ceil($exam->hours_of_study / $exam->days_of_study);
                 }else{
+                    $exam->days_of_study = 0;
                     $exam->hours_per_day = 0;
                 }
                 $exam->save();
@@ -316,7 +317,7 @@ class PlanController extends Controller
 
                 $max_days--;
                 $count++;
-                // echo $prompt;
+                echo $prompt;
             }
 
             return response()->json([
