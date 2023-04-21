@@ -224,6 +224,7 @@ class PlanController extends Controller
             return response()->json([
                 'status' => 'success',
                 'exams' => $exams,
+                'record'  => $record,
             ], 200);
         }catch(\Exception $e){
             return response()->json([
