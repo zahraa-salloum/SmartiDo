@@ -191,4 +191,33 @@ class PlanController extends Controller
             ], 500);
         }
     }
+
+    function studyDone(){
+        try{
+            $id = Auth::id();
+            $exams = Exam::where('user_id',$id)->get();
+
+            foreach ($exams as $exam) {
+                $exam->hours_of_study = $exam->hours_of_study - $exam->hours_per_day;
+                $exam->days_of_study = $exam->days_of_study - 1;
+                if( $exam->hours_of_study < 0){
+                    $exam->hours_of_study = 0;
+                }
+                if( $exam->days_of_study < 0){
+                    $exam->days_of_study = 0;
+                }
+                $exam->save();
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'exams' => $exams,
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to update hours',
+            ], 500);
+        }
+    }
 }
