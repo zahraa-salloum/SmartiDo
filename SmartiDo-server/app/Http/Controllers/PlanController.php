@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Exam;
 use App\Models\Plan;
+use App\Models\Record;
 use App\Models\Time;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -207,7 +208,18 @@ class PlanController extends Controller
                     $exam->days_of_study = 0;
                 }
                 $exam->save();
+ 
             }
+            $record = Record::where('user_id', $id)->first();
+    
+                if(!$record){
+                    $record = new Record;
+                    $record->user_id = $id;
+                    $record->score = 0;
+                }
+
+                $record->score = $record->score + 1;
+                $record->save();
 
             return response()->json([
                 'status' => 'success',
