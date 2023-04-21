@@ -181,14 +181,17 @@ class PlanController extends Controller
             $id = Auth::id();
             $regenerate = Regenerate::where('user_id', $id)->first();
     
-                if(!$regenerate){
-                    $regenerate = new Regenerate;
-                    $regenerate->user_id = $id;
-                    $regenerate->count = 0;
-                }
+            if(!$regenerate){
+                $regenerate = new Regenerate;
+                $regenerate->user_id = $id;
+                $regenerate->count = 0;
+            }
 
-                $regenerate->count = $regenerate->count + 1;
-                $regenerate->save();
+            $regenerate->count = $regenerate->count + 1;
+            $regenerate->save();
+
+            $delete_plans = Plan::where('user_id',$id)->delete();
+
         }
     }
 
