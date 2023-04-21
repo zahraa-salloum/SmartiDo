@@ -50,6 +50,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('/get_plan',[PlanController::class,"getPlan"]);
         Route::get('/get_exams',[ExamController::class,"getExams"]);
         Route::post('/study_done',[PlanController::class,"studyDone"]);
+        Route::post('/regenerate_plan',[PlanController::class,"regeneratePlan"]);
     });
 
 });

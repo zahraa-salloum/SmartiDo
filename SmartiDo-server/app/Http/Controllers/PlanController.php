@@ -192,7 +192,41 @@ class PlanController extends Controller
 
             $delete_plans = Plan::where('user_id',$id)->delete();
 
-        }
+            $exams = Exam::where('user_id',$id)->get();
+
+            foreach ($exams as $exam) {
+
+                $plans_review_exam = [
+                    [
+                        'hour' => $exam['hour'],
+                        'task' => $exam['title'],
+                        'day' => $exam['day'],
+                        'user_id' => $id,
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ],
+                    [
+                        'hour' => '*',
+                        'task' => "Review notes for tomorrow's exam",
+                        'day' => Carbon::parse($exam['day'])->subDay()->toDateString(),
+                        'user_id' => $id,
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]
+                ];
+                DB::table('plans')->insert($plans_review_exam);
+            }
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Plan regenerated successfully',
+            ], 200);
+        }catch(\Exception $e){
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+          }  
     }
 
     function getPlan(Request $request){
