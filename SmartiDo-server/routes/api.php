@@ -30,7 +30,8 @@ Route::group(['prefix' => 'v0.0.1'], function(){
         Route::post('refresh',[AuthController::class, 'refresh']);
     });
     Route::post('register',[AuthController::class,'register']);
-    Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword']);
+    Route::post('forgot_password', [NewPasswordController::class, 'forgotPassword']);
+    Route::post('reset_password', [NewPasswordController::class, 'reset']);
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::group(["middleware" => "admin.role", "prefix" => "admin"], function () {
