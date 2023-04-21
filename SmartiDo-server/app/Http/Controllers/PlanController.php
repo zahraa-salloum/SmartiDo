@@ -67,10 +67,14 @@ class PlanController extends Controller
                 $days_of_exams++;
                 $previous_exam_key--;
             }
-                
-            $hours_per_day =ceil($exam_inserted->hours_of_study / ($days_before_exam - $days_of_exams - 1));
+            if(($days_before_exam - $days_of_exams - 1) > 0){    
+                $hours_per_day =ceil($exam_inserted->hours_of_study / ($days_before_exam - $days_of_exams - 1));
+                $exam_inserted->days_of_study = $days_before_exam - $days_of_exams - 1;
+            }else{
+                $hours_per_day = 0;
+                $exam_inserted->days_of_study = 0;
+            }
             $exam_inserted->hours_per_day = $hours_per_day;
-            $exam_inserted->days_of_study = $days_before_exam - $days_of_exams - 1;
 
             $exam_inserted->save();
 
@@ -195,7 +199,13 @@ class PlanController extends Controller
             $exams = Exam::where('user_id',$id)->get();
 
             foreach ($exams as $exam) {
-
+                $exam->days_of_study = $exam->days_of_study - 1;
+                if($exam->days_of_study > 0){
+                    $exam->hours_per_day = ceil($exam->hours_of_study / $exam->days_of_study);
+                }else{
+                    $exam->hours_per_day = 0;
+                }
+                $exam->save();
                 $plans_review_exam = [
                     [
                         'hour' => $exam['hour'],
