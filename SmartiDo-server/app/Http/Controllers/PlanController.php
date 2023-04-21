@@ -144,7 +144,7 @@ class PlanController extends Controller
                 }    
             }
             $prompt .= "\nDo not add additional hours of study.";
-            $prompt .= "\n\nPlan the day " .Carbon::now()->addDays($days_increment) . " in details where you state in every hour what to do.";
+            $prompt .= "\n\nPlan the day " .Carbon::now()->addDays($days_increment)->format('Y-m-d') . " in details where you state in every hour what to do.";
             $prompt .= "\nReturn the answer as JSON parsable object (do not return any text or explanation or notes before or after the JSON object).";
             $prompt .= "\nThe JSON object should be in this format { \"result\": [ {\"hour\": \"\", \"task\":\"\", \"day\":\"\"},{\"hour\": \"\", \"task\":\"\", \"day\":\"\"}.......]}.";
             $prompt .= "\nIf the task is about study always start it with study and then state the subject (ex: study biology).";
@@ -285,7 +285,7 @@ class PlanController extends Controller
                     }    
                 }
                 $prompt .= "\nDo not add additional hours of study.";
-                $prompt .= "\n\nPlan the day " .Carbon::now()->addDays($days_increment) . " in details where you state in every hour what to do.";
+                $prompt .= "\n\nPlan the day " .Carbon::now()->addDays($days_increment)->format('Y-m-d') . " in details where you state in every hour what to do.";
                 $prompt .= "\nReturn the answer as JSON parsable object (do not return any text or explanation or notes before or after the JSON object).";
                 $prompt .= "\nThe JSON object should be in this format { \"result\": [ {\"hour\": \"\", \"task\":\"\", \"day\":\"\"},{\"hour\": \"\", \"task\":\"\", \"day\":\"\"}.......]}.";
                 $prompt .= "\nIf the task is about study always start it with study and then state the subject (ex: study biology).";
