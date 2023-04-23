@@ -1,4 +1,4 @@
-import { SafeAreaView, Text } from 'react-native'
+import { ImageBackground, SafeAreaView, Text } from 'react-native'
 import React, { FC } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
@@ -13,8 +13,11 @@ const navigation = useNavigation()
 const dispatch = useDispatch()
 
 return (
-<SafeAreaView style={styles.container}>
-</SafeAreaView>
+    <ImageBackground source={require('../../../assets/login.png')} style={styles.container}>
+        <SafeAreaView style={styles.container}>
+        </SafeAreaView>
+    </ImageBackground>
+
   )
 }
 
