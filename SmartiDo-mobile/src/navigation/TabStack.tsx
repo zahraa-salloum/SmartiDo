@@ -8,7 +8,15 @@ const TabStack = () => {
     
   const Tabs = createBottomTabNavigator();
   return (
-    <Tabs.Navigator screenOptions={{ headerShown: true }}>
+    <Tabs.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.light_purple,
+        },
+        tabBarStyle: {
+            backgroundColor: colors.light_purple,
+            height: 60,
+          },
+        }}>
       <Tabs.Screen
         options={{
             title: "Plans",
