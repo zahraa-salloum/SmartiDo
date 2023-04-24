@@ -17,7 +17,7 @@ const TabStack = () => {
                     ? require("../../assets/plan_active.png")
                     : require("../../assets/plan_inactive.png")
                 }
-                // style={{ width: 25, height: 25 }}
+                style={{ width: 25, height: 25 }}
               />
             ),
           }}
@@ -33,11 +33,11 @@ const TabStack = () => {
                     ? require("../../assets/tasks_active.png")
                     : require("../../assets/tasks_inactive.png")
                 }
-                // style={{ width: 25, height: 25 }}
+                style={{ width: 25, height: 25 }}
               />
             ),
           }}
-          name="Tas"
+          name="Tasks"
           component={TasksScreen}
         />
     </Tabs.Navigator>
