@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { store } from "./src/redux/store";
 import SignupScreen from './src/screens/signup';
+import TasksScreen from './src/screens/tasks';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -47,7 +48,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-          <SignupScreen />
+          <TasksScreen/>
         </View>
       </NavigationContainer>
     </Provider>
