@@ -19,7 +19,7 @@ return (
     <ImageBackground source={require('../../../assets/login.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
             <LabelledText label='Email' placeholder='john@gmail.com'/>
-            
+            <LabelledText label='Password' placeholder='******'/>
             <SeventyWidthButton buttonprops={{
             title: "LOG IN",
       }} />
