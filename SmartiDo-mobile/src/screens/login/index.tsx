@@ -18,6 +18,7 @@ const dispatch = useDispatch()
 return (
     <ImageBackground source={require('../../../assets/login.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
+            <Text style={styles.title}>LOG IN</Text>
             <LabelledText label='Email' placeholder='john@gmail.com'/>
             <LabelledText label='Password' placeholder='******'/>
             <SeventyWidthButton buttonprops={{
