@@ -22,6 +22,8 @@ const TabStack = () => {
             backgroundColor: colors.light_purple,
             height: 60,
           },
+        tabBarActiveTintColor: colors.dark_purple,
+        tabBarInactiveTintColor: colors.purple,
         }}>
       <Tabs.Screen
         options={{
