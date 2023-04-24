@@ -10,7 +10,7 @@ interface LabelledTextProps {
 
 const LabelledText: FC<LabelledTextProps> = (props) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.label}> {props.label} </Text>
       <TextInput style={styles.input} placeholder= {props.placeholder}></TextInput>
     </View>
