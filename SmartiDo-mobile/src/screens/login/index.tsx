@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import SeventyWidthButton from '../../components/Button'
 import { login } from '../../redux/slices/authSlice'
-import LabelledText from '../../components/Input'
+import LabelledText from '../../components/LabelledText'
 
 
 interface LoginScreenProps  {}

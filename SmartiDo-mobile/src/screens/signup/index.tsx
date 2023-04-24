@@ -3,7 +3,7 @@ import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { ImageBackground, SafeAreaView, Text } from 'react-native'
-import LabelledText from '../../components/Input'
+import LabelledText from '../../components/LabelledText'
 import SeventyWidthButton from '../../components/Button'
 
 interface SignupScreenProps  {}
