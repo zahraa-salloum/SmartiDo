@@ -13,7 +13,7 @@ export default StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         right: 0,
-        marginBottom: 40,
+        marginBottom: 15,
         
     },
 })
