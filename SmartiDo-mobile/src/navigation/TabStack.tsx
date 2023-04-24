@@ -7,9 +7,10 @@ const TabStack = () => {
     
   const Tabs = createBottomTabNavigator();
   return (
-    <Tabs.Navigator screenOptions={{ headerShown: false }}>
+    <Tabs.Navigator screenOptions={{ headerShown: true }}>
       <Tabs.Screen
         options={{
+            title: "Plans",
             tabBarIcon: ({ focused }) => (
               <Image
                 source={
@@ -26,6 +27,7 @@ const TabStack = () => {
         />
       <Tabs.Screen
         options={{
+            title: "Tasks",
             tabBarIcon: ({ focused }) => (
               <Image
                 source={
