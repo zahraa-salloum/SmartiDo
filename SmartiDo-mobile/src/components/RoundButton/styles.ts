@@ -9,5 +9,11 @@ export default StyleSheet.create({
         padding: 20,  
         width: 90, 
         height: 90,
-        borderRadius: 50},
+        borderRadius: 50,
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        marginBottom: 40,
+        
+    },
 })
