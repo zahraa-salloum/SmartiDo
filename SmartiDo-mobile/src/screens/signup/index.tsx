@@ -3,6 +3,7 @@ import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { ImageBackground, SafeAreaView, Text } from 'react-native'
+import LabelledText from '../../components/Input'
 
 interface SignupScreenProps  {}
 
@@ -14,6 +15,9 @@ return (
     <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
             <Text>SIGN UP</Text>
+            <LabelledText label='Name' placeholder='John Smith'/>
+            <LabelledText label='Email' placeholder='john@gmail.com'/>
+            <LabelledText label='Password' placeholder='******'/>
         </SafeAreaView>
     </ImageBackground>
 
