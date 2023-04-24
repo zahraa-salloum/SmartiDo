@@ -5,6 +5,7 @@ export default StyleSheet.create({
     label:{
         color: colors.dark_purple, 
         padding: 10,
+        marginBottom:-20,
         },
 
     input: {
@@ -12,6 +13,7 @@ export default StyleSheet.create({
         width: 320,
         margin: 12,
         borderWidth: 1,
+        borderColor: colors.dark_purple, 
         padding: 10,
         },
 })
