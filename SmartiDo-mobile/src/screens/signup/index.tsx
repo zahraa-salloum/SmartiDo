@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
+import { ImageBackground } from 'react-native'
 
 interface SignupScreenProps  {}
 
@@ -10,9 +11,9 @@ const navigation = useNavigation()
 const dispatch = useDispatch()
 
 return (
-    <view>
+    <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
+    </ImageBackground>
 
-    </view>
 )
 }
 
