@@ -4,7 +4,7 @@ import { colors } from '../../constants/palette'
 export default StyleSheet.create({
     label:{
         color: colors.dark_purple, 
-        left: -1, 
+        padding: 10,
         },
 
     input: {
