@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { ImageBackground, SafeAreaView, Text } from 'react-native'
 import LabelledText from '../../components/LabelledText'
-import SeventyWidthButton from '../../components/Button'
+import SeventyWidthButton from '../../components/SeventyWidthButton'
 
 interface SignupScreenProps  {}
 

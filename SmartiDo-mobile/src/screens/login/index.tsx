@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
-import SeventyWidthButton from '../../components/Button'
+import SeventyWidthButton from '../../components/SeventyWidthButton'
 import { login } from '../../redux/slices/authSlice'
 import LabelledText from '../../components/LabelledText'
 
