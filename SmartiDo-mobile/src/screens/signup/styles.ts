@@ -13,5 +13,12 @@ export default StyleSheet.create({
       justifyContent: "center",
       width: "90%",
     },
+    title:{
+        color: colors.dark_purple,
+        fontSize: 32,
+        fontWeight: 'bold',
+        padding: 30,
+        paddingTop:50,
+    }
 
 })

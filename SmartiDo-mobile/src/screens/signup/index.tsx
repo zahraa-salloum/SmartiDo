@@ -15,7 +15,7 @@ const dispatch = useDispatch()
 return (
     <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
-            <Text>SIGN UP</Text>
+            <Text style={styles.title}>SIGN UP</Text>
             <LabelledText label='Name' placeholder='John Smith'/>
             <LabelledText label='Email' placeholder='john@gmail.com'/>
             <LabelledText label='Password' placeholder='******'/>
