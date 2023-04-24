@@ -49,7 +49,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-          <PlansScreen/>
+          <TasksScreen/>
         </View>
       </NavigationContainer>
     </Provider>
