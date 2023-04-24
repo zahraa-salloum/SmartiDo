@@ -3,6 +3,8 @@ import React, { FC } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
+import SeventyWidthButton from '../../components/Button'
+import { login } from '../../redux/slices/authSlice'
 
 
 interface LoginScreenProps  {}
@@ -13,8 +15,11 @@ const navigation = useNavigation()
 const dispatch = useDispatch()
 
 return (
-    <ImageBackground source={require('../../../assets/login.png')} style={styles.container}>
+    <ImageBackground source={require('../../../assets/login.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
+            <SeventyWidthButton buttonprops={{
+            title: "LOG IN",
+      }} />
         </SafeAreaView>
     </ImageBackground>
 
