@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import PlansScreen from "../screens/plans";
 import TasksScreen from "../screens/tasks";
 import { Image } from "react-native";
+import { colors } from "../constants/palette";
 
 const TabStack = () => {
     
@@ -11,6 +12,7 @@ const TabStack = () => {
       <Tabs.Screen
         options={{
             title: "Plans",
+            headerTintColor: colors.dark_purple,
             tabBarIcon: ({ focused }) => (
               <Image
                 source={
@@ -28,6 +30,7 @@ const TabStack = () => {
       <Tabs.Screen
         options={{
             title: "Tasks",
+            headerTintColor: colors.dark_purple,
             tabBarIcon: ({ focused }) => (
               <Image
                 source={
