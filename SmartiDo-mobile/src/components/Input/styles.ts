@@ -11,7 +11,7 @@ export default StyleSheet.create({
     input: {
         height: 50,
         width: 320,
-        margin: 12,
+        margin: 14,
         borderWidth: 1,
         borderColor: colors.dark_purple, 
         padding: 10,
