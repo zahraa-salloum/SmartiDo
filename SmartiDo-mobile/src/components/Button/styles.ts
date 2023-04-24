@@ -13,6 +13,7 @@ export default StyleSheet.create({
 
        text: {
         color: "white", 
-        fontWeight: "900", 
+        fontWeight: "900",
+        fontSize: 16, 
         textTransform: "uppercase"}
 })
