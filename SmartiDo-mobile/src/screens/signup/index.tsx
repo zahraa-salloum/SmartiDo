@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { ImageBackground, SafeAreaView, Text } from 'react-native'
 import LabelledText from '../../components/Input'
+import SeventyWidthButton from '../../components/Button'
 
 interface SignupScreenProps  {}
 
@@ -18,6 +19,9 @@ return (
             <LabelledText label='Name' placeholder='John Smith'/>
             <LabelledText label='Email' placeholder='john@gmail.com'/>
             <LabelledText label='Password' placeholder='******'/>
+            <SeventyWidthButton buttonprops={{
+            title: "SIGN UP",
+                }} />
         </SafeAreaView>
     </ImageBackground>
 
