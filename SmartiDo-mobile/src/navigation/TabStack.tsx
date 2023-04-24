@@ -12,6 +12,12 @@ const TabStack = () => {
         headerStyle: {
           backgroundColor: colors.light_purple,
         },
+        headerTitleAlign: "center",
+        headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            color: colors.dark_purple,
+          },
         tabBarStyle: {
             backgroundColor: colors.light_purple,
             height: 60,
@@ -20,7 +26,6 @@ const TabStack = () => {
       <Tabs.Screen
         options={{
             title: "Plans",
-            headerTintColor: colors.dark_purple,
             tabBarIcon: ({ focused }) => (
               <Image
                 source={
@@ -38,7 +43,6 @@ const TabStack = () => {
       <Tabs.Screen
         options={{
             title: "Tasks",
-            headerTintColor: colors.dark_purple,
             tabBarIcon: ({ focused }) => (
               <Image
                 source={
