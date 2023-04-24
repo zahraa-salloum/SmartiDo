@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from "./src/redux/store";
 import SignupScreen from './src/screens/signup';
 import TasksScreen from './src/screens/tasks';
+import PlansScreen from './src/screens/plans';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -48,7 +49,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-          <TasksScreen/>
+          <PlansScreen/>
         </View>
       </NavigationContainer>
     </Provider>
