@@ -1,5 +1,5 @@
-import { ImageBackground, SafeAreaView, Text } from 'react-native'
-import React, { FC, useState } from 'react'
+import { ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native'
+import React, { FC, useState, useEffect } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
@@ -20,6 +20,7 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [toastMessage, setToastMessage] = useState("");
 
     const handleEmail=(text: React.SetStateAction<string>)=>{
         setEmail(text)
@@ -29,6 +30,10 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
     }
 
     const handleSubmit=()=>{
+        if (email==="" || password===""){
+            setToastMessage("All input are required");
+
+        }else{
 
         let data = {
         "email": email,
@@ -40,13 +45,20 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
                 await SecureStore.setItemAsync('token', res.data.authorisation.token);
                 dispatch(login());
             }
-
         }
         ).catch((err) => {
+            setToastMessage("Invalid credentials");
             console.log(err);
         })
 
     }
+}
+    useEffect(() => {
+        if (toastMessage !== "") {
+            ToastAndroid.show(toastMessage, ToastAndroid.SHORT);
+            setToastMessage("");
+        }
+    }, [toastMessage]);
 
 return (
     <ImageBackground source={require('../../../assets/login.png')} style={styles.containerBackground}>
