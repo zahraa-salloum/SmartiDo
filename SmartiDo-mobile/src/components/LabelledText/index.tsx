@@ -6,13 +6,14 @@ import { TextInput } from 'react-native';
 interface LabelledTextProps {
   label: string;
   placeholder: string;
+  onChangeText: any;
 }
 
 const LabelledText: FC<LabelledTextProps> = (props) => {
   return (
     <View>
       <Text style={styles.label}> {props.label} </Text>
-      <TextInput style={styles.input} placeholder= {props.placeholder}></TextInput>
+      <TextInput style={styles.input} placeholder= {props.placeholder} onChangeText={props.onChangeText}></TextInput>
     </View>
   );
 };
