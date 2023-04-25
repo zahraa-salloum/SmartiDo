@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { ImageBackground, SafeAreaView, Text } from 'react-native'
 import LabelledText from '../../components/LabelledText'
 import SeventyWidthButton from '../../components/SeventyWidthButton'
+import TextButton from '../../components/TextButton'
 
 interface SignupScreenProps  {}
 
@@ -21,7 +22,11 @@ return (
             <LabelledText label='Password' placeholder='******'/>
             <SeventyWidthButton buttonprops={{
             title: "SIGN UP",
-                }} />
+            }} />
+            <TextButton buttonprops={{
+            title: "Already a User?",
+            onPress: () => navigation.navigate("Login"),
+            }}/>
         </SafeAreaView>
     </ImageBackground>
 
