@@ -11,6 +11,7 @@ import SignupScreen from './src/screens/signup';
 import TasksScreen from './src/screens/tasks';
 import PlansScreen from './src/screens/plans';
 import AppStack from './src/navigation/AppStack';
+import StackSwitcher from './src/navigation/StackSwitcher';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -48,11 +49,9 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
         <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-          <AppStack/>
+          <StackSwitcher/>
         </View>
-      </NavigationContainer>
     </Provider>
   );
 }
