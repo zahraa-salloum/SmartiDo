@@ -28,6 +28,15 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
         setPassword(text)
     }
 
+    const validateEmail=(email: string) =>{
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    const validatePassword=(password: string)=> {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        return passwordRegex.test(password);
+    }
+
 return (
     <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
