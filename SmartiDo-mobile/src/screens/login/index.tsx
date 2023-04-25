@@ -15,41 +15,38 @@ interface LoginScreenProps  {}
 
 
 const LoginScreen: FC<LoginScreenProps> = (props) => {
-const navigation = useNavigation()
-const dispatch = useDispatch()
+    const navigation = useNavigation()
+    const dispatch = useDispatch()
 
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-const handleEmail=(text)=>{
-    setEmail(text)
-}
-const handlePassword=(text)=>{
-   setPassword(text)
-}
+    const handleEmail=(text)=>{
+        setEmail(text)
+    }
+    const handlePassword=(text)=>{
+        setPassword(text)
+    }
 
-const handleSubmit=()=>{
-    
-      
-    let data = {
+    const handleSubmit=()=>{
+
+        let data = {
         "email": email,
         "password": password
-      };
+        };
 
-axios.post("http://192.168.1.105:8000/api/v0.0.1/auth/login",data).then(async (res) => {
-  if(res.data.status == "success"){
-    await SecureStore.setItemAsync('token', res.data.authorisation.token);
-    const token = await SecureStore.getItemAsync('token');
-        console.log(token);
-  dispatch(login());
-}
+        axios.post("http://192.168.1.105:8000/api/v0.0.1/auth/login",data).then(async (res) => {
+            if(res.data.status == "success"){
+                await SecureStore.setItemAsync('token', res.data.authorisation.token);
+                dispatch(login());
+            }
 
-}
-).catch((err) => {
-  console.log(err);
-})
+        }
+        ).catch((err) => {
+            console.log(err);
+        })
 
-}
+    }
 
 return (
     <ImageBackground source={require('../../../assets/login.png')} style={styles.containerBackground}>
