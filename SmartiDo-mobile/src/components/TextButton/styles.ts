@@ -4,9 +4,8 @@ import { colors } from '../../constants/palette'
 export default StyleSheet.create({
     button:{ 
         alignItems: "center", 
-        justifyContent: "center", 
-        padding: 20, 
-        margin: 30, 
+        justifyContent: "center",
+        marginTop: -20,
         width: "70%", 
         borderRadius: 5
     },
