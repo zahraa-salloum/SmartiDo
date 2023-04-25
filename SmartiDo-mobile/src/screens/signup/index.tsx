@@ -8,6 +8,7 @@ import SeventyWidthButton from '../../components/SeventyWidthButton'
 import TextButton from '../../components/TextButton'
 import { login } from '../../redux/slices/authSlice'
 import axios from "axios"
+import * as SecureStore from 'expo-secure-store';
 
 interface SignupScreenProps  {}
 
@@ -52,10 +53,10 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
                         "password": password
                       };
     
-                    axios.post("http://192.168.1.105:8000/api/v0.0.1/register",data).then((res) => {
+                    axios.post("http://192.168.1.105:8000/api/v0.0.1/register",data).then(async (res) => {
                         if(res.data.status == "success"){
+                            await SecureStore.setItemAsync('token', res.data.authorisation.token);
                             dispatch(login());
-                            console.log(res.data)
                         }
                         
                     }).catch((err) => {
