@@ -19,12 +19,19 @@ const dispatch = useDispatch()
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
+const handleEmail=(e)=>{
+    setEmail(e.target.value)
+}
+const handlePassword=(e)=>{
+   setPassword(e.target.value)
+}
+
 return (
     <ImageBackground source={require('../../../assets/login.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>LOG IN</Text>
-            <LabelledText label='Email' placeholder='john@gmail.com'/>
-            <LabelledText label='Password' placeholder='******'/>
+            <LabelledText label='Email' placeholder='john@gmail.com' onChangeText={handleEmail}/>
+            <LabelledText label='Password' placeholder='******' onChangeText={handlePassword}/>
             <SeventyWidthButton buttonprops={{
             title: "LOG IN",
             onPress: () => {
