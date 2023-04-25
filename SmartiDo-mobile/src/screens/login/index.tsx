@@ -7,6 +7,7 @@ import SeventyWidthButton from '../../components/SeventyWidthButton'
 import { login } from '../../redux/slices/authSlice'
 import LabelledText from '../../components/LabelledText'
 import TextButton from '../../components/TextButton'
+import axios from "axios"
 
 
 interface LoginScreenProps  {}
@@ -19,11 +20,33 @@ const dispatch = useDispatch()
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
-const handleEmail=(e)=>{
-    setEmail(e.target.value)
+const handleEmail=(text)=>{
+    setEmail(text)
 }
-const handlePassword=(e)=>{
-   setPassword(e.target.value)
+const handlePassword=(text)=>{
+   setPassword(text)
+}
+
+const handleSubmit=()=>{
+    
+      
+    let data = {
+        "email": email,
+        "password": password
+      };
+
+axios.post("http://192.168.1.105:8000/api/v0.0.1/auth/login",data).then((res) => {
+  console.log(res.data)
+  if(res.data.status == "success"){
+
+  dispatch(login());
+}
+
+}
+).catch((err) => {
+  console.log(err);
+})
+
 }
 
 return (
@@ -34,12 +57,7 @@ return (
             <LabelledText label='Password' placeholder='******' onChangeText={handlePassword}/>
             <SeventyWidthButton buttonprops={{
             title: "LOG IN",
-            onPress: () => {
-                // api login
-                // wait for a respponse
-                // 200 => dispatch(login())
-                dispatch(login())
-              }
+            onPress: handleSubmit,
             }} />
             <TextButton buttonprops={{
             title: "New User?",
