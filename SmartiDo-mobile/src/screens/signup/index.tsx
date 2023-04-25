@@ -1,14 +1,14 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
-import { ImageBackground, SafeAreaView, Text } from 'react-native'
+import { ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native'
 import LabelledText from '../../components/LabelledText'
 import SeventyWidthButton from '../../components/SeventyWidthButton'
 import TextButton from '../../components/TextButton'
 import { login } from '../../redux/slices/authSlice'
 import axios from "axios"
-import * as SecureStore from 'expo-secure-store';
+import * as SecureStore from 'expo-secure-store'
 
 interface SignupScreenProps  {}
 
@@ -19,7 +19,7 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error,setError]=useState("");
+    const [toastMessage, setToastMessage] = useState("");
 
     const handleName=(text: React.SetStateAction<string>)=>{
         setName(text)
@@ -42,7 +42,8 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
 
     const handleSubmit=()=>{
         if (name==="" || email==="" || password===""){
-            setError("All input are required")
+            setToastMessage("All input are required");
+
         }else{
             if (validateEmail(email)){
                 if(validatePassword(password)){
@@ -63,13 +64,19 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
                         console.log(err);
                     })
                 }else{
-            setError("Password must contain 8 chracters, one capital letter, one special character")
+                    setToastMessage("Password must contain 8 chracters, one capital letter, one special character, one number");
                 }
             }else{
-            setError("Invalid email format")
+                setToastMessage("Invalid email format");
             }
         }
     }
+    useEffect(() => {
+        if (toastMessage !== "") {
+            ToastAndroid.show(toastMessage, ToastAndroid.SHORT);
+            setToastMessage("");
+        }
+    }, [toastMessage]);
 
 return (
     <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
