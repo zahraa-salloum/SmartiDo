@@ -18,13 +18,23 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const handleName=(text: React.SetStateAction<string>)=>{
+        setName(text)
+    }
+    const handleEmail=(text: React.SetStateAction<string>)=>{
+        setEmail(text)
+    }
+    const handlePassword=(text: React.SetStateAction<string>)=>{
+        setPassword(text)
+    }
+
 return (
     <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>SIGN UP</Text>
-            <LabelledText label='Name' placeholder='John Smith'/>
-            <LabelledText label='Email' placeholder='john@gmail.com'/>
-            <LabelledText label='Password' placeholder='******'/>
+            <LabelledText label='Name' placeholder='John Smith' onChangeText={handleName}/>
+            <LabelledText label='Email' placeholder='john@gmail.com' onChangeText={handleEmail}/>
+            <LabelledText label='Password' placeholder='******' onChangeText={handlePassword}/>
             <SeventyWidthButton buttonprops={{
             title: "SIGN UP",
             onPress: () => {
