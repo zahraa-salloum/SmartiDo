@@ -8,6 +8,7 @@ import { login } from '../../redux/slices/authSlice'
 import LabelledText from '../../components/LabelledText'
 import TextButton from '../../components/TextButton'
 import axios from "axios"
+import * as SecureStore from 'expo-secure-store';
 
 
 interface LoginScreenProps  {}
@@ -35,10 +36,11 @@ const handleSubmit=()=>{
         "password": password
       };
 
-axios.post("http://192.168.1.105:8000/api/v0.0.1/auth/login",data).then((res) => {
-  console.log(res.data)
+axios.post("http://192.168.1.105:8000/api/v0.0.1/auth/login",data).then(async (res) => {
   if(res.data.status == "success"){
-
+    await SecureStore.setItemAsync('token', res.data.authorisation.token);
+    const token = await SecureStore.getItemAsync('token');
+        console.log(token);
   dispatch(login());
 }
 
