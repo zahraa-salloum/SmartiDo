@@ -24,6 +24,12 @@ return (
             <LabelledText label='Password' placeholder='******'/>
             <SeventyWidthButton buttonprops={{
             title: "LOG IN",
+            onPress: () => {
+                // api login
+                // wait for a respponse
+                // 200 => dispatch(login())
+                dispatch(login())
+              }
             }} />
             <TextButton buttonprops={{
             title: "New User?",

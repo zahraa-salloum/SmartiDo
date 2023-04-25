@@ -6,6 +6,7 @@ import { ImageBackground, SafeAreaView, Text } from 'react-native'
 import LabelledText from '../../components/LabelledText'
 import SeventyWidthButton from '../../components/SeventyWidthButton'
 import TextButton from '../../components/TextButton'
+import { login } from '../../redux/slices/authSlice'
 
 interface SignupScreenProps  {}
 
@@ -22,6 +23,12 @@ return (
             <LabelledText label='Password' placeholder='******'/>
             <SeventyWidthButton buttonprops={{
             title: "SIGN UP",
+            onPress: () => {
+                // api login
+                // wait for a respponse
+                // 200 => dispatch(login())
+                dispatch(login())
+              }
             }} />
             <TextButton buttonprops={{
             title: "Already a User?",
