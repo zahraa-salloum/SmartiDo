@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
@@ -11,8 +11,12 @@ import { login } from '../../redux/slices/authSlice'
 interface SignupScreenProps  {}
 
 const SignupScreen: FC<SignupScreenProps> = (props) => {
-const navigation = useNavigation()
-const dispatch = useDispatch()
+    const navigation = useNavigation()
+    const dispatch = useDispatch()
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
 return (
     <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>

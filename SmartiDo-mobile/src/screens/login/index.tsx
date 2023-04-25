@@ -21,10 +21,10 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleEmail=(text)=>{
+    const handleEmail=(text: React.SetStateAction<string>)=>{
         setEmail(text)
     }
-    const handlePassword=(text)=>{
+    const handlePassword=(text: React.SetStateAction<string>)=>{
         setPassword(text)
     }
 
