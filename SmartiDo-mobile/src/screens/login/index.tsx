@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import SeventyWidthButton from '../../components/SeventyWidthButton'
 import { login } from '../../redux/slices/authSlice'
 import LabelledText from '../../components/LabelledText'
+import TextButton from '../../components/TextButton'
 
 
 interface LoginScreenProps  {}
@@ -23,7 +24,11 @@ return (
             <LabelledText label='Password' placeholder='******'/>
             <SeventyWidthButton buttonprops={{
             title: "LOG IN",
-      }} />
+            }} />
+            <TextButton buttonprops={{
+            title: "New User?",
+            onPress: () => navigation.navigate("Signup"),
+            }}/>
         </SafeAreaView>
     </ImageBackground>
 
