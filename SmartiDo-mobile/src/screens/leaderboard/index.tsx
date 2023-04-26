@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 
 
-interface CalendarScreenProps  {}
+interface LeaderboardScreenProps  {}
 
-const CalendarScreen: FC<CalendarScreenProps> = (props) => {
+const LeaderboardScreen: FC<LeaderboardScreenProps> = (props) => {
     return (
     )
 }
 
-export default CalendarScreen
+export default LeaderboardScreen
