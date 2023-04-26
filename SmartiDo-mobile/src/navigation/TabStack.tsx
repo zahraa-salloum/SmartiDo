@@ -4,6 +4,8 @@ import TasksScreen from "../screens/tasks";
 import { Image } from "react-native";
 import { colors } from "../constants/palette";
 import LeaderboardScreen from "../screens/leaderboard";
+import CalendarScreen from "../screens/calendar";
+import SettingsScreen from "../screens/settings";
 
 const TabStack = () => {
     
@@ -68,14 +70,14 @@ const TabStack = () => {
                 source={
                   focused
                     ? require("../../assets/calendar_active.png")
-                    : require("../../assets/calendar_active.png")
+                    : require("../../assets/calendar_inactive.png")
                 }
                 style={{ width: 40, height: 40 }}
               />
             ),
           }}
           name="Calendar"
-          component={LeaderboardScreen}
+          component={CalendarScreen}
         />
       <Tabs.Screen
         options={{
@@ -93,6 +95,23 @@ const TabStack = () => {
           }}
           name="Tasks"
           component={TasksScreen}
+        />
+      <Tabs.Screen
+        options={{
+            title: "Settings",
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={
+                  focused
+                    ? require("../../assets/settings_active.png")
+                    : require("../../assets/settings_inactive.png")
+                }
+                style={{ width: 40, height: 40 }}
+              />
+            ),
+          }}
+          name="Settings"
+          component={SettingsScreen}
         />
     </Tabs.Navigator>
   );
