@@ -10,6 +10,7 @@ const LeaderboardScreen: FC<LeaderboardScreenProps> = (props) => {
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
                 <Record image={require('../../../assets/student.png')} name='Ali Ali' score={25}/>
+                <Record image={require('../../../assets/student.png')} name='Mohammad Mohammad' score={11150}/>
             </SafeAreaView>
         </ImageBackground>
     )

@@ -17,13 +17,17 @@ export default StyleSheet.create({
         borderRadius: 25,
         borderColor: colors.light_purple,
         borderWidth: 1,
+        marginRight: 10,
+        marginLeft: 10,
     },
     name:{
         color: colors.purple, 
         padding: 10,
         fontSize: 20,
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'left',
+        flex:1,
+        flexWrap: 'wrap',
         },
 
     score: {
