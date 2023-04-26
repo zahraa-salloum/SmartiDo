@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-
+import styles from './styles'
 
 interface SettingsScreenProps  {}
 
