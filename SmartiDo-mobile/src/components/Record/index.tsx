@@ -10,8 +10,8 @@ interface RecordProps  {
 
 const Record: FC<RecordProps> = (props) => {
 return (
-    <View>
-        {!!props.image ? <Image source={props.image}></Image> : null}
+    <View style={styles.container}>
+        {!!props.image ? <Image style={styles.image} source={props.image}></Image> : null}
         {!!props.name ? <Text style={styles.name}>{props.name}</Text> : null}
         {!!props.score ? <Text style={styles.score}>{props.score}</Text> : null}
     </View>
