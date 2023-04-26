@@ -9,6 +9,7 @@ import LabelledText from '../../components/LabelledText'
 import TextButton from '../../components/TextButton'
 import axios from "axios"
 import * as SecureStore from 'expo-secure-store';
+import { numbers } from '../../constants/palette'
 
 
 interface LoginScreenProps  {}
@@ -40,7 +41,7 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
         "password": password
         };
 
-        axios.post("http://192.168.1.105:8000/api/v0.0.1/auth/login",data).then(async (res) => {
+        axios.post("http://"+numbers.server+"/api/v0.0.1/auth/login",data).then(async (res) => {
             if(res.data.status == "success"){
                 await SecureStore.setItemAsync('token', res.data.authorisation.token);
                 dispatch(login());

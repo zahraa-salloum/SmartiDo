@@ -22,8 +22,13 @@ export const shadows = {
         blur: 20
     }
 }
+export const numbers = {
+    server:'192.168.1.105:8000',
+
+}
 
 export default {
     colors,
-    shadows
+    shadows,
+    numbers
 }
