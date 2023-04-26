@@ -96,7 +96,7 @@ class PlanController extends Controller
                     'updated_at' => now()
                 ]
             ];
-            DB::table('plans')->insert($plans_review_exam);
+            Plan::insert($plans_review_exam);
         }
 
         $exams_AI = Exam::where('user_id', $id)
@@ -235,7 +235,7 @@ class PlanController extends Controller
                         'updated_at' => now()
                     ]
                 ];
-                DB::table('plans')->insert($plans_review_exam);
+                Plan::insert($plans_review_exam);
             }
 
             $times = Time::where('user_id', $id)->first();
