@@ -9,6 +9,7 @@ export default StyleSheet.create({
       },
     container: {
       flex: 1,
+      gap: 3,
       alignItems: "center",
       justifyContent: 'flex-start',
       marginTop: 30,
