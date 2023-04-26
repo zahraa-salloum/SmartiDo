@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors } from '../../constants/palette'
+import { colors } from '../../constants/constants'
 
 export default StyleSheet.create({
     button:{ 

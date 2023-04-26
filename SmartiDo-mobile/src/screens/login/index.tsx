@@ -9,7 +9,7 @@ import LabelledText from '../../components/LabelledText'
 import TextButton from '../../components/TextButton'
 import axios from "axios"
 import * as SecureStore from 'expo-secure-store';
-import { numbers } from '../../constants/palette'
+import { numbers } from '../../constants/constants'
 
 
 interface LoginScreenProps  {}

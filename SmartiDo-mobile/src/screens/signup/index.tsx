@@ -9,7 +9,7 @@ import TextButton from '../../components/TextButton'
 import { login } from '../../redux/slices/authSlice'
 import axios from "axios"
 import * as SecureStore from 'expo-secure-store'
-import { numbers } from '../../constants/palette'
+import { numbers } from '../../constants/constants'
 
 interface SignupScreenProps  {}
 

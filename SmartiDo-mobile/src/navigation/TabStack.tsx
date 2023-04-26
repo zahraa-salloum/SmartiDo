@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import PlansScreen from "../screens/plans";
 import TasksScreen from "../screens/tasks";
 import { Image } from "react-native";
-import { colors } from "../constants/palette";
+import { colors } from "../constants/constants";
 import LeaderboardScreen from "../screens/leaderboard";
 import CalendarScreen from "../screens/calendar";
 import SettingsScreen from "../screens/settings";

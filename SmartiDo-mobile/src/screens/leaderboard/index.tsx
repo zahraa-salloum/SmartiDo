@@ -4,6 +4,7 @@ import styles from './styles'
 import Record from '../../components/Record'
 import axios from "axios"
 import * as SecureStore from 'expo-secure-store'
+import { numbers } from '../../constants/constants'
 
 interface LeaderboardScreenProps  {}
 
@@ -14,7 +15,7 @@ const LeaderboardScreen: FC<LeaderboardScreenProps> = (props) => {
         
         const fetchRecords  = async () => {
             const token = await SecureStore.getItemAsync('token');
-            axios.get('http://192.168.1.105:8000/api/v0.0.1/get_records', {
+            axios.get("http://"+ numbers.server +"/api/v0.0.1/get_records", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -26,7 +27,7 @@ const LeaderboardScreen: FC<LeaderboardScreenProps> = (props) => {
 
             const intervalId = setInterval(() => {
                 fetchRecords();
-            }, 10000);
+            }, 100000);
     
             return () => clearInterval(intervalId);
       }, []);
