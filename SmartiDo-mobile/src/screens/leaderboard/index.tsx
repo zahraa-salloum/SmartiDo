@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { FlatList, ImageBackground, SafeAreaView } from 'react-native'
+import { FlatList, ImageBackground, SafeAreaView, View } from 'react-native'
 import styles from './styles'
 import Record from '../../components/Record'
 import axios from "axios"
@@ -23,16 +23,25 @@ const LeaderboardScreen: FC<LeaderboardScreenProps> = (props) => {
                 })
             }
             fetchRecords();
+
+            const intervalId = setInterval(() => {
+                fetchRecords();
+            }, 10000);
+    
+            return () => clearInterval(intervalId);
       }, []);
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
             <FlatList
+                style={styles.flatlist}
                 data={records}
                 renderItem={({ item }) => (
                     <Record image={item.picture} name={item.name} score={item.score} />
                 )}
                 keyExtractor={(item, index) => index.toString()}
+                contentContainerStyle={{ paddingBottom: 30}}
+                ItemSeparatorComponent={() => <View style={{height: 4}} />}
             />
             </SafeAreaView>
         </ImageBackground>

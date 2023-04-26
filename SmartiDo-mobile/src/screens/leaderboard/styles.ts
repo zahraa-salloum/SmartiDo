@@ -7,9 +7,13 @@ export default StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
       },
+      flatlist: {
+        flex: 1,
+        width: "100%",
+        
+      },
     container: {
       flex: 1,
-      gap: 3,
       alignItems: "center",
       justifyContent: 'flex-start',
       marginTop: 30,
