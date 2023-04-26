@@ -62,6 +62,23 @@ const TabStack = () => {
         />
       <Tabs.Screen
         options={{
+            title: "Calendar",
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={
+                  focused
+                    ? require("../../assets/calendar_active.png")
+                    : require("../../assets/calendar_active.png")
+                }
+                style={{ width: 40, height: 40 }}
+              />
+            ),
+          }}
+          name="Calendar"
+          component={LeaderboardScreen}
+        />
+      <Tabs.Screen
+        options={{
             title: "Tasks",
             tabBarIcon: ({ focused }) => (
               <Image
