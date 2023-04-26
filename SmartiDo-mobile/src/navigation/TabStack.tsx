@@ -3,6 +3,7 @@ import PlansScreen from "../screens/plans";
 import TasksScreen from "../screens/tasks";
 import { Image } from "react-native";
 import { colors } from "../constants/palette";
+import LeaderboardScreen from "../screens/leaderboard";
 
 const TabStack = () => {
     
@@ -25,6 +26,23 @@ const TabStack = () => {
         tabBarActiveTintColor: colors.dark_purple,
         tabBarInactiveTintColor: colors.purple,
         }}>
+      <Tabs.Screen
+        options={{
+            title: "Leaderboard",
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={
+                  focused
+                    ? require("../../assets/leaderboard_active.png")
+                    : require("../../assets/leaderboard_inactive.png")
+                }
+                style={{ width: 40, height: 40 }}
+              />
+            ),
+          }}
+          name="Leaderboard"
+          component={LeaderboardScreen}
+        />
       <Tabs.Screen
         options={{
             title: "Plans",
