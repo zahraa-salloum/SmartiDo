@@ -12,5 +12,14 @@ export default StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       width: "90%",
-    }
+    },
+    scrollView:{
+        flex:1,
+        width: "100%",
+    },
+    scrollViewContent: {
+        flexGrow: 1,
+        alignItems: 'center',
+        paddingTop: 20,
+      },
 })

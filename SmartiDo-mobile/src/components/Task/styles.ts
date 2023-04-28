@@ -11,6 +11,7 @@ export default StyleSheet.create({
         backgroundColor: colors.light_purple,
         marginBottom: 10,
         borderRadius: 18,
+        height: 75,
       },
     checkbox:{
         marginLeft:20,

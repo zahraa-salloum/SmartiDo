@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { ImageBackground, SafeAreaView } from 'react-native'
+import { ImageBackground, SafeAreaView, ScrollView } from 'react-native'
 import styles from './styles'
 import EmptyState from '../../components/EmptyState'
 import RoundButton from '../../components/RoundButton'
@@ -30,9 +30,11 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
 return (
     <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
-        {todos.map((todo) => (
-          <Task key={todo.id} text={todo.to_do} />
-        ))}
+            <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
+                {todos.map((todo) => (
+                    <Task key={todo.id} text={todo.to_do} />
+                ))}
+            </ScrollView>
             {/* <EmptyState image={require('../../../assets/tasks.png')} title='No Tasks Yet' description='Tap + to create' /> */}
             <RoundButton buttonprops={{
             title: "+",
