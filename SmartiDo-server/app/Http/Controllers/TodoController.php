@@ -10,7 +10,7 @@ class TodoController extends Controller
     function getAllTodos(){
         try{
             $id = Auth::id();
-            $todos = Todo::where('user_id',$id)->get();
+            $todos = Todo::where('user_id',$id)->where('done',0)->get();
     
             return response()->json([
                 'status' => 'success',

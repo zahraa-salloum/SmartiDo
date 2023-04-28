@@ -28,7 +28,29 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
             fetchTodos();
       }, []);
 
-      const renderTasks = () => {
+      const handleDone = async (todo: { id: any }) => {
+        const token = await SecureStore.getItemAsync('token');
+      
+        const data = {
+          id: todo.id,
+          done: 1,
+        };
+      
+        axios.post('http://' + numbers.server + '/api/v0.0.1/update_todo', data, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            setTodos(prevTodos => prevTodos.filter(t => t.id !== todo.id));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+
+    const renderTasks = () => {
         if (todos.length === 0) {
           return (
             <EmptyState
@@ -41,7 +63,7 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
           return (
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
               {todos.map((todo) => (
-                <Task key={todo.id} text={todo.to_do} />
+                <Task key={todo.id} text={todo.to_do} onPress={() => handleDone(todo)} />
               ))}
             </ScrollView>
           );
