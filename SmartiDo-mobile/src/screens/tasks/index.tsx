@@ -11,8 +11,8 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
 return (
     <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
-            <Task />
-            <Task />
+            <Task text='Buy Chips'/>
+            <Task text='Go to the mall' />
             {/* <EmptyState image={require('../../../assets/tasks.png')} title='No Tasks Yet' description='Tap + to create' /> */}
             <RoundButton buttonprops={{
             title: "+",
