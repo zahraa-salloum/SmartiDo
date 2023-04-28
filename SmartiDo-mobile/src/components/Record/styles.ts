@@ -10,6 +10,7 @@ export default StyleSheet.create({
         width: "98%",
         borderColor: colors.dark_purple,
         borderWidth: 2,
+        height:75,
       },
       image: {
         width: 50,
