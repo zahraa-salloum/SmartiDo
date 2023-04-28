@@ -20,5 +20,11 @@ export default StyleSheet.create({
     },
     scrollViewContent:{
         paddingBottom: 30,
-    }
+    },
+    dialogInput:{
+        backgroundColor:colors.light_purple,
+        borderRadius: 18,
+        color: colors.white,
+
+    },
 })

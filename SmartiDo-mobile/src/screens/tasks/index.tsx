@@ -120,7 +120,9 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
                 hintInput={'Enter Text'}
                 submitInput={handleSubmitTask}
                 closeDialog={handleCloseDialog}
-            />
+                dialogStyle={styles.dialogInput}
+                submitText={'add task'}
+                />
             </SafeAreaView>
         </ImageBackground>
     )

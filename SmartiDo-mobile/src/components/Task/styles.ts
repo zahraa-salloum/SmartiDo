@@ -20,5 +20,6 @@ export default StyleSheet.create({
     text:{
         color: colors.dark_purple,
         fontSize: 16,
+        marginRight: 47,
     },
 })
