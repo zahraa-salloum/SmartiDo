@@ -12,8 +12,8 @@ interface TaskProps  {
 
 const Task: FC<TaskProps> = (props) => {
     return (
-        <View style={styles.container} key={props.key}>
-            <BouncyCheckbox style={styles.checkbox} fillColor={colors.dark_purple} textStyle={styles.text} size={28} text={props.text} onPress={props.onPress} />
+        <View style={styles.container}>
+            <BouncyCheckbox key={props.key} style={styles.checkbox} fillColor={colors.dark_purple} textStyle={styles.text} size={28} text={props.text} onPress={props.onPress} />
         </View>
     ) 
 }

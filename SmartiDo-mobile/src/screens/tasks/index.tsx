@@ -27,15 +27,30 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
             }
             fetchTodos();
       }, []);
+
+      const renderTasks = () => {
+        if (todos.length === 0) {
+          return (
+            <EmptyState
+              image={require('../../../assets/tasks.png')}
+              title="No Tasks Yet"
+              description="Tap + to create"
+            />
+          );
+        } else {
+          return (
+            <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
+              {todos.map((todo) => (
+                <Task key={todo.id} text={todo.to_do} />
+              ))}
+            </ScrollView>
+          );
+        }
+      };
 return (
     <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
-                {todos.map((todo) => (
-                    <Task key={todo.id} text={todo.to_do} />
-                ))}
-            </ScrollView>
-            {/* <EmptyState image={require('../../../assets/tasks.png')} title='No Tasks Yet' description='Tap + to create' /> */}
+            {renderTasks()}
             <RoundButton buttonprops={{
             title: "+",
             }} />
