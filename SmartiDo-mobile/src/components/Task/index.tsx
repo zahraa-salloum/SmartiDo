@@ -7,11 +7,12 @@ import { colors } from '../../constants/constants'
 interface TaskProps  {
     text?: string,
     onPress?: any,
+    key: string;
 }
 
 const Task: FC<TaskProps> = (props) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.container} key={props.key}>
             <BouncyCheckbox style={styles.checkbox} fillColor={colors.dark_purple} textStyle={styles.text} size={28} text={props.text} onPress={props.onPress} />
         </View>
     ) 
