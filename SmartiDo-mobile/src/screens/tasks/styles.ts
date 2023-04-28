@@ -24,7 +24,5 @@ export default StyleSheet.create({
     dialogInput:{
         backgroundColor:colors.light_purple,
         borderRadius: 18,
-        color: colors.white,
-
     },
 })
