@@ -11,12 +11,15 @@ import axios from 'axios'
 import { numbers } from '../../constants/constants'
 import * as SecureStore from 'expo-secure-store'
 import Bio from '../../components/Bio'
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 interface ProfileScreenProps  {}
 
 const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     const [base64String, setBase64String] = useState('');
     const [bio, setBio] = useState("");
+    const [date, setDate] = useState(new Date());
+    const [showDatePicker, setShowDatePicker] = useState(false);
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -36,6 +39,16 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
         setBio(text)
     }
 
+    const handleDateChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShowDatePicker(false);
+        setDate(currentDate);
+    }
+    
+    const handleShowDatePicker = () => {
+        setShowDatePicker(true);
+    }
+
     const handleSave = async () => {
         const token = await SecureStore.getItemAsync('token');
         // console.log(base64String)
@@ -43,7 +56,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
             picture: base64String,
             bio: bio,
             gender: "female",
-            dob: "1996-10-30",
+            dob: date.toISOString().substring(0, 10),
         };
         
         axios.post('http://' + numbers.server + '/api/v0.0.1/add_profile', data, {
@@ -68,6 +81,19 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 onPress: pickImage,
                 }}/>
                 <Bio label={'Bio'} placeholder={'I am eager to study with SmartiDo'} onChangeText={handleBio} />
+                <TextButton buttonprops={{
+                title: "Date of Birth",
+                onPress: handleShowDatePicker,
+                }}/>
+                {/* <Button title="Select Date" onPress={handleShowDatePicker} /> */}
+                {showDatePicker && (
+                <DateTimePicker
+                value={date}
+                mode="date"
+                display="spinner"
+                onChange={handleDateChange}
+                />
+                )}
                 <SeventyWidthButton buttonprops={{
                 title: "Save",
                 onPress: handleSave,

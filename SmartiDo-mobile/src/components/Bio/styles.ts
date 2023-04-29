@@ -18,5 +18,6 @@ export default StyleSheet.create({
         padding: 10,
         fontSize: 16,
         textAlignVertical: 'top',
+        marginBottom: 40,
     },
 })
