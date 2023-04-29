@@ -8,7 +8,7 @@ interface ProfileScreenProps  {}
 
 const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     return (
-        <ImageBackground source={require('../../../assets/signup.png')} style={styles.containerBackground}>
+        <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
             </SafeAreaView>
         </ImageBackground>

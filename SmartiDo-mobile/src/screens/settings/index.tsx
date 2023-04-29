@@ -8,6 +8,7 @@ import { logout } from '../../redux/slices/authSlice'
 import axios from 'axios';
 import { numbers } from '../../constants/constants'
 import * as SecureStore from 'expo-secure-store'
+import { useNavigation } from '@react-navigation/native';
 
 interface SettingsScreenProps  {}
 
@@ -16,6 +17,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
     const [visibleAccount, setVisibleAccount] = useState(false);
     const [visibleLogout, setVisibleLogout] = useState(false);
     const dispatch = useDispatch()
+    const navigation = useNavigation()
 
     const showDialogAccount = () => {
         setVisibleAccount(true);
@@ -81,7 +83,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
             <SafeAreaView style={styles.container}>
                 <SettingsButton  buttonprops={{
                 title: "Profile",
-                
+                onPress: () => navigation.navigate("Profile"),
                 }}/>
 
                 <SettingsButton  buttonprops={{
