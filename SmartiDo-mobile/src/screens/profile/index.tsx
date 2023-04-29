@@ -10,6 +10,7 @@ import ImageProfile from '../../components/ImageProfile'
 import axios from 'axios'
 import { numbers } from '../../constants/constants'
 import * as SecureStore from 'expo-secure-store'
+import Bio from '../../components/Bio'
 
 interface ProfileScreenProps  {}
 
@@ -61,6 +62,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 title: "Upload Image",
                 onPress: pickImage,
                 }}/>
+                <Bio label={'Bio'} placeholder={'I am eager to study with SmartiDo'} onChangeText={undefined} />
                 <SeventyWidthButton buttonprops={{
                 title: "Save",
                 onPress: handleSave,
