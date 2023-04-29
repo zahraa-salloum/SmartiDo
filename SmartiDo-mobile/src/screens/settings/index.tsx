@@ -88,7 +88,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 title: "Delete Plan",
                 onPress: showDialogPlan,
                 }}/>
-                <Dialog.Container visible={visiblePlan}>
+                <Dialog.Container visible={visiblePlan} contentStyle={styles.dialog}>
                     <Dialog.Title>Delete Plan</Dialog.Title>
                     <Dialog.Description>
                         Do you want to delete this plan? You cannot undo this action.
@@ -101,7 +101,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 title: "Logout",
                 onPress: showDialogLogout,
                 }}/>
-                <Dialog.Container visible={visibleLogout}>
+                <Dialog.Container visible={visibleLogout} contentStyle={styles.dialog}>
                     <Dialog.Title>Logout</Dialog.Title>
                     <Dialog.Description>
                         Are you sure you want to logout?
@@ -114,7 +114,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 title: "Delete Account",
                 onPress: showDialogAccount,
                 }}/>
-                <Dialog.Container visible={visibleAccount}>
+                <Dialog.Container visible={visibleAccount} contentStyle={styles.dialog}>
                     <Dialog.Title>Delete Account</Dialog.Title>
                     <Dialog.Description>
                         Do you want to delete this account? You cannot undo this action.

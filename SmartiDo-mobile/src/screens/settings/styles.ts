@@ -13,5 +13,8 @@ export default StyleSheet.create({
       justifyContent: "flex-start",
       width: "90%",
       marginTop: 30,
-    }
+    },
+    dialog:{
+        backgroundColor: colors.light_purple,
+    },
 })
