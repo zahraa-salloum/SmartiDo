@@ -10,7 +10,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
                 <SettingsButton  buttonprops={{
-                title: "New User?",
+                title: "Profile",
                 
                 }}/>
             </SafeAreaView>
