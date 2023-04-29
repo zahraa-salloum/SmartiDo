@@ -10,6 +10,9 @@ interface SettingsButtonProps  {
 const SettingsButton: FC<SettingsButtonProps> = (props) => {
     return (
     <>
+        <TouchableOpacity  onPress={props.buttonprops.onPress} style={styles.button}>
+            <Text style={styles.text}> {props.buttonprops.title} </Text>
+        </TouchableOpacity>
     </>
     )
 }
