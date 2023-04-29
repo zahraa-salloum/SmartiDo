@@ -3,6 +3,8 @@ import { ImageBackground, SafeAreaView } from 'react-native'
 import styles from './styles'
 import SettingsButton from '../../components/SettingsButton'
 import Dialog from "react-native-dialog";
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/slices/authSlice'
 
 interface SettingsScreenProps  {}
 
@@ -10,6 +12,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
     const [visiblePlan, setVisiblePlan] = useState(false);
     const [visibleAccount, setVisibleAccount] = useState(false);
     const [visibleLogout, setVisibleLogout] = useState(false);
+    const dispatch = useDispatch()
 
     const showDialogAccount = () => {
         setVisibleAccount(true);
@@ -41,7 +44,8 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
     };
 
     const handleLogout = () => {
-        
+        dispatch(logout());
+
         setVisibleLogout(false);
     };
 
