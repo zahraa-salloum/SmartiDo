@@ -10,6 +10,9 @@ interface RecordProps  {
 
 const Record: FC<RecordProps> = (props) => {
     const defaultImage = require('../../../assets/student.png')
+    if(props.image!= null){
+        props.image = {uri: `data:image/png;base64,${props.image}`};
+    }
 return (
     <View style={styles.container}>
         <Image style={styles.image} source={props.image ?? defaultImage} />

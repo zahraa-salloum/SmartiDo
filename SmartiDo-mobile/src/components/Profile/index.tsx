@@ -4,11 +4,13 @@ import styles from './styles'
 
 
 interface ProfileProps  {
+    image: ImageSourcePropType,
 }
 
 const Profile: FC<ProfileProps> = (props) => {
     return (
         <View style={styles.container}>
+            <Image style={styles.image} source={props.image} />
         </View>
     )
 }

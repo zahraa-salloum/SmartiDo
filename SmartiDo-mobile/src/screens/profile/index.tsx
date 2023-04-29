@@ -14,7 +14,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
             <SafeAreaView style={styles.container}>
                 <Profile />
                 <SeventyWidthButton buttonprops={{
-                title: "Submit",
+                title: "Save",
                 
                 }} />
             </SafeAreaView>
