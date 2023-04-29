@@ -1,18 +1,18 @@
-import React, { FC, useState} from 'react'
-import { useNavigation } from '@react-navigation/native'
-import styles from './styles'
-import { Button, ImageBackground, SafeAreaView, ToastAndroid } from 'react-native'
-import SeventyWidthButton from '../../components/SeventyWidthButton'
+import React, { FC, useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import styles from './styles';
+import { Button, ImageBackground, SafeAreaView, ToastAndroid } from 'react-native';
+import SeventyWidthButton from '../../components/SeventyWidthButton';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
-import TextButton from '../../components/TextButton'
-import ImageProfile from '../../components/ImageProfile'
-import axios from 'axios'
-import { numbers } from '../../constants/constants'
-import * as SecureStore from 'expo-secure-store'
-import Bio from '../../components/Bio'
+import TextButton from '../../components/TextButton';
+import ImageProfile from '../../components/ImageProfile';
+import axios from 'axios';
+import { numbers } from '../../constants/constants';
+import * as SecureStore from 'expo-secure-store';
+import Bio from '../../components/Bio';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import GenderPicker from '../../components/GenderPick'
+import GenderPicker from '../../components/GenderPick';
 
 interface ProfileScreenProps  {}
 
@@ -22,10 +22,27 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     const [date, setDate] = useState(new Date());
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [gender, setGender] = useState('');
+    const [profile, setProfile] = useState(null);
 
-const handleGenderChange = (value: string) => {
-setGender(value);
-};
+    useEffect(() => {
+        const getProfile = async () => {
+            const token = await SecureStore.getItemAsync("token");
+            const response = await axios.get("http://" + numbers.server + "/api/v0.0.1/get_profile",{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setProfile(response.data.profile);
+            setBase64String(response.data.profile.picture)
+            setBio(response.data.profile.bio)
+            setGender(response.data.profile.gender)
+        }
+        getProfile();
+    }, []);
+
+    const handleGenderChange = (value: string) => {
+        setGender(value);
+    }
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -39,10 +56,10 @@ setGender(value);
             let image = await FileSystem.readAsStringAsync(result.assets[0].uri, {encoding: FileSystem.EncodingType.Base64,});
             setBase64String(image);
         }
-      };
+    }
 
-    const handleBio=(text: React.SetStateAction<string>)=>{
-        setBio(text)
+    const handleBio=(text: string)=>{
+        setBio(text);
     }
 
     const handleDateChange = (event, selectedDate) => {
@@ -57,7 +74,7 @@ setGender(value);
 
     const handleSave = async () => {
         const token = await SecureStore.getItemAsync('token');
-        console.log(gender);
+        
         const data = {
             picture: base64String,
             bio: bio,
@@ -75,8 +92,8 @@ setGender(value);
         })
         .catch(error => {
           console.log(error);
-        });
-    };
+        })
+    }
 
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
@@ -86,12 +103,14 @@ setGender(value);
                 title: "Upload Image",
                 onPress: pickImage,
                 }}/>
-                <Bio label={'Bio'} placeholder={'I am eager to study with SmartiDo'} onChangeText={handleBio} />
+
+                <Bio label={'Bio'} value={bio} placeholder={'I am eager to study with SmartiDo'} onChangeText={handleBio} />
+                
                 <TextButton buttonprops={{
                 title: "Date of Birth",
                 onPress: handleShowDatePicker,
                 }}/>
-                {/* <Button title="Select Date" onPress={handleShowDatePicker} /> */}
+
                 {showDatePicker && (
                 <DateTimePicker
                 value={date}
@@ -100,7 +119,9 @@ setGender(value);
                 onChange={handleDateChange}
                 />
                 )}
+
                 <GenderPicker label="Gender" value={gender} onValueChange={handleGenderChange} />
+                
                 <SeventyWidthButton buttonprops={{
                 title: "Save",
                 onPress: handleSave,
