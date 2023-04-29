@@ -3,16 +3,16 @@ import React, { FC } from 'react'
 import styles from './styles'
 
 
-interface ProfileProps  {
+interface ImageProfileProps  {
     image: ImageSourcePropType,
 }
 
-const Profile: FC<ProfileProps> = (props) => {
+const ImageProfile: FC<ImageProfileProps> = (props) => {
     return (
-        <View style={styles.container}>
+        <View>
             <Image style={styles.image} source={props.image} />
         </View>
     )
 }
 
-export default Profile
+export default ImageProfile

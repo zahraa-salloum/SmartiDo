@@ -2,11 +2,11 @@ import React, { FC, useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import styles from './styles'
 import { Button, ImageBackground, SafeAreaView } from 'react-native'
-import Profile from '../../components/Profile'
 import SeventyWidthButton from '../../components/SeventyWidthButton'
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 import TextButton from '../../components/TextButton'
+import ImageProfile from '../../components/ImageProfile'
 
 interface ProfileScreenProps  {}
 
@@ -30,7 +30,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
-                <Profile image={{uri: `data:image/png;base64,${base64String}`}} />
+                <ImageProfile image={{uri: `data:image/png;base64,${base64String}`}} />
                 <TextButton buttonprops={{
                 title: "Upload Image",
                 onPress: pickImage,
