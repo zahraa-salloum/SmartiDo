@@ -1,21 +1,21 @@
-import React, { FC, useState, useEffect } from 'react'
-import styles from './styles'
-import { useNavigation } from '@react-navigation/native'
-import { useDispatch } from 'react-redux'
-import { ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native'
-import LabelledText from '../../components/LabelledText'
-import SeventyWidthButton from '../../components/SeventyWidthButton'
-import TextButton from '../../components/TextButton'
-import { login } from '../../redux/slices/authSlice'
-import axios from "axios"
-import * as SecureStore from 'expo-secure-store'
-import { numbers } from '../../constants/constants'
+import React, { FC, useState, useEffect } from 'react';
+import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native';
+import LabelledText from '../../components/LabelledText';
+import SeventyWidthButton from '../../components/SeventyWidthButton';
+import TextButton from '../../components/TextButton';
+import { login } from '../../redux/slices/authSlice';
+import axios from "axios";
+import * as SecureStore from 'expo-secure-store';
+import { numbers } from '../../constants/constants';
 
 interface SignupScreenProps  {}
 
 const SignupScreen: FC<SignupScreenProps> = (props) => {
-    const navigation = useNavigation()
-    const dispatch = useDispatch()
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

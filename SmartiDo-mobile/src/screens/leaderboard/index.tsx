@@ -1,10 +1,10 @@
-import React, { FC, useState, useEffect } from 'react'
-import { FlatList, ImageBackground, SafeAreaView, View } from 'react-native'
-import styles from './styles'
-import Record from '../../components/Record'
-import axios from "axios"
-import * as SecureStore from 'expo-secure-store'
-import { numbers } from '../../constants/constants'
+import React, { FC, useState, useEffect } from 'react';
+import { FlatList, ImageBackground, SafeAreaView, View } from 'react-native';
+import styles from './styles';
+import Record from '../../components/Record';
+import axios from "axios";
+import * as SecureStore from 'expo-secure-store';
+import { numbers } from '../../constants/constants';
 
 interface LeaderboardScreenProps  {}
 

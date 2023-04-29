@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
-import styles from './styles'
-import { ImageBackground, SafeAreaView } from 'react-native'
-import EmptyState from '../../components/EmptyState'
-import RoundButton from '../../components/RoundButton'
+import React, { FC } from 'react';
+import styles from './styles';
+import { ImageBackground, SafeAreaView } from 'react-native';
+import EmptyState from '../../components/EmptyState';
+import RoundButton from '../../components/RoundButton';
 
 interface PlansScreenProps  {}
 

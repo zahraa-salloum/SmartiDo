@@ -1,15 +1,15 @@
-import { ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native'
-import React, { FC, useState, useEffect } from 'react'
-import styles from './styles'
-import { useNavigation } from '@react-navigation/native'
-import { useDispatch } from 'react-redux'
-import SeventyWidthButton from '../../components/SeventyWidthButton'
-import { login } from '../../redux/slices/authSlice'
-import LabelledText from '../../components/LabelledText'
-import TextButton from '../../components/TextButton'
-import axios from "axios"
+import { ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native';
+import React, { FC, useState, useEffect } from 'react';
+import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import SeventyWidthButton from '../../components/SeventyWidthButton';
+import { login } from '../../redux/slices/authSlice';
+import LabelledText from '../../components/LabelledText';
+import TextButton from '../../components/TextButton';
+import axios from "axios";
 import * as SecureStore from 'expo-secure-store';
-import { numbers } from '../../constants/constants'
+import { numbers } from '../../constants/constants';
 
 
 interface LoginScreenProps  {}

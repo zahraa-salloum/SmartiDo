@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
-import { ImageBackground, SafeAreaView } from 'react-native'
-import styles from './styles'
+import React, { FC } from 'react';
+import { ImageBackground, SafeAreaView } from 'react-native';
+import styles from './styles';
 
 interface CalendarScreenProps  {}
 

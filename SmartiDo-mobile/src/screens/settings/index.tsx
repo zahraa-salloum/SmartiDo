@@ -1,13 +1,13 @@
-import React, { FC, useState } from 'react'
-import { ImageBackground, SafeAreaView, ToastAndroid } from 'react-native'
-import styles from './styles'
-import SettingsButton from '../../components/SettingsButton'
+import React, { FC, useState } from 'react';
+import { ImageBackground, SafeAreaView, ToastAndroid } from 'react-native';
+import styles from './styles';
+import SettingsButton from '../../components/SettingsButton';
 import Dialog from "react-native-dialog";
 import { useDispatch } from 'react-redux';
-import { logout } from '../../redux/slices/authSlice'
+import { logout } from '../../redux/slices/authSlice';
 import axios from 'axios';
-import { numbers } from '../../constants/constants'
-import * as SecureStore from 'expo-secure-store'
+import { numbers } from '../../constants/constants';
+import * as SecureStore from 'expo-secure-store';
 import { useNavigation } from '@react-navigation/native';
 
 interface SettingsScreenProps  {}
@@ -21,27 +21,27 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
 
     const showDialogAccount = () => {
         setVisibleAccount(true);
-    };
+    }
 
     const showDialogLogout = () => {
         setVisibleLogout(true);
-    };
+    }
 
     const showDialogPlan = () => {
         setVisiblePlan(true);
-    };
+    }
     
     const handleCancelAccount = () => {
         setVisibleAccount(false);
-    };
+    }
 
     const handleCancelLogout = () => {
         setVisibleLogout(false);
-    };
+    }
 
     const handleCancelPlan = () => {
         setVisiblePlan(false);
-    };
+    }
     
     const handleDeletePlan = async () => {
         const token = await SecureStore.getItemAsync('token');
@@ -55,13 +55,13 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
             }
         })
         setVisiblePlan(false);
-    };
+    }
 
     const handleLogout = () => {
         dispatch(logout());
 
         setVisibleLogout(false);
-    };
+    }
 
     const handleDeleteAccount = async () => {
         const token = await SecureStore.getItemAsync('token');
@@ -76,7 +76,7 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
             }
         })
         setVisibleAccount(false);
-    };
+    }
     
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>

@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useState } from 'react'
-import { Alert, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
-import styles from './styles'
-import EmptyState from '../../components/EmptyState'
-import RoundButton from '../../components/RoundButton'
-import Task from '../../components/Task'
-import axios from 'axios'
-import { numbers } from '../../constants/constants'
-import * as SecureStore from 'expo-secure-store'
-import DialogInput from 'react-native-dialog-input'
+import React, { FC, useEffect, useState } from 'react';
+import { Alert, ImageBackground, SafeAreaView, ScrollView } from 'react-native';
+import styles from './styles';
+import EmptyState from '../../components/EmptyState';
+import RoundButton from '../../components/RoundButton';
+import Task from '../../components/Task';
+import axios from 'axios';
+import { numbers } from '../../constants/constants';
+import * as SecureStore from 'expo-secure-store';
+import DialogInput from 'react-native-dialog-input';
 
 interface TasksScreenProps  {}
 
@@ -49,7 +49,7 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
           .catch((error) => {
             console.log(error);
           });
-    };
+    }
 
     const handleAddTask = async (task: string) => {
         const token = await SecureStore.getItemAsync('token');
@@ -69,20 +69,20 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
         .catch(error => {
           console.log(error);
         });
-    };
+    }
 
     const handleAddTaskPress = () => {
         setVisible(true);
-    };
+    }
     
     const handleSubmitTask = (task: string) => {
         handleAddTask(task);
         setVisible(false);
-    };
+    }
     
     const handleCloseDialog = () => {
         setVisible(false);
-    };
+    }
 
 
     const renderTasks = () => {
@@ -103,7 +103,7 @@ const TasksScreen: FC<TasksScreenProps> = (props) => {
                 </ScrollView>
             );
         }
-    };
+    }
 
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>

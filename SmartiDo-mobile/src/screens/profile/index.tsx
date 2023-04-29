@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState} from 'react';
-import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import { Button, ImageBackground, SafeAreaView, ToastAndroid } from 'react-native';
 import SeventyWidthButton from '../../components/SeventyWidthButton';
