@@ -9,9 +9,14 @@ interface SettingsScreenProps  {}
 const SettingsScreen: FC<SettingsScreenProps> = (props) => {
     const [visiblePlan, setVisiblePlan] = useState(false);
     const [visibleAccount, setVisibleAccount] = useState(false);
+    const [visibleLogout, setVisibleLogout] = useState(false);
 
     const showDialogAccount = () => {
         setVisibleAccount(true);
+    };
+
+    const showDialogLogout = () => {
+        setVisibleLogout(true);
     };
 
     const showDialogPlan = () => {
@@ -22,6 +27,10 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
         setVisibleAccount(false);
     };
 
+    const handleCancelLogout = () => {
+        setVisibleLogout(false);
+    };
+
     const handleCancelPlan = () => {
         setVisiblePlan(false);
     };
@@ -29,6 +38,11 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
     const handleDeletePlan = () => {
         
         setVisiblePlan(false);
+    };
+
+    const handleLogout = () => {
+        
+        setVisibleLogout(false);
     };
 
     const handleDeleteAccount = () => {
@@ -43,22 +57,33 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 title: "Profile",
                 
                 }}/>
+
                 <SettingsButton  buttonprops={{
                 title: "Delete Plan",
                 onPress: showDialogPlan,
                 }}/>
                 <Dialog.Container visible={visiblePlan}>
-                    <Dialog.Title>Plan Delete</Dialog.Title>
+                    <Dialog.Title>Delete Plan</Dialog.Title>
                     <Dialog.Description>
                         Do you want to delete this plan? You cannot undo this action.
                     </Dialog.Description>
                     <Dialog.Button label="Cancel" onPress={handleCancelPlan} />
                     <Dialog.Button label="Delete" onPress={handleDeletePlan} />
                 </Dialog.Container>
+
                 <SettingsButton  buttonprops={{
                 title: "Logout",
-                
+                onPress: showDialogLogout,
                 }}/>
+                <Dialog.Container visible={visibleLogout}>
+                    <Dialog.Title>Logout</Dialog.Title>
+                    <Dialog.Description>
+                        Are you sure you want to logout?
+                    </Dialog.Description>
+                    <Dialog.Button label="Cancel" onPress={handleCancelLogout} />
+                    <Dialog.Button label="I am Sure" onPress={handleLogout} />
+                </Dialog.Container>
+
                 <SettingsButton  buttonprops={{
                 title: "Delete Account",
                 onPress: showDialogAccount,
