@@ -12,6 +12,7 @@ import { numbers } from '../../constants/constants'
 import * as SecureStore from 'expo-secure-store'
 import Bio from '../../components/Bio'
 import DateTimePicker from '@react-native-community/datetimepicker';
+import GenderPicker from '../../components/GenderPick'
 
 interface ProfileScreenProps  {}
 
@@ -20,6 +21,11 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     const [bio, setBio] = useState("");
     const [date, setDate] = useState(new Date());
     const [showDatePicker, setShowDatePicker] = useState(false);
+    const [gender, setGender] = useState('');
+
+const handleGenderChange = (value: string) => {
+setGender(value);
+};
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -51,11 +57,11 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
 
     const handleSave = async () => {
         const token = await SecureStore.getItemAsync('token');
-        // console.log(base64String)
+        console.log(gender);
         const data = {
             picture: base64String,
             bio: bio,
-            gender: "female",
+            gender: gender,
             dob: date.toISOString().substring(0, 10),
         };
         
@@ -94,6 +100,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 onChange={handleDateChange}
                 />
                 )}
+                <GenderPicker label="Gender" value={gender} onValueChange={handleGenderChange} />
                 <SeventyWidthButton buttonprops={{
                 title: "Save",
                 onPress: handleSave,
