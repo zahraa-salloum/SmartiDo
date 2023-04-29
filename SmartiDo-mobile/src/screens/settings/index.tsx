@@ -17,6 +17,10 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 title: "Delete Plan",
                 
                 }}/>
+                <SettingsButton  buttonprops={{
+                title: "Logout",
+                
+                }}/>
             </SafeAreaView>
         </ImageBackground>
     )
