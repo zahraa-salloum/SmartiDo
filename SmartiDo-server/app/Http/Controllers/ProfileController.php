@@ -47,7 +47,7 @@ class ProfileController extends Controller
             $profile = Profile::join('users', 'profiles.user_id', '=', 'users.id')
                                 ->select('name', 'email', 'picture', 'bio', 'dob', 'gender')
                                 ->where('user_id', $id)
-                                ->findOrFail($id);
+                                ->first();
             return response()->json([
                 'status' => 'success',
                 'profile' => $profile,
