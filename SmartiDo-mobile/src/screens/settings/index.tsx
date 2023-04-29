@@ -13,6 +13,10 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 title: "Profile",
                 
                 }}/>
+                <SettingsButton  buttonprops={{
+                title: "Delete Plan",
+                
+                }}/>
             </SafeAreaView>
         </ImageBackground>
     )
