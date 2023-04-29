@@ -1,10 +1,13 @@
 import React, { FC, useState } from 'react'
-import { ImageBackground, SafeAreaView } from 'react-native'
+import { ImageBackground, SafeAreaView, ToastAndroid } from 'react-native'
 import styles from './styles'
 import SettingsButton from '../../components/SettingsButton'
 import Dialog from "react-native-dialog";
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/slices/authSlice'
+import axios from 'axios';
+import { numbers } from '../../constants/constants'
+import * as SecureStore from 'expo-secure-store'
 
 interface SettingsScreenProps  {}
 
@@ -38,8 +41,17 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
         setVisiblePlan(false);
     };
     
-    const handleDeletePlan = () => {
-        
+    const handleDeletePlan = async () => {
+        const token = await SecureStore.getItemAsync('token');
+        axios.delete("http://"+ numbers.server +"/api/v0.0.1/delete_plan", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            if(response.data.status == "success"){
+                ToastAndroid.show("Plan deleted", ToastAndroid.SHORT);
+            }
+        })
         setVisiblePlan(false);
     };
 
