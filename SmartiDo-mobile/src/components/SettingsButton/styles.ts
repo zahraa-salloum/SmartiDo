@@ -2,17 +2,18 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../constants/constants'
 
 export default StyleSheet.create({
-    button:{ 
+    button:{
+        flexDirection: 'row',
+        marginLeft: 20,
         alignItems: "center", 
-        justifyContent: "center",
-        marginTop: -20,
-        width: "70%", 
-        borderRadius: 5
+        justifyContent: 'flex-start',
+        width: "98%",
+        borderBottomWidth: 2,
+        borderBottomColor: colors.dark_purple,
     },
 
     text: {
         color: colors.purple, 
-        fontWeight: "900",
-        fontSize: 16, 
+        fontSize: 20, 
     }
 })
