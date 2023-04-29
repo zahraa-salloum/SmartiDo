@@ -61,8 +61,18 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
         setVisibleLogout(false);
     };
 
-    const handleDeleteAccount = () => {
-        
+    const handleDeleteAccount = async () => {
+        const token = await SecureStore.getItemAsync('token');
+        axios.delete("http://"+ numbers.server +"/api/v0.0.1/delete_account", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            if(response.data.status == "success"){
+                ToastAndroid.show("Account deleted", ToastAndroid.SHORT);
+                dispatch(logout());
+            }
+        })
         setVisibleAccount(false);
     };
     
