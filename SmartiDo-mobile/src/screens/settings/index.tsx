@@ -7,19 +7,33 @@ import Dialog from "react-native-dialog";
 interface SettingsScreenProps  {}
 
 const SettingsScreen: FC<SettingsScreenProps> = (props) => {
-    const [visible, setVisible] = useState(false);
+    const [visiblePlan, setVisiblePlan] = useState(false);
+    const [visibleAccount, setVisibleAccount] = useState(false);
 
-    const showDialog = () => {
-        setVisible(true);
-      };
-    
-    const handleCancel = () => {
-        setVisible(false);
+    const showDialogAccount = () => {
+        setVisibleAccount(true);
+    };
+
+    const showDialogPlan = () => {
+        setVisiblePlan(true);
     };
     
-    const handleDelete = () => {
+    const handleCancelAccount = () => {
+        setVisibleAccount(false);
+    };
+
+    const handleCancelPlan = () => {
+        setVisiblePlan(false);
+    };
+    
+    const handleDeletePlan = () => {
         
-        setVisible(false);
+        setVisiblePlan(false);
+    };
+
+    const handleDeleteAccount = () => {
+        
+        setVisibleAccount(false);
     };
     
     return (
@@ -31,15 +45,15 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 }}/>
                 <SettingsButton  buttonprops={{
                 title: "Delete Plan",
-                onPress: showDialog,
+                onPress: showDialogPlan,
                 }}/>
-                <Dialog.Container visible={visible}>
+                <Dialog.Container visible={visiblePlan}>
                     <Dialog.Title>Plan Delete</Dialog.Title>
                     <Dialog.Description>
                         Do you want to delete this plan? You cannot undo this action.
                     </Dialog.Description>
-                    <Dialog.Button label="Cancel" onPress={handleCancel} />
-                    <Dialog.Button label="Delete" onPress={handleDelete} />
+                    <Dialog.Button label="Cancel" onPress={handleCancelPlan} />
+                    <Dialog.Button label="Delete" onPress={handleDeletePlan} />
                 </Dialog.Container>
                 <SettingsButton  buttonprops={{
                 title: "Logout",
@@ -47,8 +61,16 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
                 }}/>
                 <SettingsButton  buttonprops={{
                 title: "Delete Account",
-                
+                onPress: showDialogAccount,
                 }}/>
+                <Dialog.Container visible={visibleAccount}>
+                    <Dialog.Title>Delete Account</Dialog.Title>
+                    <Dialog.Description>
+                        Do you want to delete this account? You cannot undo this action.
+                    </Dialog.Description>
+                    <Dialog.Button label="Cancel" onPress={handleCancelAccount} />
+                    <Dialog.Button label="Delete" onPress={handleDeleteAccount} />
+                </Dialog.Container>
             </SafeAreaView>
         </ImageBackground>
     )
