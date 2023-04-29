@@ -16,6 +16,7 @@ interface ProfileScreenProps  {}
 
 const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     const [base64String, setBase64String] = useState('');
+    const [bio, setBio] = useState("");
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -31,12 +32,16 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
         }
       };
 
+    const handleBio=(text: React.SetStateAction<string>)=>{
+        setBio(text)
+    }
+
     const handleSave = async () => {
         const token = await SecureStore.getItemAsync('token');
         // console.log(base64String)
         const data = {
             picture: base64String,
-            bio: "Hi",
+            bio: bio,
             gender: "female",
             dob: "1996-10-30",
         };
@@ -62,7 +67,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 title: "Upload Image",
                 onPress: pickImage,
                 }}/>
-                <Bio label={'Bio'} placeholder={'I am eager to study with SmartiDo'} onChangeText={undefined} />
+                <Bio label={'Bio'} placeholder={'I am eager to study with SmartiDo'} onChangeText={handleBio} />
                 <SeventyWidthButton buttonprops={{
                 title: "Save",
                 onPress: handleSave,
