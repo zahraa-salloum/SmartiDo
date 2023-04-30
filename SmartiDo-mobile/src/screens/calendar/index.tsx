@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { ImageBackground, SafeAreaView } from 'react-native';
+import { ImageBackground, SafeAreaView, ScrollView } from 'react-native';
 import styles from './styles';
 import Plan from '../../components/Plan';
 import { Calendar } from 'react-native-calendars';
@@ -30,8 +30,10 @@ const CalendarScreen: FC<CalendarScreenProps> = (props) => {
                 setSelectedDate(day.dateString);
                 }}
                 />
-                <Plan hour='12:00' plan='study math'/>
-                <Plan hour='12:00' plan='study math'/>
+                <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
+                    <Plan hour='12:00' plan='study math'/>
+                    <Plan hour='12:00' plan='study math'/>
+                </ScrollView>
             </SafeAreaView>
         </ImageBackground>
     )

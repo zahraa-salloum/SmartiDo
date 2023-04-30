@@ -13,5 +13,12 @@ export default StyleSheet.create({
       justifyContent: 'flex-start',
       width: "90%",
       marginTop: 30,
-    }
+    },
+    scrollView:{
+      flex:1,
+      width: "100%",
+  },
+  scrollViewContent:{
+      paddingBottom: 30,
+  },
 })
