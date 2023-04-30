@@ -10,6 +10,7 @@ import TextButton from '../../components/TextButton';
 import axios from "axios";
 import * as SecureStore from 'expo-secure-store';
 import { numbers } from '../../constants/constants';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 
 interface LoginScreenProps  {}
@@ -22,6 +23,7 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [toastMessage, setToastMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleEmail=(text: React.SetStateAction<string>)=>{
         setEmail(text)
@@ -35,25 +37,26 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
             setToastMessage("All input are required");
 
         }else{
+            setLoading(true);
+            let data = {
+            "email": email,
+            "password": password
+            };
 
-        let data = {
-        "email": email,
-        "password": password
-        };
-
-        axios.post("http://"+numbers.server+"/api/v0.0.1/auth/login",data).then(async (res) => {
-            if(res.data.status == "success"){
-                await SecureStore.setItemAsync('token', res.data.authorisation.token);
-                dispatch(login());
+            axios.post("http://"+numbers.server+"/api/v0.0.1/auth/login",data).then(async (res) => {
+                if(res.data.status == "success"){
+                    await SecureStore.setItemAsync('token', res.data.authorisation.token);
+                    dispatch(login());
+                }
             }
+            ).catch((err) => {
+                setToastMessage("Invalid credentials");
+                console.log(err);
+            }).finally(() => {
+                setLoading(false); 
+            });
         }
-        ).catch((err) => {
-            setToastMessage("Invalid credentials");
-            console.log(err);
-        })
-
     }
-}
     useEffect(() => {
         if (toastMessage !== "") {
             ToastAndroid.show(toastMessage, ToastAndroid.SHORT);
@@ -75,6 +78,7 @@ return (
             title: "New User?",
             onPress: () => navigation.navigate("Signup"),
             }}/>
+            {loading && <LoadingIndicator />}
         </SafeAreaView>
     </ImageBackground>
 
