@@ -3,16 +3,16 @@ import { View, Text, Modal, TouchableWithoutFeedback } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles'
 
-interface GenderPickerProps {
+interface CategoryPickerProps {
   label: string;
   value: string;
   onValueChange: (value: string) => void;
 }
 
-const GenderPicker: FC<GenderPickerProps> = (props) => {
+const CategoryPicker: FC<CategoryPickerProps> = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const handleGenderSelect = (value: string) => {
+  const handleCategorySelect = (value: string) => {
     props.onValueChange(value);
     setModalVisible(false);
   };
@@ -22,7 +22,7 @@ const GenderPicker: FC<GenderPickerProps> = (props) => {
       <Text style={styles.label}>{props.label}</Text>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={styles.picker}>
-          <Text>{props.value || 'Select Gender'}</Text>
+          <Text>{props.value || 'Select Category'}</Text>
           <MaterialIcons name="arrow-drop-down" size={24} color="black" />
         </View>
       </TouchableWithoutFeedback>
@@ -34,16 +34,12 @@ const GenderPicker: FC<GenderPickerProps> = (props) => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <TouchableWithoutFeedback onPress={() => handleGenderSelect('male')}>
+            <TouchableWithoutFeedback onPress={() => handleCategorySelect('History')}>
               <View style={styles.option}>
-                <Text style={styles.optionText}>Male</Text>
+                <Text style={styles.optionText}>History</Text>
               </View>
             </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={() => handleGenderSelect('female')}>
-              <View style={styles.option}>
-                <Text style={styles.optionText}>Female</Text>
-              </View>
-            </TouchableWithoutFeedback>
+            
           </View>
         </View>
       </Modal>
@@ -52,4 +48,4 @@ const GenderPicker: FC<GenderPickerProps> = (props) => {
 };
 
 
-export default GenderPicker;
+export default CategoryPicker;
