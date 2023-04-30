@@ -11,7 +11,7 @@ export default StyleSheet.create({
     container: {
       flex: 1,
       alignItems: "center",
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
       width: "90%",
       marginTop: 30,
       gap:10,

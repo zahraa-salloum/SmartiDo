@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import styles from './styles';
 import { View, Text,ButtonProps, TouchableOpacity } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import TextButton from '../TextButton';
 
 
 interface TimesRoutinesProps  {
