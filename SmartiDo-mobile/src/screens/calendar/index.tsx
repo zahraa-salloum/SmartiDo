@@ -55,14 +55,14 @@ const CalendarScreen: FC<CalendarScreenProps> = (props) => {
                 }}
                 />
                 {plan.length > 0 ? (
-                <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
-                    {plan.map((item) => (
-                        <Plan hour={item.hour} plan={item.task} key={item.id} />
-                    ))}
-                </ScrollView>
+                    <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
+                        {plan.map((item) => (
+                            <Plan hour={item.hour} plan={item.task} key={item.id} />
+                        ))}
+                    </ScrollView>
                 ) : (
                     <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
-                    <Plan hour="----" plan='Nothing Planned for today' />
+                        <Plan hour="----" plan='Nothing Planned for this day' />
                     </ScrollView>
                 )}
             </SafeAreaView>

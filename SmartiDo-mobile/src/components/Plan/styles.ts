@@ -10,7 +10,7 @@ container: {
         width: "98%",
         borderBottomWidth: 2,
         borderBottomColor: colors.dark_purple,
-        height:75,
+        height:90,
         padding: 7,
       },
     hour:{
@@ -21,7 +21,7 @@ container: {
         flex:1,
         flexWrap: 'wrap',
         color: colors.purple, 
-        fontSize: 20,
+        fontSize: 16,
         paddingTop: 5,
         paddingLeft: 20,
     },
