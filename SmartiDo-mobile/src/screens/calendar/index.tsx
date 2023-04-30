@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { ImageBackground, SafeAreaView, ScrollView } from 'react-native';
+import { ImageBackground, SafeAreaView, ScrollView, View } from 'react-native';
 import styles from './styles';
 import Plan from '../../components/Plan';
 import { Calendar } from 'react-native-calendars';
@@ -54,11 +54,17 @@ const CalendarScreen: FC<CalendarScreenProps> = (props) => {
                 fetchPlan();
                 }}
                 />
+                {plan.length > 0 ? (
                 <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
                     {plan.map((item) => (
                         <Plan hour={item.hour} plan={item.task} key={item.id} />
                     ))}
                 </ScrollView>
+                ) : (
+                    <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
+                    <Plan hour="----" plan='Nothing Planned for today' />
+                    </ScrollView>
+                )}
             </SafeAreaView>
         </ImageBackground>
     )
