@@ -7,7 +7,6 @@ import TextButton from '../TextButton';
 
 interface TimesRoutinesProps  {
     label: string;
-    buttonprops: ButtonProps;
 }
 
 const TimesRoutines: FC<TimesRoutinesProps> = (props) => {

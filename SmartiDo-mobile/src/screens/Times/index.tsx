@@ -10,8 +10,8 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
-                <TimesRoutines label='Breakfast'/>
-                <TimesRoutines label='Lunch'/>
+                <TimesRoutines label='Sleep Time:' />
+
             </SafeAreaView>
         </ImageBackground>
     )
