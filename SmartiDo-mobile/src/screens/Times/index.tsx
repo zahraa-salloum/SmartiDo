@@ -1,7 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { ImageBackground, SafeAreaView, ScrollView } from 'react-native';
+import { Button, ImageBackground, SafeAreaView, ScrollView } from 'react-native';
 import styles from './styles';
 import TimesRoutines from '../../components/TimesRoutines';
+import TimesExams from '../../components/TimesExams';
+import TextButton from '../../components/TextButton';
+import RoundButton from '../../components/RoundButton';
 
 interface TimesScreenProps  {}
 
@@ -31,7 +34,13 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const handleTimeDinnerChange = (time) => {
         setSelectedTimeDinner(time);
     }
-
+    
+    const [timeExamsComponents, setTimeExamsComponents] = useState([<TimesExams key={0} />]);
+    
+    const handleAddTimeExam = () => {
+        const nextKey = timeExamsComponents.length;
+        setTimeExamsComponents([...timeExamsComponents, <TimesExams key={nextKey} />]);
+      };
 
     
 
@@ -44,7 +53,11 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                     <TimesRoutines label='Breakfast Time:' onTimeChange={handleTimeBreakfastChange} />
                     <TimesRoutines label='Lunch Time:' onTimeChange={handleTimeLunchChange} />
                     <TimesRoutines label='Dinner Time:' onTimeChange={handleTimeDinnerChange} />
-                    
+                    {timeExamsComponents}
+                    <RoundButton buttonprops={{
+                        title: "+",
+                        onPress: handleAddTimeExam,
+                    }} />
                 </ScrollView>
 
             </SafeAreaView>
