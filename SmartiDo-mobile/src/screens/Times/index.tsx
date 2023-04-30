@@ -14,6 +14,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                 <TimesRoutines label='Wake Up Time:' />
                 <TimesRoutines label='Breakfast Time:' />
                 <TimesRoutines label='Lunch Time:' />
+                <TimesRoutines label='Dinner Time:' />
 
             </SafeAreaView>
         </ImageBackground>
