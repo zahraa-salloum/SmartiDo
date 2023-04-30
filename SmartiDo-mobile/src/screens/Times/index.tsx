@@ -11,6 +11,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const [selectedTimeWakeUp, setSelectedTimeWakeUp] = useState('00:00');
     const [selectedTimeBreakfast, setSelectedTimeBreakfast] = useState('00:00');
     const [selectedTimeLunch, setSelectedTimeLunch] = useState('00:00');
+    const [selectedTimeDinner, setSelectedTimeDinner] = useState('00:00');
 
     const handleTimeSleepChange = (time) => {
         setSelectedTimeSleep(time);
@@ -28,6 +29,10 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
         setSelectedTimeLunch(time);
     }
 
+    const handleTimeDinnerChange = (time) => {
+        setSelectedTimeDinner(time);
+    }
+
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
@@ -36,7 +41,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                     <TimesRoutines label='Wake Up Time:' onTimeChange={handleTimeWakeUpChange} />
                     <TimesRoutines label='Breakfast Time:' onTimeChange={handleTimeBreakfastChange} />
                     <TimesRoutines label='Lunch Time:' onTimeChange={handleTimeLunchChange} />
-                    <TimesRoutines label='Dinner Time:' />
+                    <TimesRoutines label='Dinner Time:' onTimeChange={handleTimeDinnerChange} />
                     <TimesExams onChangeText={undefined} categoryPickerValue={''} onValueChange={function (value: string): void {
                         throw new Error('Function not implemented.');
                     } } onChangeTextPages={function (value: string): void {
