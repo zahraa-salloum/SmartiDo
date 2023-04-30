@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState} from 'react';
 import styles from './styles';
-import { Button, ImageBackground, SafeAreaView, ToastAndroid } from 'react-native';
+import { Button, ImageBackground, SafeAreaView, Text, ToastAndroid } from 'react-native';
 import SeventyWidthButton from '../../components/SeventyWidthButton';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
@@ -19,6 +19,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     const [base64String, setBase64String] = useState('');
     const [bio, setBio] = useState("");
     const [date, setDate] = useState(new Date());
+    const [dob, setDob] = useState('0000-00-00');
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [gender, setGender] = useState('');
     const [profile, setProfile] = useState(null);
@@ -32,11 +33,12 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 },
             });
             if(response.data.status == "success" && response.data.profile){
-            setProfile(response.data.profile);
-            setBase64String(response.data.profile.picture)
-            setBio(response.data.profile.bio)
-            setGender(response.data.profile.gender)
-        }
+                setProfile(response.data.profile);
+                setBase64String(response.data.profile.picture)
+                setBio(response.data.profile.bio)
+                setGender(response.data.profile.gender)
+                setDob(response.data.profile.dob)
+            }
         }
         getProfile();
     }, []);
@@ -67,6 +69,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
         const currentDate = selectedDate || date;
         setShowDatePicker(false);
         setDate(currentDate);
+        setDob(currentDate.toISOString().substring(0, 10));
     }
     
     const handleShowDatePicker = () => {
@@ -80,7 +83,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
             picture: base64String,
             bio: bio,
             gender: gender,
-            dob: date.toISOString().substring(0, 10),
+            dob: dob,
         };
         
         axios.post('http://' + numbers.server + '/api/v0.0.1/add_profile', data, {
@@ -120,6 +123,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 onChange={handleDateChange}
                 />
                 )}
+                <Text>{dob}</Text>
 
                 <GenderPicker label="Gender" value={gender} onValueChange={handleGenderChange} />
                 
