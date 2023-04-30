@@ -1,16 +1,35 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { ImageBackground, SafeAreaView } from 'react-native';
 import styles from './styles';
 import Plan from '../../components/Plan';
+import { Calendar } from 'react-native-calendars';
+import { colors } from '../../constants/constants';
 
 interface CalendarScreenProps  {}
 
 const CalendarScreen: FC<CalendarScreenProps> = (props) => {
+    const [selectedDate, setSelectedDate] = useState('');
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
-                <Plan hour='12:00' plan='study math'/>
-                <Plan hour='15:00' plan='sv vwv er r hrhrher h rh  hhrh hth h hthr rh erher  hehe rhhh erhrher rheheh5 h555herhjhr'/>
+                <Calendar
+                style={{
+                    borderColor: 'gray',
+                    width: 350,
+                    height: 350,
+                    marginBottom: 20,
+                  }}
+                markedDates={{
+                    [selectedDate]: {
+                      selected: true,
+                      selectedColor: colors.purple,
+                    },
+                }}
+                onDayPress={day => {
+                console.log('selected day', day.dateString);
+                setSelectedDate(day.dateString);
+                }}
+                />
                 <Plan hour='12:00' plan='study math'/>
                 <Plan hour='12:00' plan='study math'/>
             </SafeAreaView>
