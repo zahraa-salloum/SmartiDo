@@ -31,10 +31,12 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
+            if(response.data.status == "success" && response.data.profile){
             setProfile(response.data.profile);
             setBase64String(response.data.profile.picture)
             setBio(response.data.profile.bio)
             setGender(response.data.profile.gender)
+        }
         }
         getProfile();
     }, []);
