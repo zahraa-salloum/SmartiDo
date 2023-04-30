@@ -8,13 +8,14 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         width: "98%",
-        height:75,
-        borderBottomWidth: 2,
-        borderBottomColor: colors.dark_purple,
+        height:85,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.light_purple,
     },
     label:{
         color: colors.dark_purple,
         fontSize: 16,
+        fontWeight: 'bold',
         width: "33%",
     },
     text:{
