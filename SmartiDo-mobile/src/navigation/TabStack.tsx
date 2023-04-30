@@ -11,7 +11,7 @@ const TabStack = () => {
     
   const Tabs = createBottomTabNavigator();
   return (
-    <Tabs.Navigator screenOptions={{
+    <Tabs.Navigator initialRouteName="Plan" screenOptions={{
         headerStyle: {
           backgroundColor: colors.light_purple,
         },
