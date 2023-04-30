@@ -11,6 +11,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
                 <TimesRoutines label='Sleep Time:' />
+                <TimesRoutines label='Wake Up Time:' />
 
             </SafeAreaView>
         </ImageBackground>
