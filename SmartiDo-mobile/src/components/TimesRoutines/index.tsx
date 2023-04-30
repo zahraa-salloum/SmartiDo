@@ -6,6 +6,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 interface TimesRoutinesProps  {
     label: string;
+    onTimeChange: (time: Date) => void;
 }
 
 const TimesRoutines: FC<TimesRoutinesProps> = (props) => {
@@ -24,6 +25,7 @@ const TimesRoutines: FC<TimesRoutinesProps> = (props) => {
         const currentTime = selectedTime || time;
         setShowTimePicker(false);
         setTime(currentTime);
+        props.onTimeChange(currentTime.toLocaleString("en-US", options).substring(0, 5));
     }
     
     const handleShowTimePicker = () => {
