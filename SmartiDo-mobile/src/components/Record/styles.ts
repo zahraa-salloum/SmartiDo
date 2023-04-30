@@ -9,7 +9,7 @@ export default StyleSheet.create({
         justifyContent: "center",
         width: "98%",
         borderColor: colors.dark_purple,
-        borderWidth: 2,
+        borderWidth: 0.5,
         height:75,
       },
       image: {
