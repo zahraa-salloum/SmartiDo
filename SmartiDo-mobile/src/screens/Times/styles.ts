@@ -16,4 +16,11 @@ export default StyleSheet.create({
       marginTop: 30,
       gap:10,
     },
+    scrollView:{
+        flex:1,
+        width: "100%",
+    },
+    scrollViewContent:{
+        paddingBottom: 30,
+    },
 })
