@@ -10,6 +10,7 @@ import { login } from '../../redux/slices/authSlice';
 import axios from "axios";
 import * as SecureStore from 'expo-secure-store';
 import { numbers } from '../../constants/constants';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 interface SignupScreenProps  {}
 
@@ -21,6 +22,7 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [toastMessage, setToastMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleName=(text: React.SetStateAction<string>)=>{
         setName(text)
@@ -48,7 +50,7 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
         }else{
             if (validateEmail(email)){
                 if(validatePassword(password)){
-                    
+                    setLoading(true);
                     let data = {
                         "name": name,
                         "email": email,
@@ -63,7 +65,10 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
                         
                     }).catch((err) => {
                         console.log(err);
+                    }).finally(() => {
+                        setLoading(false); 
                     })
+                
                 }else{
                     setToastMessage("Password must contain 8 chracters, one capital letter, one special character, one number");
                 }
@@ -95,6 +100,7 @@ return (
             title: "Already a User?",
             onPress: () => navigation.navigate("Login"),
             }}/>
+            {loading && <LoadingIndicator />}
         </SafeAreaView>
     </ImageBackground>
 

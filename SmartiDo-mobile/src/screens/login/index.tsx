@@ -54,7 +54,7 @@ const LoginScreen: FC<LoginScreenProps> = (props) => {
                 console.log(err);
             }).finally(() => {
                 setLoading(false); 
-            });
+            })
         }
     }
     useEffect(() => {
