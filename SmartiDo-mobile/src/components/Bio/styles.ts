@@ -16,6 +16,7 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.dark_purple, 
         padding: 10,
+        borderRadius: 5,
         fontSize: 16,
         textAlignVertical: 'top',
         marginBottom: 40,

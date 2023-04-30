@@ -18,7 +18,7 @@ export default StyleSheet.create({
         paddingHorizontal: 16,
         paddingVertical: 12,
         width: '100%',
-        borderRadius: 8,
+        borderRadius: 5,
         borderColor: colors.dark_purple,
         borderWidth: 1,
     },
@@ -30,7 +30,7 @@ export default StyleSheet.create({
     },
     modalContent: {
         backgroundColor: colors.light_purple,
-        borderRadius: 8,
+        borderRadius: 16,
         padding: 16,
         width: '80%',
     },
