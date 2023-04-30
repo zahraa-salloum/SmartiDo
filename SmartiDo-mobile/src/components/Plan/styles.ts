@@ -8,7 +8,7 @@ container: {
         alignItems: 'flex-start',
         justifyContent: "center",
         width: "98%",
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: colors.dark_purple,
         height:90,
         padding: 7,

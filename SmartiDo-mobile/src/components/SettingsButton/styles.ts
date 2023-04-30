@@ -7,7 +7,7 @@ export default StyleSheet.create({
         alignItems: "center", 
         justifyContent: 'flex-start',
         width: "98%",
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: colors.dark_purple,
         height:75,
     },
