@@ -7,13 +7,14 @@ interface LabelledTextProps {
   label: string;
   placeholder: string;
   onChangeText: any;
+  keyboardType?: 'default' | 'numeric' | 'email-address' | 'phone-pad';
 }
 
 const LabelledText: FC<LabelledTextProps> = (props) => {
   return (
     <View>
       <Text style={styles.label}> {props.label} </Text>
-      <TextInput style={styles.input} placeholder= {props.placeholder} onChangeText={props.onChangeText}></TextInput>
+      <TextInput keyboardType={props.keyboardType} style={styles.input} placeholder= {props.placeholder} onChangeText={props.onChangeText}></TextInput>
     </View>
   );
 };

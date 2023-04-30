@@ -9,6 +9,7 @@ export default StyleSheet.create({
     label: {
         color: colors.dark_purple,
         marginBottom: 5,
+        marginTop: -15,
         fontSize: 16,
     },
     picker: {
