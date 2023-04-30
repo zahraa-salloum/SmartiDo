@@ -12,6 +12,7 @@ import * as SecureStore from 'expo-secure-store';
 import Bio from '../../components/Bio';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import GenderPicker from '../../components/GenderPick';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 interface ProfileScreenProps  {}
 
@@ -23,6 +24,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [gender, setGender] = useState('');
     const [profile, setProfile] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const getProfile = async () => {
@@ -78,7 +80,8 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
 
     const handleSave = async () => {
         const token = await SecureStore.getItemAsync('token');
-        
+        setLoading(true);
+
         const data = {
             picture: base64String,
             bio: bio,
@@ -95,7 +98,9 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
             ToastAndroid.show("Saved", ToastAndroid.SHORT);
         })
         .catch(error => {
-          console.log(error);
+            console.log(error);
+        }).finally(() => {
+            setLoading(false); 
         })
     }
 
@@ -127,11 +132,12 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 <Text>{dob}</Text>
 
                 <GenderPicker label="Gender" value={gender} onValueChange={handleGenderChange} />
-                
+                {loading && <LoadingIndicator />}
                 <SeventyWidthButton buttonprops={{
                 title: "Save",
                 onPress: handleSave,
                 }} />
+                
             </SafeAreaView>
         </ImageBackground>
     )
