@@ -39,7 +39,11 @@ const CategoryPicker: FC<CategoryPickerProps> = (props) => {
                 <Text style={styles.optionText}>History</Text>
               </View>
             </TouchableWithoutFeedback>
-            
+            <TouchableWithoutFeedback onPress={() => handleCategorySelect('Geography')}>
+              <View style={styles.option}>
+                <Text style={styles.optionText}>Geography</Text>
+              </View>
+            </TouchableWithoutFeedback>
           </View>
         </View>
       </Modal>
