@@ -16,8 +16,8 @@ const SettingsScreen: FC<SettingsScreenProps> = (props) => {
     const [visiblePlan, setVisiblePlan] = useState(false);
     const [visibleAccount, setVisibleAccount] = useState(false);
     const [visibleLogout, setVisibleLogout] = useState(false);
-    const dispatch = useDispatch()
-    const navigation = useNavigation()
+    const dispatch = useDispatch();
+    const navigation = useNavigation();
 
     const showDialogAccount = () => {
         setVisibleAccount(true);
