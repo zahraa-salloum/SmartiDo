@@ -5,6 +5,10 @@ import TimesRoutines from '../../components/TimesRoutines';
 import TimesExams from '../../components/TimesExams';
 import TextButton from '../../components/TextButton';
 import RoundButton from '../../components/RoundButton';
+import SeventyWidthButton from '../../components/SeventyWidthButton';
+import * as SecureStore from 'expo-secure-store';
+import { numbers } from '../../constants/constants';
+import axios from 'axios';
 
 interface TimesScreenProps  {}
 
@@ -14,6 +18,33 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const [selectedTimeBreakfast, setSelectedTimeBreakfast] = useState('00:00');
     const [selectedTimeLunch, setSelectedTimeLunch] = useState('00:00');
     const [selectedTimeDinner, setSelectedTimeDinner] = useState('00:00');
+
+    const handleGenerate = async () => {
+        const token = await SecureStore.getItemAsync('token');
+        
+        const data = {
+            sleep: selectedTimeSleep,
+            wake_up: selectedTimeWakeUp,
+            breakfast: selectedTimeBreakfast,
+            lunch: selectedTimeLunch,
+            dinner: selectedTimeDinner,
+            exams: [],
+        };
+        
+        axios.post('http://' + numbers.server + '/api/v0.0.1/generate_plan', data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(response => {
+            if(response.data.status == "success"){
+                console.log('ok')
+            }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
 
     const handleTimeSleepChange = (time) => {
         setSelectedTimeSleep(time);
@@ -57,6 +88,10 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                     <RoundButton buttonprops={{
                         title: "+",
                         onPress: handleAddTimeExam,
+                    }} />
+                    <SeventyWidthButton buttonprops={{
+                    title: "Generate Plan",
+                    onPress: handleGenerate,
                     }} />
                 </ScrollView>
 
