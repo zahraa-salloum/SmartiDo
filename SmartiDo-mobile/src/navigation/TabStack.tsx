@@ -38,7 +38,7 @@ const TabStack = () => {
                     ? require("../../assets/leaderboard_active.png")
                     : require("../../assets/leaderboard_inactive.png")
                 }
-                style={{ width: 40, height: 40 }}
+                style={{ width: 35, height: 35 }}
               />
             ),
           }}
@@ -55,7 +55,7 @@ const TabStack = () => {
                     ? require("../../assets/plan_active.png")
                     : require("../../assets/plan_inactive.png")
                 }
-                style={{ width: 40, height: 40 }}
+                style={{ width: 35, height: 35 }}
               />
             ),
           }}
@@ -72,7 +72,7 @@ const TabStack = () => {
                     ? require("../../assets/calendar_active.png")
                     : require("../../assets/calendar_inactive.png")
                 }
-                style={{ width: 40, height: 40 }}
+                style={{ width: 35, height: 35 }}
               />
             ),
           }}
@@ -89,7 +89,7 @@ const TabStack = () => {
                     ? require("../../assets/tasks_active.png")
                     : require("../../assets/tasks_inactive.png")
                 }
-                style={{ width: 40, height: 40 }}
+                style={{ width: 35, height: 35 }}
               />
             ),
           }}
@@ -106,7 +106,7 @@ const TabStack = () => {
                     ? require("../../assets/settings_active.png")
                     : require("../../assets/settings_inactive.png")
                 }
-                style={{ width: 40, height: 40 }}
+                style={{ width: 35, height: 35 }}
               />
             ),
           }}
