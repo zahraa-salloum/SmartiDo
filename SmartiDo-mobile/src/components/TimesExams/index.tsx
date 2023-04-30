@@ -12,6 +12,8 @@ interface TimesExamsProps  {
     categoryPickerValue: string;
     onValueChange: (value: string) => void;
     onChangeTextPages: (value: string) => void;
+    onTimeChange: (time: Date) => void;
+    onDateChange: (time: Date) => void;
 }
 
 const TimesExams: FC<TimesExamsProps> = (props) => {
@@ -33,6 +35,7 @@ const TimesExams: FC<TimesExamsProps> = (props) => {
         const currentTime = selectedTime || time;
         setShowTimePicker(false);
         setTime(currentTime);
+        props.onTimeChange(currentTime.toLocaleString("en-US", options).substring(0, 5));
     }
     
     const handleShowTimePicker = () => {
@@ -44,6 +47,7 @@ const TimesExams: FC<TimesExamsProps> = (props) => {
         setShowDatePicker(false);
         setDate(currentDate);
         setDateExam(currentDate.toISOString().substring(0, 10));
+        props.onDateChange(currentDate.toISOString().substring(0, 10));
     }
 
     const handleShowDatePicker = () => {

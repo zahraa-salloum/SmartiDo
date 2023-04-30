@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from 'react';
 import { ImageBackground, SafeAreaView, ScrollView } from 'react-native';
 import styles from './styles';
 import TimesRoutines from '../../components/TimesRoutines';
-import TimesExams from '../../components/TimesExams';
 
 interface TimesScreenProps  {}
 
@@ -33,6 +32,9 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
         setSelectedTimeDinner(time);
     }
 
+
+    
+
     return (
         <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
             <SafeAreaView style={styles.container}>
@@ -42,11 +44,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                     <TimesRoutines label='Breakfast Time:' onTimeChange={handleTimeBreakfastChange} />
                     <TimesRoutines label='Lunch Time:' onTimeChange={handleTimeLunchChange} />
                     <TimesRoutines label='Dinner Time:' onTimeChange={handleTimeDinnerChange} />
-                    <TimesExams onChangeText={undefined} categoryPickerValue={''} onValueChange={function (value: string): void {
-                        throw new Error('Function not implemented.');
-                    } } onChangeTextPages={function (value: string): void {
-                        throw new Error('Function not implemented.');
-                    } } />
+                    
                 </ScrollView>
 
             </SafeAreaView>
