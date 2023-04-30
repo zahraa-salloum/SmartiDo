@@ -120,6 +120,7 @@ const ProfileScreen: FC<ProfileScreenProps> = (props) => {
                 value={date}
                 mode="date"
                 display="spinner"
+                maximumDate={new Date()}
                 onChange={handleDateChange}
                 />
                 )}
