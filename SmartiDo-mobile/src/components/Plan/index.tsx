@@ -1,5 +1,6 @@
 import { View, Text } from 'react-native'
 import React, { FC } from 'react'
+import styles from './styles'
 
 
 interface PlanProps  {
