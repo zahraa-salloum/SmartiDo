@@ -12,6 +12,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
             <SafeAreaView style={styles.container}>
                 <TimesRoutines label='Sleep Time:' />
                 <TimesRoutines label='Wake Up Time:' />
+                <TimesRoutines label='Breakfast Time:' />
 
             </SafeAreaView>
         </ImageBackground>
