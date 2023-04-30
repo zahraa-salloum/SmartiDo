@@ -60,10 +60,9 @@ const TimesExams: FC<TimesExamsProps> = (props) => {
             
             <LabelledText keyboardType='numeric' label={'Pages Count'} placeholder={'50'} onChangeText={props.onChangeTextPages}  />
             
-            <TextButton buttonprops={{
-                title: "Date of Exam",
-                onPress: handleShowDatePicker,
-            }}/>
+            <TouchableOpacity  onPress= {handleShowDatePicker} style={styles.button}>
+                <Text style={styles.textbtn}> {'Date of Exam'} </Text>
+            </TouchableOpacity>
             {showDatePicker && (
             <DateTimePicker
                 value={date}
@@ -72,7 +71,7 @@ const TimesExams: FC<TimesExamsProps> = (props) => {
                 onChange={handleDateChange}
             />
             )}
-            <Text>{dateExam}</Text>
+            <Text style={styles.text}>{dateExam}</Text>
 
             <TouchableOpacity  onPress= {handleShowTimePicker} style={styles.button}>
                 <Text style={styles.textbtn}> {'Choose hour'} </Text>
