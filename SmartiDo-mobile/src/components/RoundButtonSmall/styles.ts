@@ -6,14 +6,13 @@ export default StyleSheet.create({
         backgroundColor: colors.dark_purple, 
         alignItems: "center", 
         justifyContent: "center", 
-        padding: 20, 
-        margin: 55, 
-        width: "70%", 
-        borderRadius: 5},
-
-       text: {
-        color: "white", 
-        fontWeight: "900",
-        fontSize: 16, 
-        textTransform: "uppercase"}
+        padding: 25,  
+        width: 40, 
+        height: 40,
+        borderRadius: 50,
+        marginTop: -25,
+        marginLeft:320,
+        marginBottom: 15,
+        
+    },
 })

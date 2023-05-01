@@ -9,6 +9,7 @@ import SeventyWidthButton from '../../components/SeventyWidthButton';
 import * as SecureStore from 'expo-secure-store';
 import { numbers } from '../../constants/constants';
 import axios from 'axios';
+import RoundButtonSmall from '../../components/RoundButtonSmall';
 
 interface TimesScreenProps  {}
 
@@ -85,7 +86,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                     <TimesRoutines label='Lunch Time:' onTimeChange={handleTimeLunchChange} />
                     <TimesRoutines label='Dinner Time:' onTimeChange={handleTimeDinnerChange} />
                     {timeExamsComponents}
-                    <RoundButton buttonprops={{
+                    <RoundButtonSmall buttonprops={{
                         title: "+",
                         onPress: handleAddTimeExam,
                     }} />

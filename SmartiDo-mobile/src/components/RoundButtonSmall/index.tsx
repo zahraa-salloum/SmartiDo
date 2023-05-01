@@ -11,7 +11,7 @@ const RoundButtonSmall: FC<RoundButtonSmallProps> = (props) => {
   return (
     <>
         <TouchableOpacity  onPress={props.buttonprops.onPress} style={styles.button}>
-            
+            <Image source = {require('../../../assets/plus.png')} ></Image>
         </TouchableOpacity>
     </>
 )
