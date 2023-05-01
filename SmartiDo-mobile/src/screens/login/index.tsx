@@ -17,8 +17,8 @@ interface LoginScreenProps  {}
 
 
 const LoginScreen: FC<LoginScreenProps> = (props) => {
-    const navigation = useNavigation()
-    const dispatch = useDispatch()
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

@@ -9,6 +9,7 @@ import { numbers } from '../../constants/constants';
 import axios from 'axios';
 import LogButton from '../../components/LogButton';
 import LoadingIndicator from '../../components/LoadingIndicator';
+import { useNavigation } from '@react-navigation/native';
 
 interface TimesScreenProps  {}
 
@@ -25,6 +26,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const [pages, setPages] = useState('');
     const [exams, setExams] = useState([]);
     const [loading, setLoading] = useState(false);
+    const navigation = useNavigation();
 
 
     const handleGenerate = async () => {
@@ -48,6 +50,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
         })
         .then(response => {
             if(response.data.status == "success"){
+                navigation.navigate("Tabs");
                 console.log('ok')
             }
         })
