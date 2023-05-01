@@ -9,6 +9,7 @@ export default StyleSheet.create({
       },
     container: {
       flex: 1,
+      marginTop: 50,
       alignItems: "center",
       justifyContent: "center",
       width: "90%",
