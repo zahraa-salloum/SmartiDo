@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './styles';
 import { ImageBackground, SafeAreaView, ScrollView, Text } from 'react-native';
 import EmptyState from '../../components/EmptyState';
 import RoundButton from '../../components/RoundButton';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import { numbers } from '../../constants/constants';
 import * as SecureStore from 'expo-secure-store';
@@ -16,7 +16,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
     const navigation = useNavigation();
 
     const today = new Date();
-    useEffect(() => {
+    
         const fetchPlan  = async () => {
             const token = await SecureStore.getItemAsync('token');
             
@@ -31,8 +31,13 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
                 setPlan(response.data.plan);
             })
         }   
-        fetchPlan();
-    }, []);
+        
+
+    useFocusEffect(
+        React.useCallback(() => {
+          fetchPlan();
+        }, [])
+      );
 
     const renderPlan = () => {
         if (plan.length === 0) {
