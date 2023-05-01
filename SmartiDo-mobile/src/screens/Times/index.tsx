@@ -8,6 +8,7 @@ import * as SecureStore from 'expo-secure-store';
 import { numbers } from '../../constants/constants';
 import axios from 'axios';
 import LogButton from '../../components/LogButton';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 interface TimesScreenProps  {}
 
@@ -23,13 +24,14 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const [title, setTitle] = useState('');
     const [pages, setPages] = useState('');
     const [exams, setExams] = useState([]);
+    const [loading, setLoading] = useState(false);
 
 
     const handleGenerate = async () => {
         const token = await SecureStore.getItemAsync('token');
 
         // console.log(exams)
-
+        setLoading(true);
         const data = {
             sleep: selectedTimeSleep,
             wake_up: selectedTimeWakeUp,
@@ -51,7 +53,9 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
         })
         .catch(error => {
           console.log(error);
-        });
+        }).finally(() => {
+            setLoading(false); 
+        })
     }
 
     const handleHours = async () => {
@@ -151,6 +155,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                         title: "Log Exam",
                         onPress: handleAddTimeExam,
                     }} />
+                    {loading && <LoadingIndicator />}
                     <SeventyWidthButton buttonprops={{
                     title: "Generate Plan",
                     onPress: handleGenerate,
