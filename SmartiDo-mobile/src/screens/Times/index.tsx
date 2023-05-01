@@ -18,7 +18,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const [selectedTimeLunch, setSelectedTimeLunch] = useState('00:00');
     const [selectedTimeDinner, setSelectedTimeDinner] = useState('00:00');
     const [selectedTimeExam, setSelectedTimeExam] = useState('00:00');
-    const [selectedDateExam, setSelectedDateExam] = useState('00:00');
+    const [selectedDateExam, setSelectedDateExam] = useState('0000-00-00');
     const [category, setCategory] = useState('');
     const [title, setTitle] = useState('');
     const [pages, setPages] = useState('');
@@ -27,7 +27,9 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
 
     const handleGenerate = async () => {
         const token = await SecureStore.getItemAsync('token');
-        console.log(exams)
+
+        // console.log(exams)
+
         const data = {
             sleep: selectedTimeSleep,
             wake_up: selectedTimeWakeUp,
@@ -51,6 +53,26 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
           console.log(error);
         });
     }
+
+    const handleHours = async () => {
+        return new Promise((resolve, reject) => {
+          let valueHours = 0;
+          if (category == 'History' || category == 'Philosophy' || category == 'Civics') {
+            valueHours = Math.ceil(Number(pages) / 4);
+          } else if (category == 'Philosophy') {
+            valueHours = Math.ceil(Number(pages) / 3);
+          } else if (category == 'Math' || category == 'Physics') {
+            valueHours = Math.ceil(Number(pages) / 10);
+          } else if (category == 'Chemistry' || category == 'Biology') {
+            valueHours = Math.ceil(Number(pages) / 8);
+          } else if (category == 'English Literature' || category == 'French Literature' || category == 'Arabic Literature') {
+            valueHours = Math.ceil(Number(pages) / 15);
+          } else if (category == 'Religion') {
+            valueHours = Math.ceil(Number(pages) / 5);
+          }
+          resolve(valueHours);
+        });
+      }
 
     const handleTimeSleepChange = (time) => {
         setSelectedTimeSleep(time);
@@ -96,18 +118,20 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
     const [timeExamsComponents, setTimeExamsComponents] = useState([<TimesExams key={0} onChangeText={handletitleChange}  onValueChange={handleCategoryChange} onChangeTextPages={handlepageChange} onTimeChange={handleTimeExamChange } onDateChange={handleDateExamChange } />]);
     
     
-    const handleAddTimeExam = () => {
+    const handleAddTimeExam = async () => {
+        const hoursCalculated = await handleHours();
+        
         setExams(prevExams => [
             ...prevExams,
             {
               title: title,
               category: category,
-              hours_of_study: 0,
+              hours_of_study: hoursCalculated,
               day: selectedDateExam,
               hour: selectedTimeExam,
             }
           ]);
-
+        
         const nextKey = timeExamsComponents.length;
         setTimeExamsComponents([...timeExamsComponents, <TimesExams onChangeText={handletitleChange}  onValueChange={handleCategoryChange} onChangeTextPages={handlepageChange} onTimeChange={handleTimeExamChange } onDateChange={handleDateExamChange } key={nextKey} />]);
     }
