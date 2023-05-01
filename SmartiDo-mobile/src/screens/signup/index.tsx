@@ -90,7 +90,7 @@ return (
             <Text style={styles.title}>SIGN UP</Text>
             <LabelledText label='Name' placeholder='John Smith' onChangeText={handleName}/>
             <LabelledText label='Email' placeholder='john@gmail.com' onChangeText={handleEmail}/>
-            <LabelledText label='Password' placeholder='******' onChangeText={handlePassword}/>
+            <LabelledText secureTextEntry={true} label='Password' placeholder='******' onChangeText={handlePassword}/>
             <SeventyWidthButton buttonprops={{
             title: "SIGN UP",
             onPress: handleSubmit,

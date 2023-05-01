@@ -69,7 +69,7 @@ return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>LOG IN</Text>
             <LabelledText label='Email' placeholder='john@gmail.com' onChangeText={handleEmail}/>
-            <LabelledText label='Password' placeholder='******' onChangeText={handlePassword}/>
+            <LabelledText secureTextEntry={true} label='Password' placeholder='******' onChangeText={handlePassword}/>
             <SeventyWidthButton buttonprops={{
             title: "LOG IN",
             onPress: handleSubmit,
