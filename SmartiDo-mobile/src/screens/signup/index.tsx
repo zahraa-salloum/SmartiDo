@@ -39,7 +39,7 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
         return emailRegex.test(email);
     }
     const validatePassword=(password: string)=> {
-        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
         return passwordRegex.test(password);
     }
 
