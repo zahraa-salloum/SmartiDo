@@ -13,7 +13,6 @@ interface PlansScreenProps  {}
 
 const PlansScreen: FC<PlansScreenProps> = (props) => {
     const [plan, setPlan] = useState([]);
-    const [visible, setVisible] = React.useState(false);
     const navigation = useNavigation();
 
     const today = new Date();
@@ -35,20 +34,33 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         fetchPlan();
     }, []);
 
+    const renderPlan = () => {
+        if (plan.length === 0) {
+          return (
+            <>
+                <EmptyState image={require('../../../assets/plans.png')} title='No Plan Yet' description='Tap + to create' />
+                <RoundButton buttonprops={{
+                title: "+",
+                onPress: () => navigation.navigate("Times"),
+                }} />
+            </>
+          );
+        } else {
+            return (
+                <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
+                    <Text style={styles.title}>{today.toISOString().substring(0, 10)}</Text>
+                    {plan.map((item) => (
+                        <Plan hour={item.hour} plan={item.task} key={item.id} />
+                    ))}
+                </ScrollView>
+            );
+        }
+    }
+
 return (
     <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContent}>
-                <Text style={styles.title}>{today.toISOString().substring(0, 10)}</Text>
-                {plan.map((item) => (
-                    <Plan hour={item.hour} plan={item.task} key={item.id} />
-                ))}
-            </ScrollView>
-            {/* <EmptyState image={require('../../../assets/plans.png')} title='No Plan Yet' description='Tap + to create' />
-            <RoundButton buttonprops={{
-            title: "+",
-            onPress: () => navigation.navigate("Times"),
-            }} /> */}
+            {renderPlan()}
         </SafeAreaView>
     </ImageBackground>
 )
