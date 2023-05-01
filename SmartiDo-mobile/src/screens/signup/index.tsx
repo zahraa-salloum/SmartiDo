@@ -64,6 +64,7 @@ const SignupScreen: FC<SignupScreenProps> = (props) => {
                         }
                         
                     }).catch((err) => {
+                        setToastMessage("Invalid Sign Up");
                         console.log(err);
                     }).finally(() => {
                         setLoading(false); 
