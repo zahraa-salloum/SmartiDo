@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Button, ImageBackground, SafeAreaView, ScrollView } from 'react-native';
+import { Button, ImageBackground, SafeAreaView, ScrollView, ToastAndroid } from 'react-native';
 import styles from './styles';
 import TimesRoutines from '../../components/TimesRoutines';
 import TimesExams from '../../components/TimesExams';
@@ -51,11 +51,13 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
         .then(response => {
             if(response.data.status == "success"){
                 navigation.navigate("Tabs");
+                ToastAndroid.show("Plan Generated Successfully", ToastAndroid.SHORT);
                 console.log('ok')
             }
         })
         .catch(error => {
-          console.log(error);
+            ToastAndroid.show("Something Went Wrong", ToastAndroid.SHORT);
+            console.log(error);
         }).finally(() => {
             setLoading(false); 
         })
