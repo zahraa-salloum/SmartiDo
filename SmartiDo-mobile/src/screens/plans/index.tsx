@@ -49,10 +49,23 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         const date = new Date();
         const hour = date.getHours();
         
-        if (hour === 12 && hasStudyPlan && !pressed) {
+        if (hour === 13 && hasStudyPlan && !pressed) {
             setShowAlert(true);
         }
     }, [plan]);
+
+    setInterval(async () => {
+        const lastPressTime = await SecureStore.getItemAsync('lastPressTime');
+        if (lastPressTime) {
+          const now = new Date();
+          const lastPressDate = new Date(lastPressTime);
+          const timeDiff = now.getTime() - lastPressDate.getTime();
+          const hoursDiff = timeDiff / (1000 * 3600);
+          if (hoursDiff >= 24) {
+            setPressed(false);
+          }
+        }
+      }, 3600000);
         
 
     const handleYesPress = async () => {
@@ -63,17 +76,19 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then(response => {
+        }).then(async response => {
             if(response.data.status == "success"){
                 ToastAndroid.show("Cool..Keep it up", ToastAndroid.SHORT);
                 setShowAlert(false);
-                setPressed(true)
+                setPressed(true);
+                await SecureStore.setItemAsync('lastPressTime', new Date().toISOString());
             }
         }).catch(error => {
             console.log(error);
         })
         
     }
+
     
     const handleNoPress = async () => {
         
@@ -83,11 +98,12 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then(response => {
+        }).then(async response => {
             if(response.data.status == "success"){
                 ToastAndroid.show("Plan regenerated", ToastAndroid.SHORT);
                 setShowAlert(false);
-                setPressed(true)
+                setPressed(true);
+                await SecureStore.setItemAsync('lastPressTime', new Date().toISOString());
             }
         }).catch(error => {
             console.log(error);
