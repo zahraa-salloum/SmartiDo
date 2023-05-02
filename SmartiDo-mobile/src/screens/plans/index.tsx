@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import styles from './styles';
-import { ImageBackground, SafeAreaView, ScrollView, Text } from 'react-native';
+import { ImageBackground, SafeAreaView, ScrollView, Text, ToastAndroid } from 'react-native';
 import EmptyState from '../../components/EmptyState';
 import RoundButton from '../../components/RoundButton';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -48,15 +48,29 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         const date = new Date();
         const hour = date.getHours();
         
-        if (hour === 11 && hasStudyPlan) {
+        if (hour === 12 && hasStudyPlan) {
             setShowAlert(true);
         }
     }, [plan]);
         
 
-    const handleYesPress = () => {
-        setShowAlert(false);
-        // done api
+    const handleYesPress = async () => {
+        
+        const token = await SecureStore.getItemAsync('token');
+            
+        axios.post("http://"+ numbers.server +"/api/v0.0.1/study_done",{}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            if(response.data.status == "success"){
+                ToastAndroid.show("Cool..Keep it up", ToastAndroid.SHORT);
+                setShowAlert(false);
+            }
+        }).catch(error => {
+            console.log(error);
+        })
+        
     }
     
     const handleNoPress = () => {
