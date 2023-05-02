@@ -16,6 +16,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
     const [plan, setPlan] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
     const [hasStudyPlan, setHasStudyPlan] = useState(false);
+    const [pressed, setPressed] = useState(false);
     const navigation = useNavigation();
 
     const today = new Date();
@@ -48,7 +49,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         const date = new Date();
         const hour = date.getHours();
         
-        if (hour === 12 && hasStudyPlan) {
+        if (hour === 12 && hasStudyPlan && !pressed) {
             setShowAlert(true);
         }
     }, [plan]);
@@ -66,6 +67,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
             if(response.data.status == "success"){
                 ToastAndroid.show("Cool..Keep it up", ToastAndroid.SHORT);
                 setShowAlert(false);
+                setPressed(true)
             }
         }).catch(error => {
             console.log(error);
@@ -85,6 +87,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
             if(response.data.status == "success"){
                 ToastAndroid.show("Plan regenerated", ToastAndroid.SHORT);
                 setShowAlert(false);
+                setPressed(true)
             }
         }).catch(error => {
             console.log(error);
