@@ -99,6 +99,15 @@ class PlanController extends Controller
             Plan::insert($plans_review_exam);
         }
 
+        Plan::insert([
+            'hour' => '*',
+            'task' => "Plan regenerted for tomorrow",
+            'day' => Carbon::now()->toDateString(),
+            'user_id' => $id,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
         $exams_AI = Exam::where('user_id', $id)
                         ->orderBy('day', 'asc')
                         ->get();
@@ -171,7 +180,7 @@ class PlanController extends Controller
             //     ];
             // }
 
-            // DB::table('plans')->insert($plans);
+            // Plan::insert($plans);
 
             $count++;
             $max_days--;
@@ -321,7 +330,7 @@ class PlanController extends Controller
                 //     ];
                 // }
 
-                // DB::table('plans')->insert($plans);
+                // Plan::insert($plans);
 
 
                 $max_days--;
