@@ -15,6 +15,7 @@ interface PlansScreenProps  {}
 const PlansScreen: FC<PlansScreenProps> = (props) => {
     const [plan, setPlan] = useState([]);
     const [showAlert, setShowAlert] = useState(false);
+    const [hasStudyPlan, setHasStudyPlan] = useState(false);
     const navigation = useNavigation();
 
     const today = new Date();
@@ -31,6 +32,8 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
             }
         }).then(response => {
             setPlan(response.data.plan);
+            const hasStudyPlan = response.data.plan.some(item => item.task.toLowerCase().includes('study'));
+            setHasStudyPlan(hasStudyPlan);
         })
     } 
         
@@ -45,10 +48,10 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         const date = new Date();
         const hour = date.getHours();
         
-        if (hour === 11) {
+        if (hour === 11 && hasStudyPlan) {
             setShowAlert(true);
         }
-    }, []);
+    }, [plan]);
         
 
     const handleYesPress = () => {
