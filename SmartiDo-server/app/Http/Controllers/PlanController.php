@@ -37,6 +37,12 @@ class PlanController extends Controller
 
         $times->save();
 
+        $arr_exams_reserved_days = [];
+        foreach ($exams as $key => $exam) {
+            array_push($arr_exams_reserved_days, $exam['day']); 
+            array_push($arr_exams_reserved_days, Carbon::parse($exam['day'])->subDay()->toDateString()); 
+        }
+
         foreach ($exams as $key => $exam) {
             $exam_inserted = new Exam;
             $exam_inserted->title = $exam['title'];
@@ -51,25 +57,15 @@ class PlanController extends Controller
             $days_before_exam = $now->diffInDays($exam_date, false);
         
             
-            $previous_exam_key = $key - 1;
             $days_of_exams = 0;
-            while ($previous_exam_key >= 0) {
-                $previous_exam_date = Carbon::parse($exams[$previous_exam_key]['day']);
-                $days_between_exams = $previous_exam_date->diffInDays($exam_date, false);
-        
-                
-                if ($days_between_exams > 1) {
-                    $days_before_exam--;
-                    
+            for($i = $now; $i <= Carbon::parse($exam['day']); $i=($i)->addDays(1) ){
+                if(in_array($i->toDateString(), $arr_exams_reserved_days)){
+                    $days_of_exams++;
                 }
-
-                $exam_date = $previous_exam_date;
-                $days_of_exams++;
-                $previous_exam_key--;
             }
-            if(($days_before_exam - $days_of_exams - 1) > 0){    
-                $hours_per_day =ceil($exam_inserted->hours_of_study / ($days_before_exam - $days_of_exams - 1));
-                $exam_inserted->days_of_study = $days_before_exam - $days_of_exams - 1;
+            if(($days_before_exam - $days_of_exams) > 0){    
+                $hours_per_day =ceil($exam_inserted->hours_of_study / ($days_before_exam - $days_of_exams));
+                $exam_inserted->days_of_study = $days_before_exam - $days_of_exams;
             }else{
                 $hours_per_day = 0;
                 $exam_inserted->days_of_study = 0;
@@ -198,6 +194,7 @@ class PlanController extends Controller
         ], 500);
       }     
     }
+    
 
     function regeneratePlan(Request $request) {
         try{
