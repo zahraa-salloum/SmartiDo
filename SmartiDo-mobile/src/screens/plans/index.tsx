@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './styles';
 import { ImageBackground, SafeAreaView, ScrollView, Text } from 'react-native';
 import EmptyState from '../../components/EmptyState';
@@ -8,36 +8,60 @@ import axios from 'axios';
 import { numbers } from '../../constants/constants';
 import * as SecureStore from 'expo-secure-store';
 import Plan from '../../components/Plan';
+import Dialog from "react-native-dialog";
 
 interface PlansScreenProps  {}
 
 const PlansScreen: FC<PlansScreenProps> = (props) => {
     const [plan, setPlan] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
     const navigation = useNavigation();
 
     const today = new Date();
     
-        const fetchPlan  = async () => {
-            const token = await SecureStore.getItemAsync('token');
+    const fetchPlan  = async () => {
+        const token = await SecureStore.getItemAsync('token');
             
-            const data = {
-                day: today.toISOString().substring(0, 10),
-            };
-            axios.post("http://"+ numbers.server +"/api/v0.0.1/get_plan", data, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(response => {
-                setPlan(response.data.plan);
-            })
-        }   
+        const data = {
+            day: today.toISOString().substring(0, 10),
+        };
+        axios.post("http://"+ numbers.server +"/api/v0.0.1/get_plan", data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            setPlan(response.data.plan);
+        })
+    } 
         
-
     useFocusEffect(
         React.useCallback(() => {
-          fetchPlan();
+            fetchPlan();
         }, [])
-      );
+    );
+        
+    
+    useEffect(() => {
+        const date = new Date();
+        const hour = date.getHours();
+        
+        if (hour === 11) {
+            setShowAlert(true);
+        }
+    }, []);
+        
+
+    const handleYesPress = () => {
+        setShowAlert(false);
+        // done api
+    }
+    
+    const handleNoPress = () => {
+        setShowAlert(false);
+        // regenerate api
+    }
+
+    
 
     const renderPlan = () => {
         if (plan.length === 0) {
@@ -66,6 +90,16 @@ return (
     <ImageBackground source={require('../../../assets/empty.png')} style={styles.containerBackground}>
         <SafeAreaView style={styles.container}>
             {renderPlan()}
+            {showAlert && (
+            <Dialog.Container visible={showAlert} contentStyle={styles.dialog}>
+            <Dialog.Title>Follow Up</Dialog.Title>
+            <Dialog.Description>
+                Did you study today as planned ?
+            </Dialog.Description>
+            <Dialog.Button label="No" onPress={handleNoPress} />
+            <Dialog.Button label="Yes, I did !" onPress={handleYesPress} />
+            </Dialog.Container>
+            )}
         </SafeAreaView>
     </ImageBackground>
 )
