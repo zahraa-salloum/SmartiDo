@@ -238,6 +238,15 @@ class PlanController extends Controller
                 Plan::insert($plans_review_exam);
             }
 
+            Plan::insert([
+                        'hour' => '*',
+                        'task' => "Plan regenerted for tomorrow",
+                        'day' => Carbon::now()->toDateString(),
+                        'user_id' => $id,
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+
             $times = Time::where('user_id', $id)->first();
 
             $exams_AI = Exam::where('user_id', $id)
