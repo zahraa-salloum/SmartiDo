@@ -29,4 +29,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     },
+    dialog:{
+      backgroundColor: colors.light_purple,
+      borderRadius: 18,
+  },
 })
