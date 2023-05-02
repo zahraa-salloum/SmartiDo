@@ -49,7 +49,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         const date = new Date();
         const hour = date.getHours();
         
-        if (hour === 13 && hasStudyPlan && !pressed) {
+        if (hour === numbers.followUpTime && hasStudyPlan && !pressed) {
             setShowAlert(true);
         }
     }, [plan]);
@@ -65,7 +65,7 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
             setPressed(false);
           }
         }
-      }, 3600000);
+    }, 3600000);
         
 
     const handleYesPress = async () => {
