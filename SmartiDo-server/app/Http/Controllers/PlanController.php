@@ -25,7 +25,7 @@ class PlanController extends Controller
         $dinner = $request->dinner;
         
         $exams = $request->exams;
-
+        $exams = collect($exams)->sortBy('day')->values()->all();
         $times = new Time;
 
         $times->sleep = $sleep;
