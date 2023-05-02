@@ -73,9 +73,23 @@ const PlansScreen: FC<PlansScreenProps> = (props) => {
         
     }
     
-    const handleNoPress = () => {
-        setShowAlert(false);
-        // regenerate api
+    const handleNoPress = async () => {
+        
+        const token = await SecureStore.getItemAsync('token');
+            
+        axios.post("http://"+ numbers.server +"/api/v0.0.1/regenerate_plan",{}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            if(response.data.status == "success"){
+                ToastAndroid.show("Plan regenerated", ToastAndroid.SHORT);
+                setShowAlert(false);
+            }
+        }).catch(error => {
+            console.log(error);
+        })
+    
     }
 
     
