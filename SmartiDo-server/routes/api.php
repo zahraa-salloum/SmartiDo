@@ -27,7 +27,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
     Route::group(['prefix' => 'auth'], function (){
         Route::post('login',[AuthController::class, 'login']);  
         Route::post('logout',[AuthController::class, 'logout']);
-        Route::post('refresh',[AuthController::class, 'refresh']);
+        
     });
     Route::post('register',[AuthController::class,'register']);
     Route::post('forgot_password', [NewPasswordController::class, 'forgotPassword']);
@@ -40,6 +40,7 @@ Route::group(['prefix' => 'v0.0.1'], function(){
             Route::post('/block', [AdminController::class, 'block']);
             Route::get('/get_users_age', [AdminController::class, 'getUsersByAge']);
         });
+        Route::post('refresh',[AuthController::class, 'refresh']);
         Route::post('/add_profile',[ProfileController::class,"addOrUpdateProfile"]);
         Route::get('/get_profile',[ProfileController::class,"getProfile"]);
         Route::get('/get_todos',[TodoController::class,"getAllTodos"]);
