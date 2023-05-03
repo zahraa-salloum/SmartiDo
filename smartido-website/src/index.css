@@ -175,6 +175,7 @@ span {
   margin-left: 50px;
   font-size: 24px;
   font-weight: bold;
+  width: 80%;
 }
 
 .user_container{
@@ -200,7 +201,11 @@ span {
 }
 
 .user_block_btn{
-  background-color: var(--dark-purple);
+  background-color: var(--light-purple);
+  border: 1px solid var(--light-purple);
+  color: var(--error);
+  cursor: pointer;
+  font-size: 26px;
 }
 
 .container_all_users{
@@ -215,4 +220,13 @@ span {
   border-radius: 6px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.logout_btn{
+  background-color: var(--dark-purple);
+  color: var(--white);
+  border: 1px solid var(--dark-purple);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
 }
