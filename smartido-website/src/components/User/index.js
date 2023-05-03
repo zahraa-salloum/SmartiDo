@@ -1,6 +1,10 @@
 
 
-const User=({user_name,user_image,onBlock})=>{  
+const User=({user_name,user_image,onBlock})=>{
+
+    if(user_image === `data:image/png;base64,${null}`){
+        user_image = require('../../assets/student.png');
+    }  
     return(
         <div className="user_container">
             <img src={user_image} className="user_image" />
