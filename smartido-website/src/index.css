@@ -230,3 +230,43 @@ span {
   font-size: 18px;
   font-weight: bold;
 }
+
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  border: 1px solid var(--purple);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.alert_message {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.alert_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert_confirm, .alert_cancel {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alert_confirm {
+  background-color: var(--purple);
+  color: var(--white);
+  border: 1px solid var(--purple);
+}
+
+.alert_cancel {
+  background-color: var(--white);
+  color: var(--dark-purple);
+  border: 1px solid var(--purple);
+}

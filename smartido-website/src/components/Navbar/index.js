@@ -6,18 +6,18 @@ import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
 
 const Navbar = ({name}) => {
-  const [sidebar, setSidebar] = useState(false);
+    const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => setSidebar(!sidebar);
+    const showSidebar = () => setSidebar(!sidebar);
 
-  const navigator = useNavigate();
-  const logout=()=>{
-    localStorage.clear();
-    navigator('/login');
+    const navigator = useNavigate();
+    const logout=()=>{
+        localStorage.clear();
+        navigator('/login');
     }
 
-  return (
-    <>
+    return (
+    
         <IconContext.Provider value={{ color: '#fff' }}>
             <div className='navbar'>
                 <Link to='#' className='menu-bars'>
@@ -47,7 +47,7 @@ const Navbar = ({name}) => {
                 </ul>
             </nav>
         </IconContext.Provider>
-    </>
+    
   );
 }
 
