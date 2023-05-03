@@ -1,7 +1,7 @@
 
 
 
-const Input=({label_name,input_type,onChange},)=>{  
+const Input=({label_name,input_type,onChange})=>{  
     return(
     <div className="container_clear">
         <label className="label">{label_name}</label>

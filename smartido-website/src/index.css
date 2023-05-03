@@ -169,3 +169,10 @@ span {
   height: 100px;
   width: 150px;
 }
+
+.hello-message{
+  color: var(--light-purple);
+  margin-left: 50px;
+  font-size: 24px;
+  font-weight: bold;
+}
