@@ -1,9 +1,11 @@
 import Button from '../../components/Button';
 import Input from "../../components/Input";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigator = useNavigate();
+    
     return (
-        
         <div className="container">
           <h1 className="size_heading">Log In</h1>
           <Input label_name={"Email"} input_type={"email"} size="40" />
