@@ -12,13 +12,32 @@ const UsersPage = () => {
     const token = localStorage.getItem('token');
     const name = localStorage.getItem('name');
     const [showAlert, setShowAlert] = useState(false);
+    const [emailBlock, setEmailBlock] = useState('');
 
-    const handleBlock = () => {
+    const handleBlock = (email) => {
         setShowAlert(true);
+        setEmailBlock(email);
     }
 
-    const handleConfirm = () => {
-        setShowAlert(false);
+    const handleConfirm = async () => {
+
+        let data = {
+            "email": emailBlock,
+        };
+
+        await axios.post("http://"+ numbers.server +"/api/v0.0.1/admin/block",data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((res) => {
+            setShowAlert(false);
+            setUsers(users.filter(user => user.email !== emailBlock));
+
+        }).catch((err) => {
+            console.log(err);
+            
+        })
+
     }
 
     const handleCancel = () => {
@@ -31,11 +50,11 @@ const UsersPage = () => {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
-                }).then(response => {
-                    setUsers(response.data.users)
-                }).catch((err) => {
+            }).then(response => {
+                setUsers(response.data.users)
+            }).catch((err) => {
                     console.log(err);
-                })
+            })
         }
         getUsers()
     },[]) 
@@ -52,7 +71,7 @@ const UsersPage = () => {
             <Navbar name={name}/>
             <div className="container_all_users">
                 {users.map(user => (
-                    <User key={user.id} user_image={`data:image/png;base64,${user.picture}`} user_name={user.name} onBlock={handleBlock}/>
+                    <User key={user.id} user_image={`data:image/png;base64,${user.picture}`} user_name={user.name} onBlock={() => handleBlock(user.email)}/>
                 ))}
             </div>
         </>
