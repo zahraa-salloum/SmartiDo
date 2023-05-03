@@ -20,6 +20,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 400px;
+  background-color: var(--purple);
+  margin: 30px auto;
+  border-radius: 16px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-shadow: 0 0 5px rgba(8,7,16,0.6);
+
+}
 
 
 
