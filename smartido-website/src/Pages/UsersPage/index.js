@@ -8,6 +8,7 @@ import { numbers } from "../../constants/constants";
 const UsersPage = () => {
     const [users, setUsers] = useState([]);
     const token = localStorage.getItem('token');
+    const name = localStorage.getItem('name');
 
     useEffect(() => {
         const getUsers = () => {
@@ -26,7 +27,7 @@ const UsersPage = () => {
 
     return (
         <>
-        <Navbar />
+        <Navbar name={name}/>
         <div className="container_all_users">
             {users.map(user => (
                 <User key={user.id} user_image={`data:image/png;base64,${user.picture}`} user_name={user.name} />
