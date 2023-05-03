@@ -46,6 +46,11 @@ code {
 
 }
 
+.size_heading{
+  color: var(--white);
+  font-size: 32px;
+}
+
 
 
 .btn {
