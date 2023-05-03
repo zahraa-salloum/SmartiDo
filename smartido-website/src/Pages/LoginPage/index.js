@@ -26,7 +26,7 @@ const Login = () => {
           };
 
         axios.post("http://192.168.1.104:8000/api/v0.0.1/auth/login",data).then((res) => {
-            if(res.data.user.type_id == 1){
+            if(res.data.user.type_id === 1){
                 localStorage.setItem('token',res.data.authorisation.token);
                 // navigator('/welcome');
             } else {
@@ -41,14 +41,17 @@ const Login = () => {
     }
 
     return (
+        <>
+        
         <div className="container">
+        <img src={require("../../assets/logo.png")} className='logo_login'/>
           <h1 className="size_heading">Log In</h1>
           <Input label_name={"Email"} input_type={"email"} onChange={handleEmail} size="40" />
           <Input label_name={"Password"} input_type={"password"} onChange={handlePassword}/>
           <Button name_button={"LOGIN"} onSubmit={handleSubmit}/>
           <div className="error">{error}</div>
         </div>
-       
+        </>
     );
 }
 export default Login;
