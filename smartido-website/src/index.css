@@ -39,9 +39,9 @@ code {
   width: 400px;
   background-color: var(--purple);
   margin: 30px auto;
-  border-radius: 16px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  border-radius: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   box-shadow: 0 0 5px rgba(8,7,16,0.6);
 
 }
@@ -51,11 +51,22 @@ code {
   font-size: 32px;
 }
 
+.input_white {
+  background-color:var(--white);
+  font-size: 16px;
+  width: 75%;
+  height: 10px;
+  padding: 16px;
+  margin: 10px 0;
+  border: 2px solid var(--dark-purple);
+  border-radius: 6px;
+}
+
 
 
 .btn {
   cursor: pointer;
-  width: 75%;
+  width: 65%;
   border: 1px solid var(--purple);
   padding: 16px;
   border-radius: 6px;
