@@ -43,7 +43,6 @@ const Login = () => {
 
     return (
         <>
-        
         <div className="container">
         <img src={require("../../assets/logo.png")} className='logo_login'/>
           <h1 className="size_heading">Log In</h1>
