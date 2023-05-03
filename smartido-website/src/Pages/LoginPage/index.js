@@ -29,7 +29,7 @@ const Login = () => {
         axios.post("http://"+ numbers.server +"/api/v0.0.1/auth/login",data).then((res) => {
             if(res.data.user.type_id === 1){
                 localStorage.setItem('token',res.data.authorisation.token);
-                // navigator('/welcome');
+                navigator('/users');
             } else {
                 setError("Access Denied");
             }
