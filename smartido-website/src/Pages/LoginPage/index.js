@@ -1,10 +1,14 @@
 import Button from '../../components/Button';
 import Input from "../../components/Input";
 import { useNavigate } from "react-router-dom";
+import {useState } from "react";
 
 const Login = () => {
     const navigator = useNavigate();
-    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error,setError]=useState("");
+
     return (
         <div className="container">
           <h1 className="size_heading">Log In</h1>
