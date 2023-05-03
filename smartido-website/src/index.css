@@ -203,15 +203,15 @@ span {
   background-color: var(--dark-purple);
 }
 
-.container_users{
+.container_all_users{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 1px;
   width: 80%;
-  margin: 10px auto;
+  margin: 20px auto;
   border-radius: 6px;
   padding-top: 10px;
   padding-bottom: 10px;
