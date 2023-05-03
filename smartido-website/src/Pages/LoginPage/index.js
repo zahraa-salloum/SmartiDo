@@ -1,5 +1,4 @@
 import Button from '../../components/Button';
-import './styles.css';
 
 
 const Login = () => {
