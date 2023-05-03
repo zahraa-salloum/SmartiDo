@@ -62,6 +62,13 @@ code {
   border-radius: 6px;
 }
 
+.label{
+  color: var(--white);
+  margin-left: 9%;
+  align-self: start !important;
+  margin-bottom: -3%;
+}
+
 
 
 .btn {
