@@ -3,6 +3,7 @@ import Input from "../../components/Input";
 import { useNavigate } from "react-router-dom";
 import {useState } from "react";
 import axios from "axios";
+import { numbers } from '../../constants/constants';
 
 const Login = () => {
     const navigator = useNavigate();
@@ -25,7 +26,7 @@ const Login = () => {
             "password": password
           };
 
-        axios.post("http://192.168.1.104:8000/api/v0.0.1/auth/login",data).then((res) => {
+        axios.post("http://"+ numbers.server +"/api/v0.0.1/auth/login",data).then((res) => {
             if(res.data.user.type_id === 1){
                 localStorage.setItem('token',res.data.authorisation.token);
                 // navigator('/welcome');
