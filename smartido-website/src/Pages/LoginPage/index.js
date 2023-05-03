@@ -9,11 +9,18 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error,setError]=useState("");
 
+    const handleEmail=(e)=>{
+        setEmail(e.target.value)
+    }
+   const handlePassword=(e)=>{
+       setPassword(e.target.value)
+    }
+
     return (
         <div className="container">
           <h1 className="size_heading">Log In</h1>
-          <Input label_name={"Email"} input_type={"email"} size="40" />
-          <Input label_name={"Password"} input_type={"password"} />
+          <Input label_name={"Email"} input_type={"email"} onChange={handleEmail} size="40" />
+          <Input label_name={"Password"} input_type={"password"} onChange={handlePassword}/>
           <Button name_button={"LOGIN"} />
           <div className="error"></div>
         </div>
