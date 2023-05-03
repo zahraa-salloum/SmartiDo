@@ -30,11 +30,12 @@ const Login = () => {
                 localStorage.setItem('token',res.data.authorisation.token);
                 // navigator('/welcome');
             } else {
-                setError("Access Denied")
+                setError("Access Denied");
             }
         }
         ).catch((err) => {
             console.log(err);
+            setError("Invalid Credentials");
         })
 
     }
