@@ -101,7 +101,7 @@ code {
 }
 
 .menu-bars {
-  margin-left: 2rem;
+  margin-left: 0.9rem;
   font-size: 24px;
   background: none;
 }
@@ -127,7 +127,7 @@ code {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 0px 8px 0px;
   list-style: none;
   height: 60px;
 }
@@ -163,4 +163,9 @@ code {
 
 span {
   margin-left: 16px;
+}
+
+.logo_navbar{
+  height: 100px;
+  width: 150px;
 }
