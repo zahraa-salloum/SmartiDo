@@ -26,7 +26,7 @@ code {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
+  width: 350px;
   gap: 5px;
 }
 .container{
@@ -73,7 +73,7 @@ code {
 
 .btn {
   cursor: pointer;
-  width: 65%;
+  width: 60%;
   border: 1px solid var(--purple);
   padding: 16px;
   border-radius: 6px;
