@@ -116,7 +116,7 @@ code {
   top: 0;
   left: -100%;
   transition: 850ms;
-  border-right: 1px solid var(--dark-purple);
+  box-shadow: 0 0 20px var(--black);
 }
 
 .nav-menu.active {
@@ -137,7 +137,7 @@ code {
   text-decoration: none;
   color: var(--dark-purple);
   font-size: 18px;
-  width: 95%;
+  width: 70%;
   height: 100%;
   display: flex;
   align-items: center;
