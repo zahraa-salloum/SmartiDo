@@ -116,6 +116,7 @@ code {
   top: 0;
   left: -100%;
   transition: 850ms;
+  border-right: 1px solid var(--dark-purple);
 }
 
 .nav-menu.active {
