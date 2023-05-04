@@ -15,7 +15,7 @@ const StatisticsPage = () => {
 
     useEffect(() => {
         const getStatistics = () => {
-            axios.get("http://"+ numbers.server +"/api/v0.0.1/admin/satistics", {
+            axios.get(numbers.server +"admin/satistics", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

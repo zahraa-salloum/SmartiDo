@@ -25,7 +25,7 @@ const UsersPage = () => {
             "email": emailBlock,
         };
 
-        await axios.post("http://"+ numbers.server +"/api/v0.0.1/admin/block",data, {
+        await axios.post(numbers.server +"admin/block",data, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -35,7 +35,7 @@ const UsersPage = () => {
 
         }).catch((err) => {
             console.log(err);
-            
+
         })
 
     }
@@ -46,7 +46,7 @@ const UsersPage = () => {
 
     useEffect(() => {
         const getUsers = () => {
-            axios.get("http://"+ numbers.server +"/api/v0.0.1/admin/get_users", {
+            axios.get(numbers.server +"admin/get_users", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

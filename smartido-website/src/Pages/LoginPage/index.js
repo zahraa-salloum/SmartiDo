@@ -26,7 +26,7 @@ const Login = () => {
             "password": password
           };
 
-        axios.post("http://"+ numbers.server +"/api/v0.0.1/auth/login",data).then((res) => {
+        axios.post(numbers.server +"auth/login",data).then((res) => {
             if(res.data.user.type_id === 1){
                 localStorage.setItem('token',res.data.authorisation.token);
                 localStorage.setItem('name',res.data.user.name);
