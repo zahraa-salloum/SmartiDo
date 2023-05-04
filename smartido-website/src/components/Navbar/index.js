@@ -8,8 +8,6 @@ import { IconContext } from 'react-icons';
 const Navbar = ({name}) => {
     const [sidebar, setSidebar] = useState(false);
 
-    const showSidebar = () => setSidebar(!sidebar);
-
     const navigator = useNavigate();
     const logout=()=>{
         localStorage.clear();
@@ -21,13 +19,13 @@ const Navbar = ({name}) => {
         <IconContext.Provider value={{ color: '#fff' }}>
             <div className='navbar'>
                 <Link to='#' className='menu-bars'>
-                    <FaIcons.FaBars onClick={showSidebar} />
+                    <FaIcons.FaBars onClick={() => setSidebar((prev) => !prev)} />
                 </Link>
                 <div className='hello-message'>Hello... {name}</div>
                 <button className='logout_btn' onClick={logout}>LOGOUT</button>
             </div>
             <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                <ul className='nav-menu-items' onClick={showSidebar}>
+                <ul className='nav-menu-items' onClick={() => setSidebar((prev) => !prev)}>
                     <img src={require("../../assets/logo.png")} className='logo_navbar'/>
                     <li className='navbar-toggle'>
                         <Link to='#' className='menu-bars'>
