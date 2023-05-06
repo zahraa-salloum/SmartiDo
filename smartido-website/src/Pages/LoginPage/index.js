@@ -30,7 +30,7 @@ const Login = () => {
             if(res.data.user.type_id === 1){
                 localStorage.setItem('token',res.data.authorisation.token);
                 localStorage.setItem('name',res.data.user.name);
-                navigator('/users');
+                navigator('/dashboard');
             } else {
                 setError("Access Denied");
             }

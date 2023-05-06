@@ -4,7 +4,7 @@ import {useState, useEffect } from "react";
 import axios from "axios";
 import { numbers } from '../../constants/constants';
 
-const StatisticsPage = () => {
+const DashboardPage = () => {
     const [totalCount, setTotalCount] = useState([]);
     const [femaleCount, setFemaleCount] = useState([]);
     const [maleCount, setMaleCount] = useState([]);
@@ -49,4 +49,4 @@ const StatisticsPage = () => {
 }
 
 
-export default StatisticsPage;
+export default DashboardPage;
