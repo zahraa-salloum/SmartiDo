@@ -63,12 +63,13 @@
 ### User Screens (Mobile)
 | Login screen  | Register screen |  Landing screen | Plan screen (empty) |
 | ---| ---| ---| ---|
-| ![Landing](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) |
+| ![Landing](./readme/assets/login%20-%20app.png) | ![fsdaf](./readme/assets/sign%20up%20-%20app.png) | ![fsdaf](./readme/assets/landing%20-%20app.png) | ![fsdaf](./readme/assets/plan(empty)%20-%20app.png) |
 | Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ![Landing](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) |
-| Leaderboard screen  | Profile screen |  Settings screen |
-| ![Landing](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) |
-
+| ![Landing](./readme/assets/plan(full)%20-%20app.png) | ![fsdaf](./readme/assets/calendar%20-%20app.png) | ![fsdaf](./readme/assets/tasks(empty)%20-%20app.png) | ![fsdaf](./readme/assets/tasks(full)%20-%20app.png) |
+| Leaderboard screen  | Profile screen |  Settings screen | Plan generate screen |
+| ![Landing](./readme/assets/leaderboard%20-%20app.png) | ![fsdaf](./readme/assets/profile%20-%20app.png) | ![fsdaf](./readme/assets/settings%20-%20app.png) | ![fsdaf](./readme/assets/Plan%20Generate%201%20-%20app.png) |
+| Plan generate screen  |
+| ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) |
 ### Admin Screens (Web)
 | Admin Login screen  | Admin Dashboard screen |  Admin Users screen |
 | ---| ---| ---|
