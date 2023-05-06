@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 
 
-const Navbar = ({name}) => {
+const Navbar = ({name,title}) => {
     const [sidebar, setSidebar] = useState(false);
 
     const navigator = useNavigate();
@@ -17,6 +17,7 @@ const Navbar = ({name}) => {
         <>
             <div className='navbar'>
                 <div className='hello-message'>Hello... {name}</div>
+                <div className='hello-message'>{title}</div>
                 <button className='logout_btn' onClick={logout}>LOGOUT</button>
             </div>
             <nav className='nav-menu active'>

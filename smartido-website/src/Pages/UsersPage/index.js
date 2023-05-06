@@ -68,7 +68,7 @@ const UsersPage = () => {
                 onCancel={handleCancel}
                 />
             )}
-            <Navbar name={name}/>
+            <Navbar name={name} title={'Users'}/>
             <div className="container_all_users">
                 {users.map(user => (
                     <User key={user.id} user_image={`data:image/png;base64,${user.picture}`} user_name={user.name} onBlock={() => handleBlock(user.email)}/>

@@ -36,7 +36,7 @@ const DashboardPage = () => {
 
     return (
         <>
-        <Navbar name={name} />
+        <Navbar name={name} title={'Dashboard'} />
         <div className="container_statistics">
             <Statistic statistic_title={'Total Users Count'} statistic_number={totalCount} />
             <Statistic statistic_title={'Total Female Users Count'} statistic_number={femaleCount} />

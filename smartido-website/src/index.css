@@ -96,8 +96,10 @@ code {
   background-color: var(--dark-purple);
   height: 80px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
+  gap: 200px;
+  margin-left: 250px;
 }
 
 .menu-bars {
@@ -174,10 +176,10 @@ span {
 
 .hello-message{
   color: var(--light-purple);
-  margin-left: 50px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  width: 80%;
+  width:20%;
+ 
 }
 
 .user_container{
