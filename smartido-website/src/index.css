@@ -169,6 +169,7 @@ span {
 .logo_navbar{
   height: 100px;
   width: 150px;
+  margin-bottom: 35px;
 }
 
 .hello-message{
