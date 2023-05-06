@@ -129,11 +129,12 @@ Running the server:
    ```sh
    php artisan key:generate
    ```
-5. Run the database migrations
+5. Generate a key from OpenAI api and save it in the .env file in a variable OPENAI_SECRET.
+6. Run the database migrations
    ```sh
    php artisan migrate
    ```
-6. Go to cmd, use ipconfig to get IPv4 Address key, then copy its value and run this command to start the server
+7. Go to cmd, use ipconfig to get IPv4 Address key, then copy its value and run this command to start the server
    ```sh
    php artisan serve --host=(IPv4 Address key) --port=8000
    ```

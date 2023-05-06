@@ -157,7 +157,7 @@ const TimesScreen: FC<TimesScreenProps> = (props) => {
                     <TimesRoutines label='Dinner Time:' onTimeChange={handleTimeDinnerChange} />
                     {timeExamsComponents}
                     <LogButton buttonprops={{
-                        title: "Log Exam",
+                        title: "Save Exam",
                         onPress: handleAddTimeExam,
                     }} />
                     {loading && <LoadingIndicator />}
