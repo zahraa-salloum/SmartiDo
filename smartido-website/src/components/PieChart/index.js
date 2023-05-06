@@ -22,11 +22,11 @@ const PieChart=({title, labels, dataPie})=>{
     return(
         <div className="statistic_large_container">
             <div className="statistic_title">{title}</div>
-            <div style={{ width: "300px", height: "300px" }}>
-            <Pie
-            data={data}
-            options={options}>
-            </Pie>
+            <div className="container_pie_chart">
+                <Pie
+                data={data}
+                options={options}>
+                </Pie>
             </div>
         </div>
 

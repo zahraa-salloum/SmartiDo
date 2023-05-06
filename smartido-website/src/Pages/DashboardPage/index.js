@@ -40,13 +40,12 @@ const DashboardPage = () => {
 
     return (
         <>
-        <Navbar name={name} title={'Dashboard'} />
-        <div className="container_statistics">
-            <PieChart title={'Total Users'} labels={['Active Users','Blocked Users']} dataPie={[totalCount, blockedEmailCount]} />
-            <PieChart title={'Users Genders'} labels={['Female Users','Male Users']} dataPie={[femaleCount, maleCount]} />
-            <Statistic statistic_title={'Regenerates Average'} statistic_number={regeneratesAvg} />
-        </div>
-        
+            <Navbar name={name} title={'Dashboard'} />
+            <div className="container_statistics">
+                <PieChart title={'Total Users'} labels={['Active Users','Blocked Users']} dataPie={[totalCount, blockedEmailCount]} />
+                <PieChart title={'Users Genders'} labels={['Female Users','Male Users']} dataPie={[femaleCount, maleCount]} />
+                <Statistic statistic_title={'Regenerates Average'} statistic_number={regeneratesAvg} />
+            </div>
         </>
     );
 }
