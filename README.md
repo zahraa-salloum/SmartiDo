@@ -71,9 +71,11 @@
 | Plan generate screen  |
 | ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) |
 ### Admin Screens (Web)
-| Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  Admin Users screen |
-| ---| ---| ---| ---|
+| Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  
+| ---| ---| ---|
 | ![Landing](./readme/assets/login%20admin%20web.png) | ![fsdaf](./readme/assets/dashboard%20web%201.png) | ![fsdaf](./readme/assets/dashboard%20web%202.png) | ![fsdaf](./readme/assets/users%20web.png) |
+| Admin Users screen |
+| ![Landing](./readme/assets/users%20web.png) |
 
 <br><br>
 
