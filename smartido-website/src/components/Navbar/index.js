@@ -26,7 +26,7 @@ const Navbar = ({name}) => {
             </div>
             <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                 <ul className='nav-menu-items' onClick={() => setSidebar((prev) => !prev)}>
-                    <img src={require("../../assets/logo.png")} className='logo_navbar'/>
+                    <img src={require("../../assets/logo-no-background white.png")} className='logo_navbar'/>
                     <li className='navbar-toggle'>
                         <Link to='#' className='menu-bars'>
                             <AiIcons.AiOutlineClose />

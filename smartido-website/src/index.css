@@ -107,7 +107,7 @@ code {
 }
 
 .nav-menu {
-  background-color: var(--light-purple);
+  background-color: var(--dark-purple);
   width: 250px;
   height: 100vh;
   display: flex;
@@ -135,7 +135,7 @@ code {
 
 .nav-text a {
   text-decoration: none;
-  color: var(--dark-purple);
+  color: var(--light-purple);
   font-size: 18px;
   width: 70%;
   height: 100%;
@@ -154,7 +154,7 @@ code {
 }
 
 .navbar-toggle {
-  background-color: var(--light-purple);
+  background-color: var(--dark-purple);
   width: 100%;
   height: 80px;
   display: flex;
