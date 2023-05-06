@@ -32,10 +32,8 @@
 | ---| ---| ---| ---|
 | ![Landing](./readme/assets/log%20in.png) | ![fsdaf](./readme/assets/Sign%20Up.png) | ![fsdaf](./readme/assets/First%20Screen.png) | ![fsdaf](./readme/assets/Plan%20Page%20(empty).png) |
 | Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ---| ---| ---| ---|
 | ![Landing](./readme/assets/Plan%20Page%20(full).png) | ![fsdaf](./readme/assets/Calendar.png) | ![fsdaf](./readme/assets/Tasks%20(empty).png) | ![fsdaf](./readme/assets/Tasks%20(full).png) |
 | Leaderboard screen  | Profile screen |  Settings screen |
-| ---| ---| ---|
 | ![Landing](./readme/assets/Leaderboard.png) | ![fsdaf](./readme/assets/Profile.png) | ![fsdaf](./readme/assets/Settings.png) |
 
 | Admin Login screen  | Admin Dashboard screen |  Admin Users screen |
@@ -47,10 +45,8 @@
 | ---| ---| ---| ---|
 | ![Landing](./readme/assets/log%20in%20screen.png) | ![fsdaf](./readme/assets/Sign%20Up%20screen.png) | ![fsdaf](./readme/assets/Lunch%20screen.png) | ![fsdaf](./readme/assets/Plan%20Page%20(empty)%20screen.png) |
 | Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ---| ---| ---| ---|
 | ![Landing](./readme/assets/Plan%20Page%20(full)%20screen.png) | ![fsdaf](./readme/assets/Calendar%20screen.png) | ![fsdaf](./readme/assets/Tasks%20(empty)%20screen.png) | ![fsdaf](./readme/assets/Tasks%20(full)%20screen.png) |
 | Leaderboard screen  | Profile screen |  Settings screen |
-| ---| ---| ---|
 | ![Landing](./readme/assets/Leaderboard%20screen.png) | ![fsdaf](./readme/assets/Profile%20screen.png) | ![fsdaf](./readme/assets/Settings%20screen.png) |
 
 | Admin Login screen  | Admin Dashboard screen |  Admin Users screen |
@@ -69,10 +65,8 @@
 | ---| ---| ---| ---|
 | ![Landing](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) |
 | Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ---| ---| ---| ---|
 | ![Landing](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) |
 | Leaderboard screen  | Profile screen |  Settings screen |
-| ---| ---| ---|
 | ![Landing](./readme/assets) | ![fsdaf](./readme/assets) | ![fsdaf](./readme/assets) |
 
 ### Admin Screens (Web)
