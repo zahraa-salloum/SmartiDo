@@ -11,6 +11,7 @@ const User=({user_name,user_image,onBlock})=>{
             <div className="user_name"> {user_name} </div>
             <button className='user_block_btn' onClick={onBlock}>
             <AiOutlineStop />
+            <div>Block</div>
             </button>
         </div>
     );

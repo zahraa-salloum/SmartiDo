@@ -207,7 +207,7 @@ span {
   border: 1px solid var(--light-purple);
   color: var(--error);
   cursor: pointer;
-  font-size: 26px;
+  font-size: 16px;
 }
 
 .container_all_users{
