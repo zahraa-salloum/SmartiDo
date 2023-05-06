@@ -176,7 +176,7 @@ span {
 
 .hello-message{
   color: var(--light-purple);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   width:20%;
  
@@ -298,7 +298,7 @@ span {
 }
 
 .statistic_number{
-  font-size: 16px;
+  font-size: 48px;
   color: var(--purple);
 }
 
@@ -310,6 +310,6 @@ span {
   flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 230px;
+  margin-left: 260px;
   padding: 10px 0;
 }
