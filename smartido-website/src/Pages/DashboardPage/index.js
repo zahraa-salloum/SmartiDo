@@ -3,6 +3,8 @@ import Statistic from "../../components/Statistic";
 import {useState, useEffect } from "react";
 import axios from "axios";
 import { numbers } from '../../constants/constants';
+import PieChart from "../../components/PieChart";
+
 
 const DashboardPage = () => {
     const [totalCount, setTotalCount] = useState([]);
@@ -12,6 +14,8 @@ const DashboardPage = () => {
     const [regeneratesAvg, setRegeneratesAvg] = useState([]);
     const token = localStorage.getItem('token');
     const name = localStorage.getItem('name');
+
+    
 
     useEffect(() => {
         const getStatistics = () => {
@@ -38,12 +42,14 @@ const DashboardPage = () => {
         <>
         <Navbar name={name} title={'Dashboard'} />
         <div className="container_statistics">
+            <PieChart title={'Users Genders'} labels={['Female Users','Male Users']} dataPie={[femaleCount, maleCount]} />
             <Statistic statistic_title={'Total Users Count'} statistic_number={totalCount} />
-            <Statistic statistic_title={'Total Female Users Count'} statistic_number={femaleCount} />
-            <Statistic statistic_title={'Total Male Users Count'} statistic_number={maleCount} />
             <Statistic statistic_title={'Total Blocked Users'} statistic_number={blockedEmailCount} />
             <Statistic statistic_title={'Regenerates Average'} statistic_number={regeneratesAvg} />
-        </div>
+            
+            
+            </div>
+        
         </>
     );
 }
