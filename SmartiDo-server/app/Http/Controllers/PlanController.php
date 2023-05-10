@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use OpenAI;
-use DB;
 
 set_time_limit(240);
 class PlanController extends Controller
@@ -97,7 +96,7 @@ class PlanController extends Controller
 
         Plan::insert([
             'hour' => '*',
-            'task' => "Plan regenerted for tomorrow",
+            'task' => "Plan generted for tomorrow",
             'day' => Carbon::now()->toDateString(),
             'user_id' => $id,
             'created_at' => now(),
@@ -155,32 +154,31 @@ class PlanController extends Controller
             $prompt .= "\nIf the task is about study always start it with study and then state the subject (ex: study biology).";
 
             $days_increment++;
-            // $result = $client->completions()->create([
-            //     'model' => 'text-davinci-003',
-            //     'temperature' => 0.7,
-            //     'max_tokens' => 1024,
-            //     'prompt' => $prompt,
-            // ]);
+            $result = $client->completions()->create([
+                'model' => 'text-davinci-003',
+                'temperature' => 0.7,
+                'max_tokens' => 1024,
+                'prompt' => $prompt,
+            ]);
 
-            // $data = json_decode($result['choices'][0]['text'], true);
-            // $plans = array();
+            $data = json_decode($result['choices'][0]['text'], true);
+            $plans = array();
 
-            // foreach ($data['result'] as $plan) {
-            //     $plans[] = [
-            //         'hour' => $plan['hour'],
-            //         'task' => $plan['task'],
-            //         'day' => $plan['day'],
-            //         'user_id' => $id,
-            //         'created_at' => now(),
-            //         'updated_at' => now()
-            //     ];
-            // }
+            foreach ($data['result'] as $plan) {
+                $plans[] = [
+                    'hour' => $plan['hour'],
+                    'task' => $plan['task'],
+                    'day' => $plan['day'],
+                    'user_id' => $id,
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ];
+            }
 
-            // Plan::insert($plans);
+            Plan::insert($plans);
 
             $count++;
             $max_days--;
-            echo $prompt;
         }
         
         return response()->json([
@@ -306,33 +304,32 @@ class PlanController extends Controller
                 $prompt .= "\nIf the task is about study always start it with study and then state the subject (ex: study biology).";
 
                 $days_increment++;
-                // $result = $client->completions()->create([
-                //     'model' => 'text-davinci-003',
-                //     'temperature' => 0.7,
-                //     'max_tokens' => 1024,
-                //     'prompt' => $prompt,
-                // ]);
+                $result = $client->completions()->create([
+                    'model' => 'text-davinci-003',
+                    'temperature' => 0.7,
+                    'max_tokens' => 1024,
+                    'prompt' => $prompt,
+                ]);
 
-                // $data = json_decode($result['choices'][0]['text'], true);
-                // $plans = array();
+                $data = json_decode($result['choices'][0]['text'], true);
+                $plans = array();
 
-                // foreach ($data['result'] as $plan) {
-                //     $plans[] = [
-                //         'hour' => $plan['hour'],
-                //         'task' => $plan['task'],
-                //         'day' => $plan['day'],
-                //         'user_id' => $id,
-                //         'created_at' => now(),
-                //         'updated_at' => now()
-                //     ];
-                // }
+                foreach ($data['result'] as $plan) {
+                    $plans[] = [
+                        'hour' => $plan['hour'],
+                        'task' => $plan['task'],
+                        'day' => $plan['day'],
+                        'user_id' => $id,
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ];
+                }
 
-                // Plan::insert($plans);
+                Plan::insert($plans);
 
 
                 $max_days--;
                 $count++;
-                echo $prompt;
             }
 
             return response()->json([
