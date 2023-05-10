@@ -22,7 +22,7 @@ export default StyleSheet.create({
         paddingBottom: 30,
     },
     dialogInput:{
-        backgroundColor:colors.light_purple,
+        backgroundColor:colors.white,
         borderRadius: 18,
     },
 })

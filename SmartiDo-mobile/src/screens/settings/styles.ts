@@ -15,7 +15,7 @@ export default StyleSheet.create({
       marginTop: 30,
     },
     dialog:{
-        backgroundColor: colors.light_purple,
+        backgroundColor: colors.white,
         borderRadius: 18,
     },
 })

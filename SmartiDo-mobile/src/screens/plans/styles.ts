@@ -30,7 +30,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     },
     dialog:{
-      backgroundColor: colors.light_purple,
+      backgroundColor: colors.white,
       borderRadius: 18,
   },
 })

@@ -29,7 +29,7 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     modalContent: {
-        backgroundColor: colors.light_purple,
+        backgroundColor: colors.white,
         borderRadius: 16,
         padding: 16,
         width: '80%',
