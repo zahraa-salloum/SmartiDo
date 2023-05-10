@@ -333,3 +333,34 @@ span {
   width: 300px; 
   height: 300px;
 }
+
+.container_empty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 20px;
+
+}
+
+.img_lost{
+  width: 300;
+  height: 300px;
+}
+
+.message_empty{
+  color: var(--purple);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.empty_btn{
+  cursor: pointer;
+  border: 1px solid var(--purple);
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--white);
+  background: var(--dark-purple);
+  font-size: 16px;
+}
