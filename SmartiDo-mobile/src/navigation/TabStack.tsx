@@ -24,6 +24,7 @@ const TabStack = () => {
         tabBarStyle: {
             backgroundColor: colors.light_purple,
             height: 60,
+            paddingBottom:3,
           },
         tabBarActiveTintColor: colors.dark_purple,
         tabBarInactiveTintColor: colors.purple,
