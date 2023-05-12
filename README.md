@@ -82,6 +82,7 @@
 | ![Landing](./readme/assets/users%20web.png) | ![fsdaf](./readme/assets/empty%20admin.png) | ![fsdaf](./readme/assets/Admin_Dashboard_Gif.gif) |
 | Admin Users GIF |
 | ![Landing](./readme/assets/Admin_Users_Gif.gif) |
+
 <br><br>
 
 <!-- Tech stack -->
