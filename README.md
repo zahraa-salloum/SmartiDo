@@ -68,15 +68,20 @@
 | ![Landing](./readme/assets/plan(full)%20-%20app.png) | ![fsdaf](./readme/assets/calendar%20-%20app.png) | ![fsdaf](./readme/assets/tasks(empty)%20-%20app.png) | ![fsdaf](./readme/assets/tasks(full)%20-%20app.png) |
 | Leaderboard screen  | Profile screen |  Settings screen | Plan generate screen |
 | ![Landing](./readme/assets/leaderboard%20-%20app.png) | ![fsdaf](./readme/assets/profile%20-%20app.png) | ![fsdaf](./readme/assets/settings%20-%20app.png) | ![fsdaf](./readme/assets/Plan%20Generate%201%20-%20app.png) |
-| Plan generate screen  |
-| ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) |
+| Plan generate screen  | Times Hours Set GIF | Times Exams Set GIF | Plans GIF |
+| ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) |  ![fsdaf](./readme/assets/Times_Hours_Set_Gif.gif) | ![fsdaf](./readme/assets/Times_Exams_Set_Gif.gif) | ![fsdaf](./readme/assets/Plans_Gif.gif) |
+| Follow Up GIF  | Calendar GIF | Tasks GIF | Settings GIF |
+| ![Landing](./readme/assets/Follow_Up_Gif.gif) |  ![fsdaf](./readme/assets/Calendar_Gif.gif) | ![fsdaf](./readme/assets/Tasks_Gif.gif) | ![fsdaf](./readme/assets/Settings_Gif.gif) |
+| Profile GIF  |
+| ![Landing](./readme/assets/Plans_Gif.gif) |
 ### Admin Screens (Web)
 | Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  
 | ---| ---| ---|
 | ![Landing](./readme/assets/login%20admin%20web.png) | ![fsdaf](./readme/assets/dashboard%20web%201.png) | ![fsdaf](./readme/assets/dashboard%20web%202.png) | ![fsdaf](./readme/assets/users%20web.png) |
-| Admin Users screen | Admin Empty screen |
-| ![Landing](./readme/assets/users%20web.png) | ![fsdaf](./readme/assets/empty%20admin.png) |
-
+| Admin Users screen | Admin Empty screen | Admin Dashboard GIF |  
+| ![Landing](./readme/assets/users%20web.png) | ![fsdaf](./readme/assets/empty%20admin.png) | ![fsdaf](./readme/assets/Admin_Dashboard_Gif.gif) |
+| Admin Users GIF |
+| ![Landing](./readme/assets/Admin_Users_Gif.gif) |
 <br><br>
 
 <!-- Tech stack -->
