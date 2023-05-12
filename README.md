@@ -73,7 +73,7 @@
 | Follow Up GIF  | Calendar GIF | Tasks GIF | Settings GIF |
 | ![Landing](./readme/assets/Follow_Up_Gif.gif) |  ![fsdaf](./readme/assets/Calendar_Gif.gif) | ![fsdaf](./readme/assets/Tasks_Gif.gif) | ![fsdaf](./readme/assets/Settings_Gif.gif) |
 | Profile GIF  |
-| ![Landing](./readme/assets/Plans_Gif.gif) |
+| ![Landing](./readme/assets/Profile_Gif.gif) |
 ### Admin Screens (Web)
 | Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  
 | ---| ---| ---|
