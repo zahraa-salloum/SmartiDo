@@ -80,8 +80,8 @@
 | ![Landing](./readme/assets/login%20admin%20web.png) | ![fsdaf](./readme/assets/dashboard%20web%201.png) | ![fsdaf](./readme/assets/dashboard%20web%202.png) | ![fsdaf](./readme/assets/users%20web.png) |
 | Admin Users screen | Admin Wrong screen | Admin Login GIF |  
 | ![Landing](./readme/assets/users%20web.png) | ![fsdaf](./readme/assets/empty%20admin.png) | ![fsdaf](./readme/assets/Admin_Login_GIF.gif) |
-| Admin Dashboard GIF | Admin Users GIF | | Admin Wrong Page GIF |
-| ![Landing](./readme/assets/Admin_Dashboard_Gif.gif) |  ![fsdaf](./readme/assets/Admin_Users_Gif.gif) |  ![fsdaf](./readme/assets/Admin_Wrong_Page_GIF.gif) |
+| Admin Dashboard GIF | Admin Users GIF | Admin Wrong Page GIF |
+| ![Landing](./readme/assets/Admin_Dashboard_Gif.gif) | ![fsdaf](./readme/assets/Admin_Users_Gif.gif) | ![fsdaf](./readme/assets/Admin_Wrong_Page_GIF.gif) |
 
 <br><br>
 
