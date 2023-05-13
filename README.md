@@ -73,7 +73,7 @@
 | Plans GIF  | Calendar GIF | Tasks GIF | Settings GIF |
 | ![Landing](./readme/assets/Plans_Gif.gif) |  ![fsdaf](./readme/assets/Calendar_Gif.gif) | ![fsdaf](./readme/assets/Tasks_Gif.gif) | ![fsdaf](./readme/assets/Settings_Gif.gif) |
 | Profile GIF  | Times Hours Set GIF | Times Exams Set GIF | Follow Up GIF |
-| ![Landing](./readme/assets/Profile_Gif.gif) |  ![fsdaf](./readme/assets/Times_Hours_Set_Gif.gif) | ![fsdaf](./readme/assets/Times_Exams_Set_Gif.gif) | ![fsdaf](../readme/assets/Follow_Up_Gif.gif) |
+| ![Landing](./readme/assets/Profile_Gif.gif) |  ![fsdaf](./readme/assets/Times_Hours_Set_Gif.gif) | ![fsdaf](./readme/assets/Times_Exams_Set_Gif.gif) | ![fsdaf](./readme/assets/Follow_Up_Gif.gif) |
 ### Admin Screens (Web)
 | Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  
 | ---| ---| ---|
