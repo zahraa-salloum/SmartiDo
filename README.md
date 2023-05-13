@@ -68,12 +68,12 @@
 | ![Landing](./readme/assets/plan(full)%20-%20app.png) | ![fsdaf](./readme/assets/calendar%20-%20app.png) | ![fsdaf](./readme/assets/tasks(empty)%20-%20app.png) | ![fsdaf](./readme/assets/tasks(full)%20-%20app.png) |
 | Leaderboard screen  | Profile screen |  Settings screen | Plan generate screen |
 | ![Landing](./readme/assets/leaderboard%20-%20app.png) | ![fsdaf](./readme/assets/profile%20-%20app.png) | ![fsdaf](./readme/assets/settings%20-%20app.png) | ![fsdaf](./readme/assets/Plan%20Generate%201%20-%20app.png) |
-| Plan generate screen  | Sign Up GIF | Login GIF | Leaderbord GIF |
-| ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) |  ![fsdaf](./readme/assets/Sign_Up_GIF.gif) | ![fsdaf](./readme/assets/Login_GIF.gif) | ![fsdaf](./readme/assets/Leaderboard_GIF.gif) |
-| Follow Up GIF  | Calendar GIF | Tasks GIF | Settings GIF |
-| ![Landing](./readme/assets/Follow_Up_Gif.gif) |  ![fsdaf](./readme/assets/Calendar_Gif.gif) | ![fsdaf](./readme/assets/Tasks_Gif.gif) | ![fsdaf](./readme/assets/Settings_Gif.gif) |
-| Profile GIF  | Times Hours Set GIF | Times Exams Set GIF | Plans GIF |
-| ![Landing](./readme/assets/Profile_Gif.gif) |  ![fsdaf](./readme/assets/Times_Hours_Set_Gif.gif) | ![fsdaf](./readme/assets/Times_Exams_Set_Gif.gif) | ![fsdaf](./readme/assets/Plans_Gif.gif) |
+| Plan generate screen  | Sign Up GIF | Login GIF | Leaderboard GIF |
+| ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) | ![fsdaf](./readme/assets/Sign_Up_GIF.gif) | ![fsdaf](./readme/assets/Login_GIF.gif) | ![fsdaf](./readme/assets/Leaderboard_GIF.gif) |
+| Plans GIF  | Calendar GIF | Tasks GIF | Settings GIF |
+| ![Landing](./readme/assets/Plans_Gif.gif) |  ![fsdaf](./readme/assets/Calendar_Gif.gif) | ![fsdaf](./readme/assets/Tasks_Gif.gif) | ![fsdaf](./readme/assets/Settings_Gif.gif) |
+| Profile GIF  | Times Hours Set GIF | Times Exams Set GIF | Follow Up GIF |
+| ![Landing](./readme/assets/Profile_Gif.gif) |  ![fsdaf](./readme/assets/Times_Hours_Set_Gif.gif) | ![fsdaf](./readme/assets/Times_Exams_Set_Gif.gif) | ![fsdaf](../readme/assets/Follow_Up_Gif.gif) |
 ### Admin Screens (Web)
 | Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  
 | ---| ---| ---|
