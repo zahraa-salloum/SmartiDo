@@ -30,13 +30,13 @@
 ### Wireframes
 | Plan screen (full)  | Calendar screen | Tasks screen (full) | Profile screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/assets/Plan%20Page%20(full).png) | ![fsdaf](./readme/assets/Calendar.png) | ![fsdaf](./readme/assets/Tasks%20(full).png) | ![fsdaf](./readme/assets/Profile.png) |
+| ![Landing](./readme/assets/Plan%20Page%20(full).png) | ![Landing](./readme/assets/Calendar.png) | ![Landing](./readme/assets/Tasks%20(full).png) | ![Landing](./readme/assets/Profile.png) |
 
 
 ### Mockups
 | Plan screen (full)  | Calendar screen | Tasks screen (full) | Profile screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/assets/Plan%20Page%20(full)%20screen.png) | ![fsdaf](./readme/assets/Calendar%20screen.png) | ![fsdaf](./readme/assets/Tasks%20(full)%20screen.png) | ![fsdaf](./readme/assets/Profile%20screen.png) |
+| ![Landing](./readme/assets/Plan%20Page%20(full)%20screen.png) | ![Landing](./readme/assets/Calendar%20screen.png) | ![Landing](./readme/assets/Tasks%20(full)%20screen.png) | ![Landing](./readme/assets/Profile%20screen.png) |
 
 <br><br>
 
