@@ -46,19 +46,13 @@
 > Using the wireframes and mockups as a guide, we implemented the SmartiDo app with the following features:
 
 ### User Screens (Mobile)
-| Login screen  | Register screen |  Landing screen | Plan screen (empty) |
+| Sign Up GIF | Login GIF | Times Hours Set GIF | Times Exams Set GIF |
 | ---| ---| ---| ---|
-| ![Landing](./readme/assets/login%20-%20app.png) | ![fsdaf](./readme/assets/sign%20up%20-%20app.png) | ![fsdaf](./readme/assets/landing%20-%20app.png) | ![fsdaf](./readme/assets/plan(empty)%20-%20app.png) |
-| Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ![Landing](./readme/assets/plan(full)%20-%20app.png) | ![fsdaf](./readme/assets/calendar%20-%20app.png) | ![fsdaf](./readme/assets/tasks(empty)%20-%20app.png) | ![fsdaf](./readme/assets/tasks(full)%20-%20app.png) |
-| Leaderboard screen  | Profile screen |  Settings screen | Plan generate screen |
-| ![Landing](./readme/assets/leaderboard%20-%20app.png) | ![fsdaf](./readme/assets/profile%20-%20app.png) | ![fsdaf](./readme/assets/settings%20-%20app.png) | ![fsdaf](./readme/assets/Plan%20Generate%201%20-%20app.png) |
-| Plan generate screen  | Sign Up GIF | Login GIF | Leaderboard GIF |
-| ![Landing](./readme/assets/Plan%20Generate%202%20-%20app.png) | ![fsdaf](./readme/assets/Sign_Up_GIF.gif) | ![fsdaf](./readme/assets/Login_GIF.gif) | ![fsdaf](./readme/assets/Leaderboard_GIF.gif) |
-| Plans GIF  | Calendar GIF | Tasks GIF | Settings GIF |
-| ![Landing](./readme/assets/Plans_Gif.gif) |  ![fsdaf](./readme/assets/Calendar_Gif.gif) | ![fsdaf](./readme/assets/Tasks_Gif.gif) | ![fsdaf](./readme/assets/Settings_Gif.gif) |
-| Profile GIF  | Times Hours Set GIF | Times Exams Set GIF | Follow Up GIF |
-| ![Landing](./readme/assets/Profile_Gif.gif) |  ![fsdaf](./readme/assets/Times_Hours_Set_Gif.gif) | ![fsdaf](./readme/assets/Times_Exams_Set_Gif.gif) | ![fsdaf](./readme/assets/Follow_Up_Gif.gif) |
+| ![Landing](./readme/assets/Sign%20Up%20gif.gif) | ![fsdaf](./readme/assets/Login%20gif.gif) | ![fsdaf](./readme/assets/Times%20Hours%20gif.gif) | ![fsdaf](./readme/assets/Times%20Exams%20gif.gif) |
+| Plans GIF | Follow Up GIF | Calendar GIF | Tasks GIF |
+| ![Landing](./readme/assets/Plans%20gif.gif) | ![fsdaf](./readme/assets/Follow%20Up%20gif.gif) | ![fsdaf](./readme/assets/Calendar%20gif.gif) | ![fsdaf](./readme/assets/Tasks%20gif.gif) |
+| Leaderboard GIF | Settings GIF | Profile GIF | Landing Screen |
+| ![Landing](./readme/assets/Leaderboard%20gif.gif) | ![fsdaf](./readme/assets/Settings%20gif.gif) | ![fsdaf](./readme/assets/Profile%20gif.gif) | ![fsdaf](./readme/assets/landing%20-%20app.png) |
 ### Admin Screens (Web)
 | Admin Login screen  | Admin Dashboard screen | Admin Dashboard screen |  
 | ---| ---| ---|
