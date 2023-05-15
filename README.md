@@ -10,13 +10,13 @@
 > At SmartiDo, we believe that bad time management is one of the main reasons students fail to succeed. Thus, SmartiDo aims to help students manage their time before exams taking into consideration the different subjects' requirments. Moreover, it follows up with the students every day to make sure they followed the plan and adjusts in case they did not.
 
 ### User Stories
-- As a user I want to register so that I can log in.
-- As a user I want to log in so that I have a personalized experience.
+
 - As a user I want to create my smart auto-generated plan so that I prepare well for my exams.
 - As a user I want to approve every day that I studied or not so that new plan is generated if needed.
 - As a user I want to view the plan for the next coming days so that I plan ahead.
-- As a user I want to add my to do list for every day so that I keep my tasks organized.
-- As a user I want to view the leaderboard so that I keep motivated.
+
+### Admin Stories
+
 - As an admin I want to view users and dashboard so that I understand the nature of my users.
 - As an admin I want to be able to block users so that I can deny access of some users if needed.
 
@@ -28,30 +28,15 @@
 > We designed SmartiDo using wireframes and mockups, iterating on the design until we reached optimal layout that provides a smooth user experience and a beautiful user interface.
 
 ### Wireframes
-| Login screen  | Register screen |  Landing screen | Plan screen (empty) |
+| Plan screen (full)  | Calendar screen | Tasks screen (full) | Profile screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/assets/log%20in.png) | ![fsdaf](./readme/assets/Sign%20Up.png) | ![fsdaf](./readme/assets/First%20Screen.png) | ![fsdaf](./readme/assets/Plan%20Page%20(empty).png) |
-| Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ![Landing](./readme/assets/Plan%20Page%20(full).png) | ![fsdaf](./readme/assets/Calendar.png) | ![fsdaf](./readme/assets/Tasks%20(empty).png) | ![fsdaf](./readme/assets/Tasks%20(full).png) |
-| Leaderboard screen  | Profile screen |  Settings screen |
-| ![Landing](./readme/assets/Leaderboard.png) | ![fsdaf](./readme/assets/Profile.png) | ![fsdaf](./readme/assets/Settings.png) |
+| ![Landing](./readme/assets/Plan%20Page%20(full).png) | ![fsdaf](./readme/assets/Calendar.png) | ![fsdaf](./readme/assets/Tasks%20(full).png) | ![fsdaf](./readme/assets/Profile.png) |
 
-| Admin Login screen  | Admin Dashboard screen |  Admin Users screen |
-| ---| ---| ---|
-| ![Landing](./readme/assets/Admin%20login.png) | ![fsdaf](./readme/assets/Admin%20dashboard.png) | ![fsdaf](./readme/assets/Admin%20user%20list.png) |
 
 ### Mockups
-| Login screen  | Register screen |  Landing screen | Plan screen (empty) |
+| Plan screen (full)  | Calendar screen | Tasks screen (full) | Profile screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/assets/log%20in%20screen.png) | ![fsdaf](./readme/assets/Sign%20Up%20screen.png) | ![fsdaf](./readme/assets/Lunch%20screen.png) | ![fsdaf](./readme/assets/Plan%20Page%20(empty)%20screen.png) |
-| Plan screen (full)  | Calendar screen |  Tasks screen (empty) | Tasks screen (full) |
-| ![Landing](./readme/assets/Plan%20Page%20(full)%20screen.png) | ![fsdaf](./readme/assets/Calendar%20screen.png) | ![fsdaf](./readme/assets/Tasks%20(empty)%20screen.png) | ![fsdaf](./readme/assets/Tasks%20(full)%20screen.png) |
-| Leaderboard screen  | Profile screen |  Settings screen |
-| ![Landing](./readme/assets/Leaderboard%20screen.png) | ![fsdaf](./readme/assets/Profile%20screen.png) | ![fsdaf](./readme/assets/Settings%20screen.png) |
-
-| Admin Login screen  | Admin Dashboard screen |  Admin Users screen |
-| ---| ---| ---|
-| ![Landing](./readme/assets/Admin%20login%20page.png) | ![fsdaf](./readme/assets/Admin%20dasboard%20page.png) | ![fsdaf](./readme/assets/Admin%20user%20list%20page.png) |
+| ![Landing](./readme/assets/Plan%20Page%20(full)%20screen.png) | ![fsdaf](./readme/assets/Calendar%20screen.png) | ![fsdaf](./readme/assets/Tasks%20(full)%20screen.png) | ![fsdaf](./readme/assets/Profile%20screen.png) |
 
 <br><br>
 
