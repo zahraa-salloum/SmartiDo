@@ -55,6 +55,7 @@
 | ![Landing](./readme/assets/Leaderboard%20gif.gif) | ![fsdaf](./readme/assets/Settings%20gif.gif) | ![fsdaf](./readme/assets/Profile%20gif.gif) | ![fsdaf](./readme/assets/landing%20-%20app.png) |
 ### Admin Screens (Web)
 | Admin Login GIF |  Admin Dashboard GIF | Admin Users GIF |
+| ---| ---| ---|
 | ![Landing](./readme/assets/Admin%20Login%20gif.gif) | ![fsdaf](./readme/assets/Admin%20Dashboard%20gif.gif) | ![fsdaf](./readme/assets/Admin%20Users%20gif.gif) |
 | Admin Wrong Page GIF |
 | ![Landing](./readme/assets/Admin%20Wrong%20Page%20gif.gif) |
